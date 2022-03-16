@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
         --status-ok: #00C781;
         --light-1: #F8F8F8;
         --light-3: #EDEDED;
+        --light-6: #DADADA;
         --dark-1: #333333;
         --dark-3: #777777;
         --dark-6: #999999;
