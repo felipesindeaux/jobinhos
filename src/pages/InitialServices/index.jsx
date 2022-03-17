@@ -3,6 +3,7 @@ import { Box, TextInput, Menu } from "grommet";
 import { useState } from "react";
 import { Search } from "grommet-icons";
 import { User } from "grommet-icons";
+import MainCards from "../../Components/MainCards";
 
 const InitialServices = () => {
   const [search, setSearch] = useState("");
@@ -36,6 +37,9 @@ const InitialServices = () => {
         </Box>
       </Box>
     </Container>
+    <div>
+      <MainCards></MainCards>
+    </div>
   );
 };
 
