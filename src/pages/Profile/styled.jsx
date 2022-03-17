@@ -96,3 +96,7 @@ export const CardContainer = styled.div`
     width: 60%;
   }
 `;
+
+export const OpacityContainer = styled.div`
+  opacity: ${(props) => props.opacity};
+`;
