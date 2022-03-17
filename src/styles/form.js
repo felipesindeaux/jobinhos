@@ -15,7 +15,11 @@ export const FormBox = styled.form`
     img{
         height: 67px;
         margin-bottom: 39px;
+        margin-top: 20px;
+        border-radius: 50%;
+        filter: opacity(20%);
     }
+
     button {
         background: #7D4CDB;
         border: 1px solid #7D4CDB;
@@ -55,6 +59,10 @@ export const FormBox = styled.form`
         margin-bottom: 24px;
         margin-top: 76px;
         color: #3D138D;
+    }
+
+    @media (min-width: 768px){
+        width: 40%;
     }
 `
 

@@ -53,7 +53,7 @@ const Login = () => {
         <Body>
         <Body>
             <FormBox onSubmit={handleSubmit(submitData)}>
-                <img src='src/assets/lock.png' alt='lock'/>
+                <img src={require('../../assets/lock.jpg')} alt='lock'/>
 
                 <label>E-mail</label>
                 <input {...register ('email')} />
@@ -68,7 +68,9 @@ const Login = () => {
                 <button type='submit'>Entrar</button>
 
             </FormBox>
-            <div>Bem vindo de volta!</div>
+            <div className='textBox'>
+                <h1>Bem vindo de volta!</h1>
+            </div>      
         </Body>
         </Body>
         </>
