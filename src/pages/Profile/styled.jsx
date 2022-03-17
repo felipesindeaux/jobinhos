@@ -166,8 +166,8 @@ export const Card = styled.div`
   position: relative;
   margin-right: 40px;
   margin-bottom: 40px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
 
   h3 {
     color: var(--brand);
@@ -200,7 +200,7 @@ export const Card = styled.div`
   }
 
   button {
-    width: 173px;
+    width: 170px;
     height: 47px;
     background-color: var(--brand);
     color: white;
@@ -215,9 +215,6 @@ export const Card = styled.div`
     width: 170px;
     height: 91px;
     margin-bottom: 11px;
-  }
-
-  @media (min-width: 480px) {
   }
 `;
 
