@@ -1,9 +1,12 @@
-import Header from "../../components/Header"
+import Header from "../../components/Header";
+import { Container } from "./styled";
 
 const Profile = () => {
-    return (
-        <Header />
-    )
-}
+  return (
+    <Container>
+      <Header />
+    </Container>
+  );
+};
 
-export default Profile
+export default Profile;
