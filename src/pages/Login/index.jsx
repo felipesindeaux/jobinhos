@@ -4,8 +4,17 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import api from '../../services/api'
 import { toast } from 'react-toastify'
 import Header from '../../components/Header'
+import { Link } from 'react-router-dom'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import { useState } from 'react'
+
 
 const Login = () => {
+
+    const [user, setUser] = useState()
+    const [auth, setAuth] = useState(false)
+    const history = useHistory()
 
     const formSchema = yup.object().shape({
         email: yup.string().email('E-mail inválido').required('Campo obrigatório'),
@@ -20,11 +29,16 @@ const Login = () => {
 
         api.post('/login', data)
         .then((response) => {
-            const { token } = response.data
-            localStorage.setItem("Jobinhos:token", JSON.stringify(token))
-            //auth = true
-            //history.push(/meuPerfil/:name)
+            const { accessToken } = response.data
+            
+            localStorage.setItem("Jobinhos:accessToken", JSON.stringify(accessToken))
+            
+            setAuth(true)
+            setUser(response.user)
+
             toast.success('Login realizado')
+            
+            history.push(`/profile`)           
         })
 
         .catch((error) => {
@@ -47,7 +61,7 @@ const Login = () => {
                 <input {...register ('password')} />
                 {errors.senha?.message}
 
-                <span>Ainda não é parceiro? Registre aqui!</span>
+                <Link to='/register'>Ainda não é parceiro? Registre aqui!</Link>
 
                 <button type='submit'>Entrar</button>
 
