@@ -3,26 +3,15 @@ import styled from "styled-components";
 export const Container = styled.header`
   width: 100%;
   height: 170px;
-  background: var(--brand);
+  background: ${({whiteTheme}) => whiteTheme ? "white" : "#7D4CDB"};
   color: var(--light-1);
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 20px 10px;
 
-  button {
-    background: transparent;
-    border: none;
-    color: var(--light-1);
-    font-weight: 700;
-    font-size: 16px;
-
-    :hover {
-      color: var(--light-6);
-    }
-  }
-
   @media (min-width: 1000px) {
+    background: var(--brand);
     justify-content: flex-start;
     align-items: center;
     padding: 0px 100px;
@@ -38,18 +27,7 @@ export const MobileLeftContainer = styled.div`
   justify-content: space-between;
 
   div {
-    display: flex;
-    align-items: center;
-
-    :hover {
-      cursor: pointer;
-      color: var(--light-6);
-    }
-  }
-
-  svg {
-    width: 24px;
-    height: 24px;
+    padding: 0;
   }
 
   @media (min-width: 1000px) {
@@ -61,12 +39,20 @@ export const MobileRightButton = styled.div`
   display: flex;
   align-items: center;
   align-self: flex-start;
-  height: 24px;
+
+  svg{
+    width: 23px;
+    height: 23px;
+  }
 
   @media (min-width: 1000px) {
     display: none;
   }
 `;
+
+export const MobileTitle = styled.h1`
+  color: ${({whiteTheme}) => whiteTheme ? "#7D4CDB" : "#F8F8F8"};
+`
 
 export const DesktopTitle = styled.h1`
   display: none;

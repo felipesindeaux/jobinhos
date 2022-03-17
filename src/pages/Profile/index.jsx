@@ -4,7 +4,7 @@ import { Container } from "./styled";
 const Profile = () => {
   return (
     <Container>
-      <Header />
+      <Header page={'profile'} />
     </Container>
   );
 };
