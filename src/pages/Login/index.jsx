@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
-
+import { FormBox } from '../../styles/form'
+import { Body } from './styles'
 
 const Login = () => {
 
@@ -49,8 +50,9 @@ const Login = () => {
     return (
         <>
         <Header />
-        <div>
-            <form onSubmit={handleSubmit(submitData)}>
+        <Body>
+        <Body>
+            <FormBox onSubmit={handleSubmit(submitData)}>
                 <img src='src/assets/lock.png' alt='lock'/>
 
                 <label>E-mail</label>
@@ -65,9 +67,10 @@ const Login = () => {
 
                 <button type='submit'>Entrar</button>
 
-            </form>
+            </FormBox>
             <div>Bem vindo de volta!</div>
-        </div>
+        </Body>
+        </Body>
         </>
     )
 }
