@@ -1,7 +1,12 @@
-const InitialServices = () => {
-    return (
-        <h1>InitialServices</h1>
-    )
-}
+import MainCards from "../../Components/MainCards";
 
-export default InitialServices
+const InitialServices = () => {
+  return (
+    <div>
+      <h4>InitialServices</h4>
+      <MainCards></MainCards>
+    </div>
+  );
+};
+
+export default InitialServices;
