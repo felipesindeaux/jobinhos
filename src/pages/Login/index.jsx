@@ -49,7 +49,7 @@ const Login = () => {
 
     return (
         <>
-        <Header />
+        <Header page='login' />
         <Body>
         <Body>
             <FormBox onSubmit={handleSubmit(submitData)}>

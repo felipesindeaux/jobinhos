@@ -40,6 +40,14 @@ const Header = ({ whiteTheme = false, page }) => {
           },
         ];
 
+      case "login" || "register":
+        return [
+          {
+            label: "Início",
+            onClick: () => {},
+          },
+        ];
+
       default:
         return [
           {
@@ -68,19 +76,12 @@ const Header = ({ whiteTheme = false, page }) => {
         <DesktopTitle>Jobinhos</DesktopTitle>
       </Container>
       <DesktopButtonsContainer>
-        {/* {options[0] && (
-          <DesktopButton onClick={options[0].onClick}>
-            {options[0].label}
-          </DesktopButton>
-        )}
-        {options[1] && (
-          <DesktopButton onClick={options[0].onClick}>
-            {options[1].label}
-          </DesktopButton>
-        )} */}
-        {options && options.map((option) => (
-          <DesktopButton onClick={option.onClick}>{option.label}</DesktopButton>
-        ))}
+        {options &&
+          options.map((option) => (
+            <DesktopButton onClick={option.onClick}>
+              {option.label}
+            </DesktopButton>
+          ))}
       </DesktopButtonsContainer>
     </>
   );
