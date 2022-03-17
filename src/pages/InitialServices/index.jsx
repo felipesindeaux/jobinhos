@@ -2,7 +2,7 @@ import { Container, Title } from "./styled";
 import { Box, TextInput, Menu } from "grommet";
 import { useState } from "react";
 import { Search, List, User } from "grommet-icons";
-import MainCards from "../../Components/MainCards";
+import MainCards from "../../components/MainCards";
 import Header from "../../components/Header";
 
 const InitialServices = () => {

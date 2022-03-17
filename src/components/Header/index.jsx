@@ -14,8 +14,7 @@ import { BiUser } from "react-icons/bi";
 const Header = ({ whiteTheme = false, page }) => {
   const getOptions = () => {
     switch (page) {
-
-      case 'pendings':
+      case "pendings":
         return [
           {
             label: "Meu perfil",
@@ -33,6 +32,14 @@ const Header = ({ whiteTheme = false, page }) => {
             label: "Contratações",
             onClick: () => {},
           },
+          {
+            label: "Início",
+            onClick: () => {},
+          },
+        ];
+
+      case "login" || "register":
+        return [
           {
             label: "Início",
             onClick: () => {},
@@ -67,7 +74,7 @@ const Header = ({ whiteTheme = false, page }) => {
         <DesktopTitle>Jobinhos</DesktopTitle>
       </Container>
       <DesktopButtonsContainer>
-      {options[0] && <DesktopButton>{options[0].label}</DesktopButton>}
+        {options[0] && <DesktopButton>{options[0].label}</DesktopButton>}
         {options[1] && <DesktopButton>{options[1].label}</DesktopButton>}
       </DesktopButtonsContainer>
     </>

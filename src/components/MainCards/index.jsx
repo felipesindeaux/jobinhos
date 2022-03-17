@@ -1,4 +1,4 @@
-import CardsServices from "../CardsServices";
+import CardsServices from "../../components/CardsServices";
 import { Container } from "./styled";
 
 const MainCards = () => {
