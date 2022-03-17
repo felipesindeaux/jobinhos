@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FormContainer } from "./styled";
 import { RegisterContainer } from "./styled";
 import { RectangleDiv } from "./styled";
+import { Body } from "../Login/styles";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -11,6 +12,7 @@ const Register = () => {
   const [type, setType] = useState("");
 
   return (
+    <Body>
     <RegisterContainer>
       <RectangleDiv>
         <div className="rectangle-1"></div>
@@ -58,6 +60,11 @@ const Register = () => {
         <button>Registrar</button>
       </FormContainer>
     </RegisterContainer>
+    <div className="textBox">
+      <h1>Seja seu proprio chefe</h1>
+      <h3>Bem-vindo ao Jobinhos</h3>
+    </div>
+    </Body>
   );
 };
 

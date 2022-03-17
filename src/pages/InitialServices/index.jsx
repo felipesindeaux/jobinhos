@@ -9,6 +9,7 @@ const InitialServices = () => {
   const [search, setSearch] = useState("");
 
   return (
+    <>
     <Container>
       <div>
         <Menu
@@ -40,6 +41,7 @@ const InitialServices = () => {
     <div>
       <MainCards></MainCards>
     </div>
+    </>
   );
 };
 
