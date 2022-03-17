@@ -1,8 +1,7 @@
-import { CardContainer, HeaderDiv, Rectangle1 } from "./styled";
-import { Rectangle2 } from "./styled";
-import { Arrow } from "./styled";
+import { CardContainer } from "./styled";
 import { Main } from "./styled";
 import { Card } from "./styled";
+import { Rectangle1, Rectangle2, Arrow, HeaderDiv } from "./header";
 
 const Profile = ({ name = "Ostopiromar" }) => {
   return (
