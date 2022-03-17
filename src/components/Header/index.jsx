@@ -10,20 +10,21 @@ import {
 import { List } from "grommet-icons";
 import { Menu } from "grommet";
 import { BiUser } from "react-icons/bi";
+import { useHistory } from "react-router-dom";
 
 const Header = ({ whiteTheme = false, page }) => {
+  const history = useHistory();
   const getOptions = () => {
     switch (page) {
-
-      case 'pendings':
+      case "pendings":
         return [
           {
             label: "Meu perfil",
-            onClick: () => {},
+            onClick: () => history.push("/profile"),
           },
           {
             label: "Início",
-            onClick: () => {},
+            onClick: () => history.push("/"),
           },
         ];
 
@@ -31,11 +32,11 @@ const Header = ({ whiteTheme = false, page }) => {
         return [
           {
             label: "Contratações",
-            onClick: () => {},
+            onClick: () => history.push("/pendings"),
           },
           {
             label: "Início",
-            onClick: () => {},
+            onClick: () => history.push("/"),
           },
         ];
 
@@ -43,7 +44,7 @@ const Header = ({ whiteTheme = false, page }) => {
         return [
           {
             label: "Meu perfil",
-            onClick: () => {},
+            onClick: () => history.push("/profile"),
           },
         ];
     }
@@ -67,8 +68,19 @@ const Header = ({ whiteTheme = false, page }) => {
         <DesktopTitle>Jobinhos</DesktopTitle>
       </Container>
       <DesktopButtonsContainer>
-      {options[0] && <DesktopButton>{options[0].label}</DesktopButton>}
-        {options[1] && <DesktopButton>{options[1].label}</DesktopButton>}
+        {/* {options[0] && (
+          <DesktopButton onClick={options[0].onClick}>
+            {options[0].label}
+          </DesktopButton>
+        )}
+        {options[1] && (
+          <DesktopButton onClick={options[0].onClick}>
+            {options[1].label}
+          </DesktopButton>
+        )} */}
+        {options && options.map((option) => (
+          <DesktopButton onClick={option.onClick}>{option.label}</DesktopButton>
+        ))}
       </DesktopButtonsContainer>
     </>
   );
