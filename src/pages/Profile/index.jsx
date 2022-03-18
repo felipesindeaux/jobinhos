@@ -2,10 +2,13 @@ import { CardContainer, OpacityContainer } from "./styled";
 import { Main } from "./styled";
 import { Card } from "./styled";
 import CommentSection from "../../components/CommentSection/CommentSection";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../../Providers/User";
 import Header from "../../components/Header";
 
-const Profile = ({ name = "Ostopiromar" }) => {
+const Profile = () => {
+  const {userInfo, updateUserInfo} = useContext(UserContext)
+  console.log(userInfo)
   const test = {
     name: "Jefferson",
     type: "Tatuador",
@@ -20,7 +23,7 @@ const Profile = ({ name = "Ostopiromar" }) => {
         <Header page="profile" />
         <Main>
           <div>
-            <h2>Bem Vindo, {name}</h2>
+            <h2>Bem Vindo, {userInfo.name}</h2>
             <h3>Você contratou estes serviços</h3>
           </div>
 
