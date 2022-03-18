@@ -76,9 +76,6 @@ const Header = ({ whiteTheme = false, page }) => {
             <MobileTitle whiteTheme={whiteTheme}>Jobinhos</MobileTitle>
           )}
         </MobileLeftContainer>
-        <MobileRightButton>
-          {/* <BiUser color={whiteTheme ? "#7D4CDB" : "#F8F8F8"} /> */}
-        </MobileRightButton>
         <DesktopTitle>Jobinhos</DesktopTitle>
       </Container>
       <DesktopButtonsContainer>
