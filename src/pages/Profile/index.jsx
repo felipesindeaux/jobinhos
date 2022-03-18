@@ -99,5 +99,4 @@ const Profile = ({ name = "Ostopiromar" }) => {
     </>
   );
 };
-
 export default Profile;
