@@ -1,80 +1,82 @@
-import * as yup from 'yup'
-import { useForm } from "react-hook-form"
-import { yupResolver } from "@hookform/resolvers/yup"
-import api from '../../services/api'
-import { toast } from 'react-toastify'
-import Header from '../../components/Header'
-import { Link } from 'react-router-dom'
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { useState } from 'react'
-import { FormBox } from '../../styles/form'
-import { Body } from './styles'
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import api from "../../services/api";
+import { toast } from "react-toastify";
+import Header from "../../components/Header";
+import { Link } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
+import { useState } from "react";
+import { FormBox } from "../../styles/form";
+import { Body } from "./styles";
 
 const Login = () => {
+  const [user, setUser] = useState();
+  const [auth, setAuth] = useState(false);
+  const history = useHistory();
 
-    const [user, setUser] = useState()
-    const [auth, setAuth] = useState(false)
-    const history = useHistory()
+  const formSchema = yup.object().shape({
+    email: yup.string().email("E-mail inválido").required("Campo obrigatório"),
+    password: yup.string().required("Campo obrigatório"),
+  });
 
-    const formSchema = yup.object().shape({
-        email: yup.string().email('E-mail inválido').required('Campo obrigatório'),
-        password: yup.string().required('Campo obrigatório')
-    })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formSchema),
+  });
 
-    const { register, handleSubmit, formState: {errors}} = useForm({
-        resolver: yupResolver(formSchema)
-    })
+  const submitData = (data) => {
+    api
+      .post("/login", data)
+      .then((response) => {
+        const { accessToken } = response.data;
 
-    const submitData = data => {
+        localStorage.setItem("@Jobinhos:token", JSON.stringify(accessToken));
 
-        api.post('/login', data)
-        .then((response) => {
-            const { accessToken } = response.data
-            
-            localStorage.setItem("Jobinhos:accessToken", JSON.stringify(accessToken))
-            
-            setAuth(true)
-            setUser(response.user)
+        setAuth(true);
+        setUser(response.data.user);
 
-            toast.success('Login realizado')
-            
-            history.push(`/profile`)           
-        })
+        toast.success("Login realizado");
 
-        .catch((error) => {
-            toast.error('Erro na autenticação')
-        })
-    }
+        history.push(`/profile`);
+      })
 
-    return (
-        <>
-        <Header page='login' />
+      .catch((_) => {
+        toast.error("Email ou senha inválidos!");
+      });
+  };
+
+  return (
+    <>
+      <Header page="login" />
+      <Body>
         <Body>
-        <Body>
-            <FormBox onSubmit={handleSubmit(submitData)}>
-                <img src={require('../../assets/lock.jpg')} alt='lock'/>
+          <FormBox onSubmit={handleSubmit(submitData)}>
+            <img src={require("../../assets/lock.jpg")} alt="lock" />
 
-                <label>E-mail</label>
-                <input {...register ('email')} />
-                {errors.email?.message}
+            <label>E-mail</label>
+            <input {...register("email")} />
+            {errors.email?.message}
 
-                <label>Senha</label>
-                <input {...register ('password')} />
-                {errors.senha?.message}
+            <label>Senha</label>
+            <input {...register("password")} />
+            {errors.senha?.message}
 
-                <Link to='/register'>Ainda não é parceiro? Registre aqui!</Link>
+            <Link to="/register">Ainda não é parceiro? Registre aqui!</Link>
 
-                <button type='submit'>Entrar</button>
-
-            </FormBox>
-            <div className='textBox'>
-                <h1>Bem vindo de volta!</h1>
-            </div>      
+            <button type="submit">Entrar</button>
+          </FormBox>
+          <div className="textBox">
+            <h1>Bem vindo de volta!</h1>
+          </div>
         </Body>
-        </Body>
-        </>
-    )
-}
+      </Body>
+    </>
+  );
+};
 
-export default Login
+export default Login;
