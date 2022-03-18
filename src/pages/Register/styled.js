@@ -6,6 +6,7 @@ export const FormContainer = styled.form`
   flex-direction: column;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 338px;
+  padding: 10px 10px 10px 10px;
   input,
   select {
     background: rgba(196, 196, 196, 0.47);
@@ -13,7 +14,7 @@ export const FormContainer = styled.form`
     height: 48px;
     border-radius: 2px;
     border: 1px solid var(--brand);
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     padding: 0px 10px 0px 10px;
     margin-left: auto;
     margin-right: auto;
@@ -86,11 +87,11 @@ export const RegisterContainer = styled.div`
     }
 
     .welcome-container {
-      height: 590px;
+      height: 560px;
       width: 581px;
       margin-top: 90px;
       background-image: url(${img});
-      background-size: 550px;
+      background-size: 580px;
       background-repeat: no-repeat;
       border: 2px solid var(--light-3);
       border-right: unset;
@@ -110,6 +111,7 @@ export const RegisterContainer = styled.div`
         color: unset;
         display: unset;
         width: 100px;
+        margin-left: 10px;
       }
     }
   }
