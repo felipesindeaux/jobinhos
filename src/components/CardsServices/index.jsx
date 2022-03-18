@@ -1,7 +1,7 @@
 import { Card, Name, Desc } from "./styled";
 import { Button } from "grommet";
 
-const CardsServices = ({ images, name, title, price, desc, setOpen }) => {
+const CardsServices = ({ content,images, name, title, price, desc, setOpen }) => {
   
 const showModal = () =>{
   setOpen(true)
@@ -17,7 +17,7 @@ const showModal = () =>{
         <p>R$ {price}</p>
       </div>
       <Desc>{desc}</Desc>
-      <Button onClick={showModal}>Eu Quero!</Button>
+      <Button onClick={showModal}>{content}</Button>
     </Card>
   );
 };

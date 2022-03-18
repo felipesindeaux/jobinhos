@@ -27,7 +27,7 @@ const InitialServices = () => {
           </Box>
         </Box>
       </Container>
-      <MainCards open={open} setOpen={setOpen}></MainCards>
+      <MainCards content={'Eu quero!'} open={open} setOpen={setOpen}></MainCards>
 
       {open && (
         <Layer
