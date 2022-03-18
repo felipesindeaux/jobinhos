@@ -52,6 +52,10 @@ export const MobileRightButton = styled.div`
 
 export const MobileTitle = styled.h1`
   color: ${({whiteTheme}) => whiteTheme ? "#7D4CDB" : "#F8F8F8"};
+
+  span{
+    color: var(--accent-2);
+  }
 `
 
 export const DesktopTitle = styled.h1`

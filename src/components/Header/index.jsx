@@ -40,11 +40,11 @@ const Header = ({ whiteTheme = false, page }) => {
           },
         ];
 
-      case "login" || "register":
+      case "user":
         return [
           {
             label: "Início",
-            onClick: () => {},
+            onClick: () => {history.push('/')},
           },
         ];
 
@@ -68,7 +68,13 @@ const Header = ({ whiteTheme = false, page }) => {
             icon={<List color={whiteTheme ? "brand" : "light-1"} />}
             items={options}
           />
-          <MobileTitle whiteTheme={whiteTheme}>Jobinhos</MobileTitle>
+          {page === "user" ? (
+            <MobileTitle whiteTheme={whiteTheme}>
+              Bem vindo ao <span>Jobinhos!</span>
+            </MobileTitle>
+          ) : (
+            <MobileTitle whiteTheme={whiteTheme}>Jobinhos</MobileTitle>
+          )}
         </MobileLeftContainer>
         <MobileRightButton>
           {/* <BiUser color={whiteTheme ? "#7D4CDB" : "#F8F8F8"} /> */}
