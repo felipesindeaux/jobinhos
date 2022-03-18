@@ -52,7 +52,7 @@ const Login = () => {
 
   return (
     <>
-      <Header page="login" />
+      <Header page="user" whiteTheme />
       <Body>
         <Body>
           <FormBox onSubmit={handleSubmit(submitData)}>
