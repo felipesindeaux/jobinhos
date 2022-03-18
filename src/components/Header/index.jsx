@@ -83,8 +83,8 @@ const Header = ({ whiteTheme = false, page }) => {
       </Container>
       <DesktopButtonsContainer>
         {options &&
-          options.map((option) => (
-            <DesktopButton onClick={option.onClick}>
+          options.map((option, index) => (
+            <DesktopButton key={index} onClick={option.onClick}>
               {option.label}
             </DesktopButton>
           ))}
