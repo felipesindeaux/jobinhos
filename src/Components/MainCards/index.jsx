@@ -1,7 +1,7 @@
 import CardsServices from "../CardsServices";
 import { Container } from "./styled";
 
-const MainCards = () => {
+const MainCards = ({setOpen}) => {
   const services = [
     {
       title: "Publicidade",
@@ -119,6 +119,8 @@ const MainCards = () => {
           title={item.title}
           price={item.price}
           desc={item.desc}
+          setOpen={setOpen}
+          
         />
       ))}
     </Container>
