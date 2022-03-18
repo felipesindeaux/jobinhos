@@ -23,11 +23,12 @@ export const FormContainer = styled.form`
   button {
     background-color: var(--brand);
     border: 1px solid var(--brand);
-    color: white;
+    color: var(--light-1);
+    font-weight: 700;
+    font-size: 20px;
     width: 300px;
     height: 44px;
-    border-bottom-left-radius: 15%;
-    border-bottom-right-radius: 15%;
+    border-radius: 2px;
     margin: auto;
   }
 
