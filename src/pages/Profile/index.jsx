@@ -1,9 +1,9 @@
 import { CardContainer, OpacityContainer } from "./styled";
 import { Main } from "./styled";
 import { Card } from "./styled";
-import { Rectangle1, Rectangle2, Arrow, HeaderDiv } from "./header";
 import CommentSection from "../../components/CommentSection/CommentSection";
 import { useState } from "react";
+import Header from "../../components/Header";
 
 const Profile = ({ name = "Ostopiromar" }) => {
   const test = {
@@ -17,24 +17,7 @@ const Profile = ({ name = "Ostopiromar" }) => {
   return (
     <>
       <OpacityContainer opacity={commentSection ? "50%" : "100%"}>
-        <HeaderDiv>
-          <div>
-            <div>
-              <Rectangle1></Rectangle1>
-              <Rectangle2></Rectangle2>
-            </div>
-
-            <button>
-              <Arrow>
-                <i></i>
-              </Arrow>
-              Dashboard
-            </button>
-          </div>
-
-          <h1>Jobinhos</h1>
-        </HeaderDiv>
-
+        <Header page="user" whiteTheme />
         <Main>
           <div>
             <h2>Bem Vindo, {name}</h2>
