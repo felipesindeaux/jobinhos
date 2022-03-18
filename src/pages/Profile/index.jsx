@@ -17,7 +17,7 @@ const Profile = ({ name = "Ostopiromar" }) => {
   return (
     <>
       <OpacityContainer opacity={commentSection ? "50%" : "100%"}>
-        <Header page="user" whiteTheme />
+        <Header page="profile" />
         <Main>
           <div>
             <h2>Bem Vindo, {name}</h2>
