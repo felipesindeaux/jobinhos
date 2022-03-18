@@ -1,23 +1,32 @@
 import { Card, Name, Desc } from "./styled";
 import { Button } from "grommet";
 
-const CardsServices = ({ textContent,images, name, title, price, desc, setOpen }) => {
-  
-const showModal = () =>{
-  setOpen(true)
-}
-  
-  
+const CardsServices = ({
+  textContent,
+  images,
+  name,
+  title,
+  price,
+  desc,
+  setOpen,
+  alternative,
+}) => {
+  const showModal = () => {
+    setOpen(true);
+  };
+
   return (
     <Card>
-      <img src={images} alt="" />
+      <img src={images} alt={name} />
       <Name>{name}</Name>
-      <div>
-        <p>{title}</p>
-        <p>R$ {price}</p>
-      </div>
+      {!alternative && (
+        <div>
+          <p>{title}</p>
+          <p>R$ {price}</p>
+        </div>
+      )}
       <Desc>{desc}</Desc>
-      <Button onClick={showModal}>{textContent}</Button>
+      {!alternative && <Button onClick={showModal}>{textContent}</Button>}
     </Card>
   );
 };

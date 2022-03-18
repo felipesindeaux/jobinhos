@@ -1,12 +1,4 @@
-import Header from "../../components/Header";
-import { Container } from "./styled";
-
 const Profile = () => {
-  return (
-    <Container>
-      <Header page={'profile'} />
-    </Container>
-  );
+  return <h1>Profile</h1>
 };
-
 export default Profile;
