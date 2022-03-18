@@ -8,6 +8,11 @@ export const Body = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
+    margin-top: 30px;
+
+    h1{
+        display: none;
+    }
 
 
     @media (min-width: 1000px){
@@ -46,6 +51,7 @@ export const Body = styled.div`
         }
         
         h1{
+            display: block;
             font-size: 48px;
             margin-bottom: 120px;
             color: #3D138D;
