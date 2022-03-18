@@ -48,7 +48,7 @@ export const FormBox = styled.form`
         font-size: 18px;
         color: #7D4CDB;
         align-self: flex-start;
-        margin-left: 26px
+        margin-left: 26px;
     }
 
 
