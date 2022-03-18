@@ -27,7 +27,11 @@ const InitialServices = () => {
           </Box>
         </Box>
       </Container>
-      <MainCards textContent={'Eu quero!'} open={open} setOpen={setOpen}></MainCards>
+      <MainCards
+        textContent={"Eu quero!"}
+        open={open}
+        setOpen={setOpen}
+      ></MainCards>
 
       {open && (
         <Layer
@@ -41,4 +45,4 @@ const InitialServices = () => {
   );
 };
 
-export default InitialServices
+export default InitialServices;
