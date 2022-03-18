@@ -12,15 +12,17 @@ const Register = () => {
   const [type, setType] = useState("");
 
   return (
-    <Body>
     <RegisterContainer>
       <RectangleDiv>
         <div className="rectangle-1"></div>
         <div className="rectangle-2"></div>
       </RectangleDiv>
-      <h2>
-        Bem vindo ao <h2>Jobinhos!</h2>
-      </h2>
+      <div className="welcome-container">
+        <h2 className="desktop">Seja seu próprio chefe</h2>
+        <h2>
+          Bem vindo ao <h2>Jobinhos!</h2>
+        </h2>
+      </div>
       <FormContainer>
         <p>Nome</p>
         <input
@@ -60,11 +62,6 @@ const Register = () => {
         <button>Registrar</button>
       </FormContainer>
     </RegisterContainer>
-    <div className="textBox">
-      <h1>Seja seu proprio chefe</h1>
-      <h3>Bem-vindo ao Jobinhos</h3>
-    </div>
-    </Body>
   );
 };
 
