@@ -27,7 +27,7 @@ const Pendings = () => {
             </h3>
           </Greetings>
           {isHired ? (
-            <MainCards alternativeButton />
+            <MainCards alternative />
           ) : (
             <MainCards textContent={"Comentar"} />
           )}

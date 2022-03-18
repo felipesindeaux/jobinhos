@@ -9,7 +9,7 @@ const CardsServices = ({
   price,
   desc,
   setOpen,
-  alternativeButton,
+  alternative,
 }) => {
   const showModal = () => {
     setOpen(true);
@@ -19,14 +19,14 @@ const CardsServices = ({
     <Card>
       <img src={images} alt={name} />
       <Name>{name}</Name>
-      {!alternativeButton && (
+      {!alternative && (
         <div>
           <p>{title}</p>
           <p>R$ {price}</p>
         </div>
       )}
       <Desc>{desc}</Desc>
-      {!alternativeButton && <Button onClick={showModal}>{textContent}</Button>}
+      {!alternative && <Button onClick={showModal}>{textContent}</Button>}
     </Card>
   );
 };

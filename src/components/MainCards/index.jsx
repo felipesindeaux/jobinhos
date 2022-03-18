@@ -3,7 +3,7 @@ import { Container } from "./styled";
 import { useContext } from "react";
 import { ServicesContext } from "../../Providers/Services";
 
-const MainCards = ({ textContent, setOpen, alternativeButton }) => {
+const MainCards = ({ textContent, setOpen, alternative }) => {
   const { services } = useContext(ServicesContext);
 
   return (
@@ -18,7 +18,7 @@ const MainCards = ({ textContent, setOpen, alternativeButton }) => {
           desc={item.desc}
           setOpen={setOpen}
           textContent={textContent}
-          alternativeButton={alternativeButton}
+          alternative={alternative}
         />
       ))}
     </Container>
