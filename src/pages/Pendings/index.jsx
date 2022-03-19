@@ -19,10 +19,10 @@ const Pendings = () => {
         <Header page="profile" />
         <Main>
           <Greetings>
-            <h2>Bem Vindo, Nome</h2>
+            <h2>Bem Vindo, {/* userInfo.name */}Nome</h2>
             <h3>
               {isHired
-                ? "Você foi contradado para estes serviços"
+                ? "Você foi contratado para estes serviços"
                 : "Você contratou estes serviços"}
             </h3>
           </Greetings>
