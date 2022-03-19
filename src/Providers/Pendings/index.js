@@ -21,8 +21,17 @@ export const PendingsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const hireService = () => {
-    userInfo ? console.log("Aqui vai contratar") : history.push("/login");
+  const hireService = (serviceId, hirer = userInfo.id, hired) => {
+    const token = localStorage.getItem("@Jobinhos:token");
+    userInfo
+      ? api.post(
+          "/pendings",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          },
+          { serviceId, hirer, hired }
+        )
+      : history.push("/login");
   };
 
   return (
