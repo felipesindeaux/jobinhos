@@ -10,9 +10,11 @@ import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { FormBox } from "../../styles/form";
 import { Body } from "./styles";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/User";
 
 const Login = () => {
-  const [user, setUser] = useState();
+  const { handleUserInfo } = useContext(UserContext);
   const [auth, setAuth] = useState(false);
   const history = useHistory();
 
@@ -38,8 +40,7 @@ const Login = () => {
         localStorage.setItem("@Jobinhos:token", JSON.stringify(accessToken));
 
         setAuth(true);
-        setUser(response.data.user);
-
+        handleUserInfo(response.data.user);
         toast.success("Login realizado");
 
         history.push(`/profile`);

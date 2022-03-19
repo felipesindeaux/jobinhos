@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Card = styled.div`
   box-sizing: border-box;
   flex-shrink:0;
-  width: 300px;
+  width: 270px;
   border: 1px solid var(--dark-6);
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -11,6 +11,7 @@ export const Card = styled.div`
 
   img {
     width: 100%;
+    height: 239px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
   }
