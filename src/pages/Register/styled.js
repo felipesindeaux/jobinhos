@@ -4,20 +4,25 @@ import img from "../../assets/img2.png";
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 338px;
-  padding: 10px 10px 10px 10px;
+  width: 300px;
+  padding: 10px 0px;
+  margin-top: 40px;
+
+  p{
+    align-self: flex-start;
+  }
+
   input,
   select {
     background: rgba(196, 196, 196, 0.47);
-    width: 300px;
+    width: 280px;
     height: 48px;
     border-radius: 2px;
     border: 1px solid var(--brand);
     margin-bottom: 15px;
     padding: 0px 10px 0px 10px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   button {
@@ -26,10 +31,9 @@ export const FormContainer = styled.form`
     color: var(--light-1);
     font-weight: 700;
     font-size: 20px;
-    width: 300px;
+    width: 280px;
     height: 44px;
     border-radius: 2px;
-    margin: auto;
   }
 
   p {
@@ -37,22 +41,23 @@ export const FormContainer = styled.form`
     margin-left: 15px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1000px) {
     border: 2px solid var(--light-3);
-    margin-top: 90px;
+    margin-top: 50px;
   }
 `;
 
 export const RegisterContainer = styled.div`
-  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   .desktop {
-    visibility: hidden;
-    height: 0px;
-    width: 0px;
+    display: none;
+  }
+
+  .welcome-container{
+    display: none;
   }
 
   p {
@@ -71,14 +76,12 @@ export const RegisterContainer = styled.div`
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1000px) {
     flex-direction: row;
     justify-content: center;
 
     .desktop {
-      visibility: unset;
-      height: unset;
-      width: unset;
+      display: block;
       font-size: 72px;
       bottom: unset;
       right: unset;
@@ -88,19 +91,23 @@ export const RegisterContainer = styled.div`
     }
 
     .welcome-container {
+      display: block;
       height: 560px;
       width: 581px;
-      margin-top: 90px;
-      background-image: url(${img});
-      background-size: 580px;
-      background-repeat: no-repeat;
+      margin-top: 50px;
       border: 2px solid var(--light-3);
-      border-right: unset;
       position: relative;
     }
+
+    img{
+      filter: blur(2px);
+      height: 560px;
+      width: 581px;
+    }
+
     h2 {
       position: absolute;
-      bottom: 50px;
+      top: 50px;
       left: 35px;
       font-size: 32px;
       display: flex;
@@ -115,29 +122,5 @@ export const RegisterContainer = styled.div`
         margin-left: 10px;
       }
     }
-  }
-`;
-
-export const RectangleDiv = styled.div`
-  width: 328px;
-  margin-top: 24px;
-
-  .rectangle-1 {
-    background: var(--brand);
-    width: 22px;
-    height: 2.75px;
-    margin-bottom: 5px;
-  }
-
-  .rectangle-2 {
-    background: var(--brand);
-    width: 13.75px;
-    height: 2.75px;
-    margin-bottom: 32px;
-  }
-
-  @media (min-width: 768px) {
-    width: 0px;
-    visibility: hidden;
   }
 `;
