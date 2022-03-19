@@ -8,6 +8,7 @@ const CardsServices = ({
   title,
   price,
   desc,
+  id,
   setOpen,
   alternative,
 }) => {

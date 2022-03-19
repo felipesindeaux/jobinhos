@@ -42,11 +42,11 @@ const Login = () => {
         setAuth(true);
         handleUserInfo(response.data.user);
         toast.success("Login realizado");
-
         history.push(`/profile`);
       })
 
-      .catch((_) => {
+      .catch((err) => {
+        console.log(err)
         toast.error("Email ou senha inválidos!");
       });
   };

@@ -5,8 +5,11 @@ import { Search } from "grommet-icons";
 import MainCards from "../../components/MainCards";
 import Header from "../../components/Header";
 import Modal from "../../components/Modal";
+import { useContext } from "react";
+import { ServicesContext } from "../../Providers/Services";
 
 const InitialServices = () => {
+  const { services } = useContext(ServicesContext);
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
 
@@ -31,6 +34,7 @@ const InitialServices = () => {
         textContent={"Eu quero!"}
         open={open}
         setOpen={setOpen}
+        arrayToRender={services}
       ></MainCards>
 
       {open && (
