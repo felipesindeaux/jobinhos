@@ -66,8 +66,8 @@ const Register = () => {
           <input {...register("email")} />
           <p>Eu sou...</p>
           <select {...register("type")}>
-            <option value="Consumidor">Consumidor</option>
-            <option value="Prestador">Prestador de serviços</option>
+            <option value="hirer">Consumidor</option>
+            <option value="hired">Prestador de serviços</option>
           </select>
           <p>Senha</p>
           <input type="password" {...register("password")} />

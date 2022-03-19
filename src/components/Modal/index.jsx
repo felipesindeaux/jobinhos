@@ -11,8 +11,11 @@ import {
   Comment,
   Commit,
 } from "./styled";
+import { useContext } from "react";
+import { PendingsContext } from "../../Providers/Pendings";
 
 const Modal = ({ setOpen }) => {
+  const { hireService } = useContext(PendingsContext);
   const closeModal = () => {
     setOpen(false);
   };
@@ -89,7 +92,7 @@ const Modal = ({ setOpen }) => {
         </Carousel>
       </Comments>
 
-      <Button className="Aceppt" primary label="Contratar" />
+      <Button onClick={() => hireService()} className="Aceppt" primary label="Contratar" />
     </Container>
   );
 };

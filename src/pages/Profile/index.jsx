@@ -1,12 +1,15 @@
 import CardUsers from "../../components/CardUsers ";
 import Header from "../../components/Header";
 import ModalUser from "../../components/ModalUser";
+import { PendingsContext } from "../../Providers/Pendings";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import { Layer } from "grommet";
+import { useEffect } from "react";
 
 const Profile = () => {
+  const { updatePendings } = useContext(PendingsContext);
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => {
@@ -17,9 +20,11 @@ const Profile = () => {
     setShowModal(false);
   };
 
+  useEffect(() => updatePendings(), []);
+
   return (
     <>
-      <Header />
+      <Header page="profile" />
       <CardUsers handleOpenModal={handleOpenModal} />
       {showModal && (
         <Layer
