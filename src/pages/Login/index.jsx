@@ -64,7 +64,7 @@ const Login = () => {
             {errors.email?.message}
 
             <label>Senha</label>
-            <input {...register("password")} />
+            <input {...register("password")} type="password" />
             {errors.senha?.message}
 
             <Link to="/register">Ainda não é parceiro? Registre aqui!</Link>
