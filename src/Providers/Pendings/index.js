@@ -21,7 +21,7 @@ export const PendingsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const hireService = (serviceId, hirer = userInfo.id, hired) => {
+  const hireService = (serviceId, hired, hirer = userInfo.id) => {
     const token = localStorage.getItem("@Jobinhos:token");
     userInfo
       ? api.post(
