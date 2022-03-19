@@ -17,7 +17,7 @@ const CardsServices = ({
 
   return (
     <Card>
-      <img src={images} alt={name} />
+      <img src={images[0]} alt={name} />
       <Name>{name}</Name>
       {!alternative && (
         <div>
