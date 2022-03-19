@@ -27,7 +27,8 @@ const ModalUser = ({ handleCloseModal }) => {
           <TextInput />
         </FormField>
         <FormField label="Senha">
-          <Box justify="center" align="center" direction="row" width={"medium"}>
+     
+          <Box direction="row" width={"medium"}  pad="xxsmall" >
             <TextInput plain type={reveal ? "text" : "password"} />
             <Button
               icon={reveal ? <View size="medium" /> : <Hide size="medium" />}
@@ -36,7 +37,7 @@ const ModalUser = ({ handleCloseModal }) => {
           </Box>
         </FormField>
         <FormField label="Confirmar Senhar">
-          <Box justify="center" align="center" direction="row" width={"medium"}>
+          <Box direction="row" width={"medium"}  pad="xxsmall" >
             <TextInput plain type={reveal ? "text" : "password"} />
             <Button
               icon={reveal ? <View size="medium" /> : <Hide size="medium" />}
