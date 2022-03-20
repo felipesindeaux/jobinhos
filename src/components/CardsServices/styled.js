@@ -8,6 +8,9 @@ export const Card = styled.div`
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 20px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 
   img {
     width: 100%;
@@ -39,7 +42,9 @@ export const Card = styled.div`
   }
 
   @media screen and (min-width: 1000px) {
-    margin:20px 
+    margin:20px;
+    width:300px; 
+    display:inline;
   }
 `;
 
@@ -52,7 +57,15 @@ export const Name = styled.p`
 
 export const Desc = styled.p`
   color: var(--dark-3);
+  overflow-x:auto;
   margin: 20px 15px;
   font-size: 18px;
   font-weight: 700;
+  height:80px;
+
+  @media screen and (min-width: 1000px) {
+    overflow-x:hidden;
+    height:190px;
+  }
+
 `;
