@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Pendings from "../pages/Pendings";
 import Profile from "../pages/Profile";
 import InitialServices from "../pages/InitialServices";
+import MyServices from '../pages/MyServices'
 
 const Routes = () => (
     <Switch>
@@ -13,6 +14,7 @@ const Routes = () => (
         <Route path="/profile" isPrivate component={Profile}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
+        <Route path="/myServices" component={MyServices}/>
     </Switch>
 )
 
