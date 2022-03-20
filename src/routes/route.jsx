@@ -9,7 +9,7 @@ const Route = ({ isPrivate = false, component: Component, ...rest }) => {
     <ReactDOMRoute
       {...rest}
       render={() => {
-        return isPrivate && !userInfo ? <Redirect to="login" /> : <Component />;
+        return isPrivate && !userInfo ? <Redirect to="/login" /> : <Component />;
       }}
     />
   );

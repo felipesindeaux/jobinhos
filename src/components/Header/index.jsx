@@ -31,6 +31,10 @@ const Header = ({ whiteTheme = false, page }) => {
       case "profile":
         return [
           {
+            label: "Meus Serviços",
+            onClick: () => history.push("/myServices"),
+          },
+          {
             label: "Contratações",
             onClick: () => history.push("/pendings"),
           },
@@ -38,6 +42,7 @@ const Header = ({ whiteTheme = false, page }) => {
             label: "Início",
             onClick: () => history.push("/"),
           },
+          
         ];
 
       case "user":
