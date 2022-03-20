@@ -14,6 +14,7 @@ const CardsServices = ({
   id,
   setOpen,
   alternative,
+  setServiceID
 }) => {
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
@@ -21,7 +22,9 @@ const CardsServices = ({
   const showModal = () => {
     setOpen(true);
     setHireService(services.filter((service) => service.userId === id));
+    setServiceID(id)
   };
+
 
   return (
     <Card>
