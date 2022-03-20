@@ -11,6 +11,10 @@ import { Menu } from "grommet";
 import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/User";
+import { AiOutlineHome } from "react-icons/ai";
+import { BiBriefcaseAlt } from "react-icons/bi";
+import { HiOutlineUserGroup, HiOutlineUser } from "react-icons/hi";
+import { MdLogout } from "react-icons/md";
 
 const Header = ({ whiteTheme = false, page }) => {
   const { userInfo, handleUserInfo } = useContext(UserContext);
@@ -22,10 +26,12 @@ const Header = ({ whiteTheme = false, page }) => {
           {
             label: "Meu perfil",
             onClick: () => history.push("/profile"),
+            Icon: HiOutlineUser,
           },
           {
             label: "Início",
             onClick: () => history.push("/"),
+            Icon: AiOutlineHome,
           },
           {
             label: "Sair",
@@ -33,6 +39,7 @@ const Header = ({ whiteTheme = false, page }) => {
               localStorage.clear();
               handleUserInfo(undefined);
             },
+            Icon: MdLogout,
           },
         ];
 
@@ -42,14 +49,17 @@ const Header = ({ whiteTheme = false, page }) => {
             {
               label: "Meus Serviços",
               onClick: () => history.push("/myServices"),
+              Icon: BiBriefcaseAlt,
             },
             {
               label: "Contratações",
               onClick: () => history.push("/pendings"),
+              Icon: HiOutlineUserGroup,
             },
             {
               label: "Início",
               onClick: () => history.push("/"),
+              Icon: AiOutlineHome,
             },
             {
               label: "Sair",
@@ -57,6 +67,7 @@ const Header = ({ whiteTheme = false, page }) => {
                 localStorage.clear();
                 handleUserInfo(undefined);
               },
+              Icon: MdLogout,
             },
           ];
         } else {
@@ -64,10 +75,12 @@ const Header = ({ whiteTheme = false, page }) => {
             {
               label: "Contratações",
               onClick: () => history.push("/pendings"),
+              Icon: BiBriefcaseAlt,
             },
             {
               label: "Início",
               onClick: () => history.push("/"),
+              Icon: AiOutlineHome,
             },
             {
               label: "Sair",
@@ -75,6 +88,7 @@ const Header = ({ whiteTheme = false, page }) => {
                 localStorage.clear();
                 handleUserInfo(undefined);
               },
+              Icon: MdLogout,
             },
           ];
         }
@@ -86,6 +100,7 @@ const Header = ({ whiteTheme = false, page }) => {
             onClick: () => {
               history.push("/");
             },
+            Icon: AiOutlineHome,
           },
         ];
 
@@ -95,6 +110,7 @@ const Header = ({ whiteTheme = false, page }) => {
             {
               label: "Meu perfil",
               onClick: () => history.push("/profile"),
+              Icon: HiOutlineUser,
             },
             {
               label: "Sair",
@@ -103,6 +119,7 @@ const Header = ({ whiteTheme = false, page }) => {
                 handleUserInfo(undefined);
                 history.push("/login");
               },
+              Icon: MdLogout,
             },
           ];
         } else {
@@ -110,6 +127,7 @@ const Header = ({ whiteTheme = false, page }) => {
             {
               label: "Meu perfil",
               onClick: () => history.push("/profile"),
+              Icon: HiOutlineUser,
             },
           ];
         }
@@ -134,15 +152,22 @@ const Header = ({ whiteTheme = false, page }) => {
             <MobileTitle whiteTheme={whiteTheme}>Jobinhos</MobileTitle>
           )}
         </MobileLeftContainer>
-        <DesktopTitle>Jobinhos</DesktopTitle>
+        <DesktopTitle onClick={() => history.push('/')}><span>Job</span>inhos</DesktopTitle>
       </Container>
       <DesktopButtonsContainer>
         {options &&
-          options.map((option, index) => (
-            <DesktopButton key={index} onClick={option.onClick}>
-              {option.label}
-            </DesktopButton>
-          ))}
+          options.map((option, index) => {
+            const { Icon } = option;
+
+            return (
+              <>
+                <Icon size={30} />
+                <DesktopButton key={index} onClick={option.onClick}>
+                  {option.label}
+                </DesktopButton>
+              </>
+            );
+          })}
       </DesktopButtonsContainer>
     </>
   );

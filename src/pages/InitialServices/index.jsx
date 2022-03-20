@@ -1,5 +1,5 @@
 import { Container } from "./styled";
-import { Box, TextInput, Layer } from "grommet";
+import { Box, TextInput, Layer, Carousel, Image } from "grommet";
 import { useState } from "react";
 import { Search } from "grommet-icons";
 import MainCards from "../../components/MainCards";
@@ -17,6 +17,22 @@ const InitialServices = () => {
   return (
     <>
       <Header whiteTheme />
+      <Box height="medium">
+        <Carousel fill play={2500}>
+          <Image
+            fit="cover"
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+          />
+          <Image
+            fit="cover"
+            src="https://cdn.pixabay.com/photo/2018/11/29/21/51/social-media-3846597_960_720.png"
+          />
+          <Image
+            fit="cover"
+            src="https://cdn.pixabay.com/photo/2020/01/21/17/17/hr-process-4783430_960_720.png"
+          />
+        </Carousel>
+      </Box>
       <Container>
         <Box fill align="center" justify="start" pad="large">
           <Box width="large" gap="medium">
