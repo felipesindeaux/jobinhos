@@ -58,4 +58,5 @@ const Pendings = () => {
     </>
   );
 };
+
 export default Pendings;

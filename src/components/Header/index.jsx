@@ -76,15 +76,12 @@ const Header = ({ whiteTheme = false, page }) => {
             <MobileTitle whiteTheme={whiteTheme}>Jobinhos</MobileTitle>
           )}
         </MobileLeftContainer>
-        <MobileRightButton>
-          {/* <BiUser color={whiteTheme ? "#7D4CDB" : "#F8F8F8"} /> */}
-        </MobileRightButton>
         <DesktopTitle>Jobinhos</DesktopTitle>
       </Container>
       <DesktopButtonsContainer>
         {options &&
-          options.map((option) => (
-            <DesktopButton onClick={option.onClick}>
+          options.map((option, index) => (
+            <DesktopButton key={index} onClick={option.onClick}>
               {option.label}
             </DesktopButton>
           ))}

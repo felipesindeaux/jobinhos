@@ -3,14 +3,18 @@ import styled from "styled-components";
 export const Card = styled.div`
   box-sizing: border-box;
   flex-shrink:0;
-  width: 300px;
+  width: 270px;
   border: 1px solid var(--dark-6);
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 20px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 
   img {
     width: 100%;
+    height: 239px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
   }
@@ -38,7 +42,9 @@ export const Card = styled.div`
   }
 
   @media screen and (min-width: 1000px) {
-    margin:20px 
+    margin:20px;
+    width:300px; 
+    display:inline;
   }
 `;
 
@@ -51,7 +57,15 @@ export const Name = styled.p`
 
 export const Desc = styled.p`
   color: var(--dark-3);
+  overflow-x:auto;
   margin: 20px 15px;
   font-size: 18px;
   font-weight: 700;
+  height:80px;
+
+  @media screen and (min-width: 1000px) {
+    overflow-x:hidden;
+    height:190px;
+  }
+
 `;
