@@ -1,88 +1,67 @@
 import styled from "styled-components";
 
-export const CommentSectionContainer = styled.div`
-  position: absolute;
+export const CommentSectionContainer = styled.textarea`
+  border-radius: 16px;
+  background-color: #c4c4c436;
   display: flex;
   flex-direction: column;
-  margin: auto;
-  left: -50%;
-  right: -50%;
-  top: 30%;
+  align-items: flex-start;
   width: 300px;
-  height: 350px;
-  background-color: var(--light-1);
-  border: 2px solid var(--dark-6);
+  height: 200px;
+  margin: 10px;
+  border: 2px solid var(--brand);
+  padding: 20px;
 
-  img {
-    width: 300px;
-    height: 150px;
-    margin-bottom: 15px;
-    align-self: center;
+  @media screen and (min-width: 1000px) {
+    width: 500px;
+    margin: 20px 50px;
   }
-  textarea {
-    width: 90%;
-    height: 58px;
-    background-color: var(--light-3);
-    border: unset;
-    padding: 10px 10px 10px 10px;
-    resize: none;
-    margin-bottom: 15px;
-    overflow: hidden;
-    align-self: center;
-  }
+`;
 
-  h3 {
-    font-size: 14px;
-    color: var(--brand);
-    margin-left: 15px;
-  }
+export const Container = styled.div`
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
 
-  span {
-    color: var(--dark-1);
-    font-size: 12px;
-    margin-left: 10px;
+  h2 {
+    display: flex;
+    margin: 20px 10px;
+    font-size: 18px;
+    align-items: center;
+    svg {
+      margin-right: 10px;
+      
+    }
+
+    button {
+      width: 10%;
+      padding-left: 10px;
+    }
+    width: 100%;
   }
 
   button {
-    width: 20px;
-    border: unset;
-    position: absolute;
-    right: 0px;
-    background-color: var(--light-3);
+    width: 95%;
+    margin: auto;
   }
 
-  div {
-    display: flex;
-    margin-bottom: 15px;
-    button {
-      width: 90%;
-      align-self: center;
-      height: 38px;
-      border: unset;
-      background-color: var(--dark-6);
-      cursor: pointer;
-      border-radius: 0px 0px 15px 15px;
-      position: unset;
-      color: var(--light-1);
-    }
-    div {
-      display: block;
-      position: relative;
-      background-color: var(--light-3);
-      width: 90%;
-      align-self: center;
+  @media screen and (min-width: 1000px) {
+    margin: 10px;
 
-      img {
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        right: 10px;
-        top: 5px;
+    h2 {
+      margin: 20px 50px;
+
+      button {
+        width: 10%;
+        padding-left: 20px;
+        margin-left: 32%;
+        height:40px;
       }
     }
-  }
 
-  .text {
-    flex-direction: column;
+    button{
+      width:50%;
+      height:50px;
+    }
   }
 `;
