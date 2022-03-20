@@ -21,20 +21,22 @@ export const PendingsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const hireService = (data) => {
-    const token = localStorage.getItem("@Jobinhos:token");
+  const hireService = (hired, serviceId, hirer = userInfo.id) => {
+    const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
     userInfo
       ? api
-          .post("/pendings", data, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          })
+          .post(
+            "/pendings",
+            { hired, hirer, serviceId },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
           .then((res) => console.log(res))
           .catch((err) => console.log(err))
       : history.push("/login");
-
-    console.log(data);
   };
 
   return (

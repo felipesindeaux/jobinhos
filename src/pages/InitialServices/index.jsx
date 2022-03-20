@@ -13,6 +13,7 @@ const InitialServices = () => {
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const { hireService } = useContext(ServicesContext);
+  console.log(hireService)
 
   return (
     <>
@@ -52,6 +53,7 @@ const InitialServices = () => {
               title={item.title}
               price={item.price}
               id={item.userId}
+              userId={item.userId}
             />
           ))}
         </Layer>

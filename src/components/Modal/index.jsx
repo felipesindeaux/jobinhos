@@ -14,17 +14,11 @@ import {
 import { useContext, useState } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
 
-const Modal = ({ setOpen, name, title, price, imgs, id }) => {
+const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
   const { hireService } = useContext(PendingsContext);
 
   const closeModal = () => {
     setOpen(false);
-  };
-
-  const dataPendings = {
-    serviceId:10,
-    hirer:4,
-    hired:10,
   };
 
   return (
@@ -91,7 +85,7 @@ const Modal = ({ setOpen, name, title, price, imgs, id }) => {
       </Comments>
 
       <Button
-        onClick={() => hireService(dataPendings)}
+        onClick={() => hireService(userId, id)}
         className="Aceppt"
         primary
         label="Contratar"
