@@ -37,7 +37,7 @@ const Pendings = () => {
 
   return (
     <>
-      <Header page="profile" />
+      <Header page="pendings" />
       <Main>
         <Greetings>
           <h2>Bem Vindo, {userInfo.name}</h2>

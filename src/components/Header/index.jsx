@@ -9,8 +9,11 @@ import {
 import { List } from "grommet-icons";
 import { Menu } from "grommet";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/User";
 
 const Header = ({ whiteTheme = false, page }) => {
+  const { userInfo, handleUserInfo } = useContext(UserContext);
   const history = useHistory();
   const getOptions = () => {
     switch (page) {
@@ -24,40 +27,92 @@ const Header = ({ whiteTheme = false, page }) => {
             label: "Início",
             onClick: () => history.push("/"),
           },
+          {
+            label: "Sair",
+            onClick: () => {
+              localStorage.clear();
+              handleUserInfo(undefined);
+            },
+          },
         ];
 
       case "profile":
-        return [
-          {
-            label: "Meus Serviços",
-            onClick: () => history.push("/myServices"),
-          },
-          {
-            label: "Contratações",
-            onClick: () => history.push("/pendings"),
-          },
-          {
-            label: "Início",
-            onClick: () => history.push("/"),
-          },
-          
-        ];
+        if (userInfo.type === "hired") {
+          return [
+            {
+              label: "Meus Serviços",
+              onClick: () => history.push("/myServices"),
+            },
+            {
+              label: "Contratações",
+              onClick: () => history.push("/pendings"),
+            },
+            {
+              label: "Início",
+              onClick: () => history.push("/"),
+            },
+            {
+              label: "Sair",
+              onClick: () => {
+                localStorage.clear();
+                handleUserInfo(undefined);
+              },
+            },
+          ];
+        } else {
+          return [
+            {
+              label: "Contratações",
+              onClick: () => history.push("/pendings"),
+            },
+            {
+              label: "Início",
+              onClick: () => history.push("/"),
+            },
+            {
+              label: "Sair",
+              onClick: () => {
+                localStorage.clear();
+                handleUserInfo(undefined);
+              },
+            },
+          ];
+        }
 
       case "user":
         return [
           {
             label: "Início",
-            onClick: () => {history.push('/')},
+            onClick: () => {
+              history.push("/");
+            },
           },
         ];
 
       default:
-        return [
-          {
-            label: "Meu perfil",
-            onClick: () => history.push("/profile"),
-          },
-        ];
+        if (userInfo) {
+          return [
+            {
+              label: "Meu perfil",
+              onClick: () => history.push("/profile"),
+            },
+            {
+              label: "Sair",
+              onClick: () => {
+                localStorage.clear();
+                handleUserInfo(undefined);
+                history.push("/login");
+              },
+            },
+          ];
+        } else {
+          return [
+            {
+              label: "Meu perfil",
+              onClick: () => history.push("/profile"),
+            },
+          ];
+        }
     }
   };
 
