@@ -1,7 +1,7 @@
 import CardsServices from "../../components/CardsServices";
 import { Container } from "./styled";
 
-const MainCards = ({ textContent, setOpen, alternative, arrayToRender }) => {
+const MainCards = ({ textContent, setOpen, alternative, arrayToRender,setServiceHired }) => {
   
   return (
     <Container>
@@ -18,6 +18,7 @@ const MainCards = ({ textContent, setOpen, alternative, arrayToRender }) => {
             setOpen={setOpen}
             textContent={textContent}
             alternative={alternative}
+            setServiceHired={setServiceHired}
           />
         ))}
     </Container>

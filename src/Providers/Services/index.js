@@ -7,6 +7,7 @@ export const ServicesContext = createContext();
 export const ServicesProvider = ({ children }) => {
   const { userInfo } = useContext(UserContext);
   const [services, setServices] = useState();
+  const [hireService, setHireService] = useState();
 
   useEffect(() => {
     api.get("/services").then((response) => setServices(response.data));
@@ -22,7 +23,13 @@ export const ServicesProvider = ({ children }) => {
 
   return (
     <ServicesContext.Provider
-      value={{ services, updateServices, getUserServices }}
+      value={{
+        services,
+        hireService,
+        setHireService,
+        updateServices,
+        getUserServices,
+      }}
     >
       {children}
     </ServicesContext.Provider>

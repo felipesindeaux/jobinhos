@@ -12,6 +12,7 @@ const InitialServices = () => {
   const { services } = useContext(ServicesContext);
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
+  const { hireService } = useContext(ServicesContext);
 
   return (
     <>
@@ -42,7 +43,17 @@ const InitialServices = () => {
           onClickOutside={() => setOpen(false)}
           onEsc={() => setOpen(false)}
         >
-          <Modal setOpen={setOpen} />
+          {hireService.map((item, index) => (
+            <Modal
+              key={index}
+              setOpen={setOpen}
+              imgs={item.images}
+              name={item.name}
+              title={item.title}
+              price={item.price}
+              id={item.userId}
+            />
+          ))}
         </Layer>
       )}
     </>
