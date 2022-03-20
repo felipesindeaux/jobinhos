@@ -4,8 +4,12 @@ import { Card, Name, Desc, Tittle, Container } from "./styled";
 import { Layer } from "grommet";
 import ModalPendings from "../../components/ModalService";
 import Header from "../../components/Header";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/User";
+import { Redirect } from "react-router-dom";
 
 const MyServices = () => {
+  const { userInfo } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
 
   const handleCliclModal = () => {
@@ -15,6 +19,11 @@ const MyServices = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+  if (userInfo.type === "hirer") {
+    <Redirect to="profile" />;
+  }
+
   return (
     <>
       <Header page={"pendings"} />
