@@ -3,19 +3,24 @@ import styled from "styled-components";
 export const Container = styled.header`
   width: 100%;
   height: 170px;
-  background: ${({whiteTheme}) => whiteTheme ? "white" : "#7D4CDB"};
+  background: ${({ whiteTheme }) => (whiteTheme ? "white" : "#7D4CDB")};
   color: var(--light-1);
   display: flex;
   align-items: center;
   padding: 20px 22px;
 
   @media (min-width: 1000px) {
-    background: var(--brand);
+    position: relative;
+    background: var(--light-1);
+    color: var(--dark-1);
     justify-content: flex-start;
     align-items: center;
-    padding: 0px 100px;
-    height: 180px;
-    border-radius: 0px 0px 0px 120px;
+    padding-left: 40px;
+    height: 100px;
+  }
+
+  @media (min-width: 1368px) {
+    padding-left: 60px;
   }
 `;
 
@@ -35,44 +40,67 @@ export const MobileLeftContainer = styled.div`
 `;
 
 export const MobileTitle = styled.h1`
-  color: ${({whiteTheme}) => whiteTheme ? "#7D4CDB" : "#F8F8F8"};
+  color: ${({ whiteTheme }) => (whiteTheme ? "#7D4CDB" : "#F8F8F8")};
 
-  span{
+  span {
     color: var(--accent-2);
   }
-`
+`;
 
 export const DesktopTitle = styled.h1`
   display: none;
 
   @media (min-width: 1000px) {
-    font-size: 72px;
+    cursor: pointer;
+    font-size: 43px;
     display: block;
+
+    span{
+      color: var(--brand);
+    }
   }
 `;
 
 export const DesktopButtonsContainer = styled.div`
-    display: none;
+  display: none;
 
-    @media (min-width: 1000px) {
+  @media (min-width: 1000px) {
+    position: absolute;
     display: flex;
+    align-items: center;
+    top: 35px;
+    right: 0px;
     justify-content: flex-end;
+    padding-right: 20px;
 
-    button + button{
-        margin-left: 20px;
+    button + button {
+      margin-left: 30px;
+    }
+
+    svg {
+      color: var(--dark-1);
+      margin-top: -5px;
     }
   }
-`
+
+  @media (min-width: 1368px) {
+    padding-right: 60px;
+  }
+`;
 
 export const DesktopButton = styled.button`
-    width: 230px;
-    height: 36px;
-    background: transparent;
-    border: 3px solid var(--brand);
-    border-top: none;
-    border-radius: 0px 0px 0px 25px;
+  width: fit-content;
+  padding: 0px 30px 0px 11px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  position: relative;
 
-    font-weight: 700;
-    font-size: 24px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-1);
+
+  :hover {
     color: var(--dark-3);
-`
+  }
+`;
