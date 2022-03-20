@@ -1,5 +1,16 @@
-const Providers = () => (
-    <h1>Aqui vai os Providers</h1>
-)
+import { UserProvider } from "./User";
+import { ServicesProvider } from "./Services";
+import { RatingsProvider } from "./Ratings";
+import { PendingsProvider } from "./Pendings";
 
-export default Providers
+const Providers = ({ children }) => (
+  <UserProvider>
+    <ServicesProvider>
+      <RatingsProvider>
+        <PendingsProvider>{children}</PendingsProvider>
+      </RatingsProvider>
+    </ServicesProvider>
+  </UserProvider>
+);
+
+export default Providers;
