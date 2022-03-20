@@ -87,3 +87,13 @@ export const NameComment = styled.p`
   margin: 8px;
   line-height: 14px;
 `;
+
+export const noComments = styled.div`
+  border-radius: 16px;
+    background-color: #c4c4c436;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+    margin: 15px 20px;
+`
