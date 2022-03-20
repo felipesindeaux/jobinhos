@@ -12,15 +12,13 @@ import {
   Commit,
 } from "./styled";
 
-const Modal = ({ setOpen,type}) => {
+const Modal = ({ setOpen }) => {
   const closeModal = () => {
     setOpen(false);
   };
 
   return (
     <Container>
-
-      
       <header>
         <Button onClick={closeModal} secondary label="X" />
       </header>
