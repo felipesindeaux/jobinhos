@@ -1,7 +1,12 @@
-const Pendings = () => {
-    return (
-        <h1>Pendings</h1>
-    )
-}
+import Header from "../../components/Header";
+import { Container } from "./styled";
 
-export default Pendings
+const Profile = () => {
+  return (
+    <Container>
+      <Header page={'profile'} />
+    </Container>
+  );
+};
+
+export default Profile;
