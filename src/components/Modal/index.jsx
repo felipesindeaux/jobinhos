@@ -11,13 +11,20 @@ import {
   Comment,
   Commit,
 } from "./styled";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
 
-const Modal = ({ setOpen }) => {
+const Modal = ({ setOpen, name, title, price, imgs, id }) => {
   const { hireService } = useContext(PendingsContext);
+
   const closeModal = () => {
     setOpen(false);
+  };
+
+  const dataPendings = {
+    serviceId:10,
+    hirer:4,
+    hired:10,
   };
 
   return (
@@ -27,25 +34,16 @@ const Modal = ({ setOpen }) => {
       </header>
       <Figures>
         <Carousel play={3000}>
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
+          {imgs.map((img, index) => (
+            <img key={index} src={img} alt="" />
+          ))}
         </Carousel>
       </Figures>
 
       <div>
-        <Name>Jeferson</Name>
-        <Desc>Tatuador</Desc>
-        <Price>R$ 100</Price>
+        <Name>{name}</Name>
+        <Desc>{title}</Desc>
+        <Price>R$ {price}</Price>
       </div>
 
       <Comments>
@@ -92,7 +90,12 @@ const Modal = ({ setOpen }) => {
         </Carousel>
       </Comments>
 
-      <Button onClick={() => hireService()} className="Aceppt" primary label="Contratar" />
+      <Button
+        onClick={() => hireService(dataPendings)}
+        className="Aceppt"
+        primary
+        label="Contratar"
+      />
     </Container>
   );
 };
