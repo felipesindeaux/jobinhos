@@ -24,10 +24,11 @@ export const RatingsProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => toast.success("Comentário Enviado Com Sucesso"))
+      .then((res) => {
+        toast.success("Comentário Enviado Com Sucesso");
+        updateRatings();
+      })
       .catch((err) => console.log(err));
-
-    updateRatings();
   };
 
   return (

@@ -5,28 +5,22 @@ import { useState, useContext } from "react";
 import { RatingsContext } from "../../Providers/Ratings";
 import { UserContext } from "../../Providers/User";
 
-const CommentSection = ({ setOpen,id }) => {
+const CommentSection = ({ setOpen, id }) => {
   const { postRatings } = useContext(RatingsContext);
-  const {userInfo} =useContext(UserContext)
+  const { userInfo } = useContext(UserContext);
   const [comments, setComments] = useState("");
 
-  
-
-  const dataRatings = [
-    {
-      name:userInfo.name,
-      stars: 3,
-      comment: comments,
-      serviceId: id,
-      userId: userInfo.id,
-    },
-  ];
-
+  const dataRatings = {
+    name: userInfo.name,
+    stars: 3,
+    comment: comments,
+    serviceId: id,
+    userId: userInfo.id,
+  };
 
   const sendRarings = () => {
-    postRatings(dataRatings)
-    setOpen(false)
-
+    postRatings(dataRatings);
+    setOpen(false);
   };
 
   return (
@@ -41,7 +35,7 @@ const CommentSection = ({ setOpen,id }) => {
         onChange={(e) => setComments(e.target.value)}
       ></CommentSectionContainer>
 
-      <Button primary label="Salvar" onClick={sendRarings}/>
+      <Button primary label="Salvar" onClick={sendRarings} />
     </Container>
   );
 };
