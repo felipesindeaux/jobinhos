@@ -1,5 +1,6 @@
 import { Button, Carousel } from "grommet";
 import { Chat } from "grommet-icons";
+import { RatingsContext } from "../../Providers/Ratings";
 import {
   Container,
   Figures,
@@ -15,7 +16,9 @@ import { useContext, useState } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
 
 const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
+  const { ratings } = useContext(RatingsContext);
   const { hireService } = useContext(PendingsContext);
+  const serviceRatings = ratings.filter((rating) => rating.serviceId === id);
 
   const closeModal = () => {
     setOpen(false);
@@ -40,49 +43,30 @@ const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
         <Price>R$ {price}</Price>
       </div>
 
-      <Comments>
-        <Carousel controls="selectors">
+      {serviceRatings.length > 0 ? (
+        <Comments>
+          <Carousel controls="selectors">
+            {serviceRatings.map((rating) => (
+              <Comment>
+                <Chat />
+                <div className="Data">
+                  <NameComment>{rating.name}</NameComment>
+                  <Commit>{rating.comment}</Commit>
+                </div>
+              </Comment>
+            ))}
+          </Carousel>
+        </Comments>
+      ) : (
+        <Comments>
           <Comment>
             <Chat />
             <div className="Data">
-              <NameComment>Jeferson</NameComment>
-              <Commit>
-                Lorem ipsum dolor sit consectetur adipiscing do eiusmod tempor
-              </Commit>
+              <Commit>Ops, este serviço não possui avaliações</Commit>
             </div>
           </Comment>
-
-          <Comment>
-            <Chat />
-            <div className="Data">
-              <NameComment>Jeferson</NameComment>
-              <Commit>
-                Lorem ipsum dolor sit consectetur adipiscing do eiusmod tempor
-              </Commit>
-            </div>
-          </Comment>
-
-          <Comment>
-            <Chat />
-            <div className="Data">
-              <NameComment>Jeferson</NameComment>
-              <Commit>
-                Lorem ipsum dolor sit consectetur adipiscing do eiusmod tempor
-              </Commit>
-            </div>
-          </Comment>
-
-          <Comment>
-            <Chat />
-            <div className="Data">
-              <NameComment>Jeferson</NameComment>
-              <Commit>
-                Lorem ipsum dolor sit consectetur adipiscing do eiusmod tempor
-              </Commit>
-            </div>
-          </Comment>
-        </Carousel>
-      </Comments>
+        </Comments>
+      )}
 
       <Button
         onClick={() => hireService(userId, id)}
