@@ -4,12 +4,10 @@ import {
   DesktopButtonsContainer,
   DesktopTitle,
   MobileLeftContainer,
-  MobileRightButton,
   MobileTitle,
 } from "./styled";
 import { List } from "grommet-icons";
 import { Menu } from "grommet";
-import { BiUser } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
 
 const Header = ({ whiteTheme = false, page }) => {

@@ -34,21 +34,6 @@ export const MobileLeftContainer = styled.div`
   }
 `;
 
-export const MobileRightButton = styled.div`
-  display: flex;
-  align-items: center;
-  align-self: flex-start;
-
-  svg{
-    width: 23px;
-    height: 23px;
-  }
-
-  @media (min-width: 1000px) {
-    display: none;
-  }
-`;
-
 export const MobileTitle = styled.h1`
   color: ${({whiteTheme}) => whiteTheme ? "#7D4CDB" : "#F8F8F8"};
 
