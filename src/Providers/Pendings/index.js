@@ -22,13 +22,17 @@ export const PendingsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const hireService = (hired, serviceId, hirer = userInfo.id) => {
+  const hireService = (hired, serviceId) => {
     const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
-    userInfo
-      ? api
+
+    if (userInfo) {
+      if (userInfo.type === "hired") {
+        toast.error("Apenas consumidores podem contratar um serviço!");
+      } else {
+        api
           .post(
             "/pendings",
-            { hired, hirer, serviceId },
+            { hired, hirer: userInfo.id, serviceId },
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -36,8 +40,11 @@ export const PendingsProvider = ({ children }) => {
             }
           )
           .then((res) => toast.success("Serviço contratado"))
-          .catch((err) => console.log(err))
-      : history.push("/login");
+          .catch((err) => console.log(err));
+      }
+    } else {
+      history.push("/login");
+    }
   };
 
   return (
