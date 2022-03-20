@@ -7,12 +7,16 @@ import { ServicesContext } from "../../Providers/Services";
 import Header from "../../components/Header";
 import MainCards from "../../components/MainCards";
 import { useEffect } from "react";
+import { Layer } from "grommet";
 
 const Pendings = () => {
   const { services } = useContext(ServicesContext);
   const { userInfo } = useContext(UserContext);
   const { pendings } = useContext(PendingsContext);
   const [pendingsToRender, setPendingsToRender] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [serviceID, setServiceID] = useState()
+
 
   useEffect(() => {
     const servicesPendings = pendings.map((pending) => {
@@ -33,27 +37,37 @@ const Pendings = () => {
 
   return (
     <>
-        <Header page="profile" />
-        <Main>
-          <Greetings>
-            <h2>Bem Vindo, {userInfo.name}</h2>
-            <h3>
-              {isHired
-                ? "Você foi contratado para estes serviços"
-                : "Você contratou estes serviços"}
-            </h3>
-          </Greetings>
-          {isHired ? (
-            <MainCards alternative arrayToRender={pendingsToRender} />
-          ) : (
-            <MainCards
-              textContent={"Comentar"}
-              arrayToRender={pendingsToRender}
-            />
-          )}
-        </Main>
+      <Header page="profile" />
+      <Main>
+        <Greetings>
+          <h2>Bem Vindo, {userInfo.name}</h2>
+          <h3>
+            {isHired
+              ? "Você foi contratado para estes serviços"
+              : "Você contratou estes serviços"}
+          </h3>
+        </Greetings>
+     
+      </Main>
+
+         {isHired ? (
+          <MainCards alternative arrayToRender={pendingsToRender} />
+        ) : (
+          <MainCards
+            textContent={"Comentar"}
+            arrayToRender={pendingsToRender}
+            setOpen={setOpen}
+            setServiceID={setServiceID}
+          />
+        )}
       {commentSection && (
         <CommentSection service={[]} setCommentSection={setCommentSection} />
+      )}
+
+      {open && (
+        <Layer onEsc={() => setOpen(false)}  position="center" >
+          <CommentSection setOpen={setOpen} id={serviceID}/>
+        </Layer>
       )}
     </>
   );
