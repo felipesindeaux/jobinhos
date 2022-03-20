@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { ServicesContext } from "../../Providers/Services";
 
 const InitialServices = () => {
-  const { services } = useContext(ServicesContext);
+  const { services, filterServices } = useContext(ServicesContext);
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const { hireService } = useContext(ServicesContext);
@@ -26,7 +26,11 @@ const InitialServices = () => {
               reverse
               placeholder="O que você procura? ..."
               plain={false}
-              onChange={(event) => setSearch(event.target.value)}
+              value={search}
+              onChange={(event) => {
+                setSearch(event.target.value)
+                filterServices(event.target.value)
+              }}
             />
           </Box>
         </Box>
