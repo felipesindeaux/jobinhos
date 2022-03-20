@@ -13,7 +13,6 @@ const InitialServices = () => {
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const { hireService } = useContext(ServicesContext);
-  console.log(hireService)
 
   return (
     <>

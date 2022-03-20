@@ -2,6 +2,7 @@ import { createContext, useEffect, useState, useContext } from "react";
 import api from "../../services/api";
 import { UserContext, UserProvider } from "../User";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const PendingsContext = createContext();
 
@@ -34,7 +35,7 @@ export const PendingsProvider = ({ children }) => {
               },
             }
           )
-          .then((res) => console.log(res))
+          .then((res) => toast.success("Serviço contratado"))
           .catch((err) => console.log(err))
       : history.push("/login");
   };
