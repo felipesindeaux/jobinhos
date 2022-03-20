@@ -33,7 +33,6 @@ const Pendings = () => {
 
   return (
     <>
-      <OpacityContainer opacity={commentSection ? "50%" : "100%"}>
         <Header page="profile" />
         <Main>
           <Greetings>
@@ -53,7 +52,6 @@ const Pendings = () => {
             />
           )}
         </Main>
-      </OpacityContainer>
       {commentSection && (
         <CommentSection service={[]} setCommentSection={setCommentSection} />
       )}
