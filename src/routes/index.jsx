@@ -1,4 +1,5 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
+import Route from "./route";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Pendings from "../pages/Pendings";
@@ -9,8 +10,8 @@ import MyServices from "../pages/MyServices";
 const Routes = () => (
     <Switch>
         <Route exact path="/" component={InitialServices} />
-        <Route path="/pendings" component={Pendings}/>
-        <Route path="/profile" component={Profile}/>
+        <Route path="/pendings" isPrivate component={Pendings}/>
+        <Route path="/profile" isPrivate component={Profile}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/MyServices" component={MyServices}/>

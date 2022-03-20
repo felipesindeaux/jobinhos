@@ -6,9 +6,8 @@ export const Container = styled.header`
   background: ${({whiteTheme}) => whiteTheme ? "white" : "#7D4CDB"};
   color: var(--light-1);
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 20px 10px;
+  padding: 20px 22px;
 
   @media (min-width: 1000px) {
     background: var(--brand);
