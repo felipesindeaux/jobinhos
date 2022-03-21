@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.header`
+export const Container = styled.table`
   width: 100%;
   height: 170px;
   background: ${({ whiteTheme }) => (whiteTheme ? "white" : "#7D4CDB")};
@@ -8,15 +8,19 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   padding: 20px 22px;
+  position: sticky;
+  top:0;
+  z-index:1;
+
 
   @media (min-width: 1000px) {
-    position: relative;
     background: var(--light-1);
     color: var(--dark-1);
     justify-content: flex-start;
     align-items: center;
     padding-left: 40px;
     height: 100px;
+    
   }
 
   @media (min-width: 1368px) {
@@ -24,14 +28,20 @@ export const Container = styled.header`
   }
 `;
 
-export const MobileLeftContainer = styled.div`
+export const MobileLeftContainer = styled.table`
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
+  div{
+    position: sticky;
+    top:0;
+    z-index:1;
+  }
+
   div {
-    padding: 0;
+    padding: 0;   
   }
 
   @media (min-width: 1000px) {
@@ -41,7 +51,7 @@ export const MobileLeftContainer = styled.div`
 
 export const MobileTitle = styled.h1`
   color: ${({ whiteTheme }) => (whiteTheme ? "#7D4CDB" : "#F8F8F8")};
-
+ 
   span {
     color: var(--accent-2);
   }
@@ -49,7 +59,6 @@ export const MobileTitle = styled.h1`
 
 export const DesktopTitle = styled.h1`
   display: none;
-
   @media (min-width: 1000px) {
     cursor: pointer;
     font-size: 43px;
@@ -61,11 +70,14 @@ export const DesktopTitle = styled.h1`
   }
 `;
 
-export const DesktopButtonsContainer = styled.div`
+export const DesktopButtonsContainer = styled.table`
   display: none;
-
   @media (min-width: 1000px) {
-    position: absolute;
+
+    position: sticky;
+    top:0;
+    z-index:1000;
+
     display: flex;
     align-items: center;
     top: 35px;
@@ -89,12 +101,14 @@ export const DesktopButtonsContainer = styled.div`
 `;
 
 export const DesktopButton = styled.button`
+  position: sticky;
+  top:0;
+    
   width: fit-content;
   padding: 0px 30px 0px 11px;
   height: 36px;
   background: transparent;
   border: none;
-  position: relative;
 
   font-weight: 700;
   font-size: 18px;
