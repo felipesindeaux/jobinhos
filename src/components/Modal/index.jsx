@@ -46,8 +46,8 @@ const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
       {serviceRatings.length > 0 ? (
         <Comments>
           <Carousel controls="selectors">
-            {serviceRatings.map((rating) => (
-              <Comment>
+            {serviceRatings.map((rating, index) => (
+              <Comment key={index}>
                 <Chat />
                 <div className="Data">
                   <NameComment>{rating.name}</NameComment>
