@@ -4,15 +4,16 @@ import Register from "../pages/Register";
 import Pendings from "../pages/Pendings";
 import Profile from "../pages/Profile";
 import InitialServices from "../pages/InitialServices";
+import { UserProvider } from "../Providers/User";
 
 const Routes = () => (
-    <Switch>
-        <Route exact path="/" component={InitialServices} />
-        <Route path="/pendings" component={Pendings}/>
-        <Route path="/profile" component={Profile}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/register" component={Register}/>
-    </Switch>
-)
+  <Switch>
+    <Route exact path="/" component={InitialServices} />
+    <Route path="/pendings" component={Pendings} />
+    <Route path="/profile" component={Profile} />
+    <Route path="/login" component={Login} />
+    <Route path="/register" component={Register} />
+  </Switch>
+);
 
-export default Routes
+export default Routes;
