@@ -44,8 +44,8 @@ const InitialServices = () => {
               plain={false}
               value={search}
               onChange={(event) => {
-                setSearch(event.target.value)
-                filterServices(event.target.value)
+                setSearch(event.target.value);
+                filterServices(event.target.value);
               }}
             />
           </Box>

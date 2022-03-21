@@ -15,8 +15,7 @@ const Pendings = () => {
   const { pendings } = useContext(PendingsContext);
   const [pendingsToRender, setPendingsToRender] = useState([]);
   const [open, setOpen] = useState(false);
-  const [serviceID, setServiceID] = useState()
-
+  const [serviceID, setServiceID] = useState();
 
   useEffect(() => {
     const servicesPendings = pendings.map((pending) => {
@@ -47,26 +46,25 @@ const Pendings = () => {
               : "Você contratou estes serviços"}
           </h3>
         </Greetings>
-     
       </Main>
 
-         {isHired ? (
-          <MainCards alternative arrayToRender={pendingsToRender} />
-        ) : (
-          <MainCards
-            textContent={"Comentar"}
-            arrayToRender={pendingsToRender}
-            setOpen={setOpen}
-            setServiceID={setServiceID}
-          />
-        )}
+      {isHired ? (
+        <MainCards alternative arrayToRender={pendingsToRender} />
+      ) : (
+        <MainCards
+          textContent={"Comentar"}
+          arrayToRender={pendingsToRender}
+          setOpen={setOpen}
+          setServiceID={setServiceID}
+        />
+      )}
       {commentSection && (
         <CommentSection service={[]} setCommentSection={setCommentSection} />
       )}
 
       {open && (
-        <Layer onEsc={() => setOpen(false)}  position="center" >
-          <CommentSection setOpen={setOpen} id={serviceID}/>
+        <Layer onEsc={() => setOpen(false)} position="center">
+          <CommentSection setOpen={setOpen} id={serviceID} />
         </Layer>
       )}
     </>
