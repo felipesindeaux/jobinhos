@@ -11,12 +11,11 @@ import { Layer } from "grommet";
 
 const Pendings = () => {
   const { services } = useContext(ServicesContext);
-  const { userInfo } = useContext(UserContext);
-  const { pendings } = useContext(PendingsContext);
+  const { userInfo, getUserName } = useContext(UserContext);
+  const { pendings, getHirerName, hirerName } = useContext(PendingsContext);
   const [pendingsToRender, setPendingsToRender] = useState([]);
   const [open, setOpen] = useState(false);
-  const [serviceID, setServiceID] = useState()
-
+  const [serviceID, setServiceID] = useState();
 
   useEffect(() => {
     const servicesPendings = pendings.map((pending) => {
@@ -24,7 +23,7 @@ const Pendings = () => {
         (service) => pending.serviceId === service.id
       );
       if (newService) {
-        return newService;
+        return { ...newService, hirerId: pending.hirer };
       }
     });
 
@@ -47,26 +46,25 @@ const Pendings = () => {
               : "Você contratou estes serviços"}
           </h3>
         </Greetings>
-     
       </Main>
 
-         {isHired ? (
-          <MainCards alternative arrayToRender={pendingsToRender} />
-        ) : (
-          <MainCards
-            textContent={"Comentar"}
-            arrayToRender={pendingsToRender}
-            setOpen={setOpen}
-            setServiceID={setServiceID}
-          />
-        )}
+      {isHired ? (
+        <MainCards alternative arrayToRender={pendingsToRender} />
+      ) : (
+        <MainCards
+          textContent={"Comentar"}
+          arrayToRender={pendingsToRender}
+          setOpen={setOpen}
+          setServiceID={setServiceID}
+        />
+      )}
       {commentSection && (
         <CommentSection service={[]} setCommentSection={setCommentSection} />
       )}
 
       {open && (
-        <Layer onEsc={() => setOpen(false)}  position="center" >
-          <CommentSection setOpen={setOpen} id={serviceID}/>
+        <Layer onEsc={() => setOpen(false)} position="center">
+          <CommentSection setOpen={setOpen} id={serviceID} />
         </Layer>
       )}
     </>
