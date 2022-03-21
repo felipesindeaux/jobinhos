@@ -61,7 +61,8 @@ const ModalUser = ({ handleCloseModal }) => {
       .put(`/users/${userInfo.id}`, data(url, name, password), {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((res) => handleCloseModal());
+      .then((res) => handleCloseModal())
+      .then((res) => updateUserInfo());
   };
 
   return (

@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
       .get(`/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => setUserInfo(response));
+      .then((response) => setUserInfo(response.data));
   };
 
   return (

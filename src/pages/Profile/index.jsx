@@ -4,7 +4,7 @@ import ModalUser from "../../components/ModalUser";
 import { UserContext } from "../../Providers/User";
 import { PendingsContext } from "../../Providers/Pendings";
 
-import { useState, useContext } from "react";
+import { useState } from "react";
 
 import { Layer } from "grommet";
 import { useEffect } from "react";
