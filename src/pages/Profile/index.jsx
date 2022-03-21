@@ -2,7 +2,6 @@ import CardUsers from "../../components/CardUsers ";
 import Header from "../../components/Header";
 import ModalUser from "../../components/ModalUser";
 import { UserContext } from "../../Providers/User";
-import { useContext } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
 
 import { useState, useContext } from "react";
@@ -27,7 +26,7 @@ const Profile = () => {
 
   return (
     <>
-      <Header page='profile' />
+      <Header page="profile" />
       <CardUsers
         handleOpenModal={handleOpenModal}
         name={userInfo.name}
