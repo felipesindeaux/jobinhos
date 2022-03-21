@@ -28,6 +28,14 @@ export const Container = styled.div`
   }
 `;
 
+export const Editing = styled.div`
+    display: flex;
+    flex-direction: column;
+    :hover{
+      background-color: var(--light-6);
+      cursor: pointer;
+    }
+`
 export const Figures = styled.section`
   img {
     width: 290px;
@@ -59,18 +67,19 @@ export const Price = styled.p`
 export const Comments = styled.div`
   overflow-x: auto;
 
+
   .Data {
     border-radius: 16px;
     background-color: #c4c4c436;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 200px;
+    width: 300px;
     margin: 15px 20px;
   }
 `;
 
-export const Commit = styled.p`
+export const Description = styled.p`
   font-size: 15px;
   color: #00000085;
   margin: 8px 11px;
@@ -79,6 +88,7 @@ export const Commit = styled.p`
 export const Comment = styled.div`
   
   margin: 25px;
+
 `;
 
 export const NameComment = styled.p`
@@ -86,14 +96,8 @@ export const NameComment = styled.p`
   font-size: 16px;
   margin: 8px;
   line-height: 14px;
+  global.hover.background.color{  
+       
+  }
 `;
 
-export const noComments = styled.div`
-  border-radius: 16px;
-    background-color: #c4c4c436;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 200px;
-    margin: 15px 20px;
-`

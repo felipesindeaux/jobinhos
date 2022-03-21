@@ -4,6 +4,7 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   margin-top: 42px;
+  overflow-x:auto;
 
   h2 {
     color: var(--brand);

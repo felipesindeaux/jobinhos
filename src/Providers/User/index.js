@@ -14,7 +14,9 @@ export const UserProvider = ({ children }) => {
     const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
     const { id } = userInfo;
     api
-      .get(`/users/${id}`, `Authorization: Bearer ${token}`)
+      .get(`/users/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => setUserInfo(response));
   };
 

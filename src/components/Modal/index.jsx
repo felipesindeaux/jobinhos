@@ -1,5 +1,6 @@
 import { Button, Carousel } from "grommet";
 import { Chat } from "grommet-icons";
+import { RatingsContext } from "../../Providers/Ratings";
 import {
   Container,
   Figures,
@@ -11,8 +12,14 @@ import {
   Comment,
   Commit,
 } from "./styled";
+import { useContext, useState } from "react";
+import { PendingsContext } from "../../Providers/Pendings";
 
-const Modal = ({ setOpen }) => {
+const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
+  const { ratings } = useContext(RatingsContext);
+  const { hireService } = useContext(PendingsContext);
+  const serviceRatings = ratings.filter((rating) => rating.serviceId === id);
+
   const closeModal = () => {
     setOpen(false);
   };
@@ -24,72 +31,49 @@ const Modal = ({ setOpen }) => {
       </header>
       <Figures>
         <Carousel play={3000}>
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
+          {imgs.map((img, index) => (
+            <img key={index} src={img} alt="" />
+          ))}
         </Carousel>
       </Figures>
 
       <div>
-        <Name>Jeferson</Name>
-        <Desc>Tatuador</Desc>
-        <Price>R$ 100</Price>
+        <Name>{name}</Name>
+        <Desc>{title}</Desc>
+        <Price>R$ {price}</Price>
       </div>
 
-      <Comments>
-        <Carousel controls="selectors">
+      {serviceRatings.length > 0 ? (
+        <Comments>
+          <Carousel controls="selectors">
+            {serviceRatings.map((rating, index) => (
+              <Comment key={index}>
+                <Chat />
+                <div className="Data">
+                  <NameComment>{rating.name}</NameComment>
+                  <Commit>{rating.comment}</Commit>
+                </div>
+              </Comment>
+            ))}
+          </Carousel>
+        </Comments>
+      ) : (
+        <Comments>
           <Comment>
             <Chat />
             <div className="Data">
-              <NameComment>Jeferson</NameComment>
-              <Commit>
-                Lorem ipsum dolor sit consectetur adipiscing do eiusmod tempor
-              </Commit>
+              <Commit>Ops, este serviço não possui avaliações</Commit>
             </div>
           </Comment>
+        </Comments>
+      )}
 
-          <Comment>
-            <Chat />
-            <div className="Data">
-              <NameComment>Jeferson</NameComment>
-              <Commit>
-                Lorem ipsum dolor sit consectetur adipiscing do eiusmod tempor
-              </Commit>
-            </div>
-          </Comment>
-
-          <Comment>
-            <Chat />
-            <div className="Data">
-              <NameComment>Jeferson</NameComment>
-              <Commit>
-                Lorem ipsum dolor sit consectetur adipiscing do eiusmod tempor
-              </Commit>
-            </div>
-          </Comment>
-
-          <Comment>
-            <Chat />
-            <div className="Data">
-              <NameComment>Jeferson</NameComment>
-              <Commit>
-                Lorem ipsum dolor sit consectetur adipiscing do eiusmod tempor
-              </Commit>
-            </div>
-          </Comment>
-        </Carousel>
-      </Comments>
-
-      <Button className="Aceppt" primary label="Contratar" />
+      <Button
+        onClick={() => hireService(userId, id)}
+        className="Aceppt"
+        primary
+        label="Contratar"
+      />
     </Container>
   );
 };
