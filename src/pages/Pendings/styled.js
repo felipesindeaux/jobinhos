@@ -4,7 +4,7 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   margin-top: 42px;
-  overflow-x:auto;
+  overflow-x: auto;
 
   h2 {
     color: var(--brand);
@@ -18,20 +18,26 @@ export const Main = styled.main`
     font-size: 24px;
   }
 
-  @media (min-width: 1000px){
+  @media (min-width: 1000px) {
     flex-direction: row;
   }
 `;
 
-export const Greetings  = styled.div`
+export const Greetings = styled.div`
   padding-left: 22px;
   margin-bottom: 10px;
 
-  @media (min-width: 1000px){
+  @media (min-width: 1000px) {
     padding-left: 100px;
   }
-`
+`;
 
 export const OpacityContainer = styled.div`
   opacity: ${(props) => props.opacity};
+`;
+
+export const NoPendingServices = styled.div`
+  text-align: center;
+  margin-top: 20px;
+  color: var(--dark-6);
 `;

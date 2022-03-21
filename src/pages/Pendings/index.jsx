@@ -1,4 +1,4 @@
-import { OpacityContainer, Greetings, Main } from "./styled";
+import { OpacityContainer, Greetings, Main, NoPendingServices } from "./styled";
 import CommentSection from "../../components/CommentSection/CommentSection";
 import { useState, useContext } from "react";
 import { UserContext } from "../../Providers/User";
@@ -41,23 +41,31 @@ const Pendings = () => {
         <Greetings>
           <h2>Bem Vindo, {userInfo.name}</h2>
           <h3>
-            {isHired
-              ? "Você foi contratado para estes serviços"
-              : "Você contratou estes serviços"}
+            {pendingsToRender[0]
+              ? isHired
+                ? "Você foi contratado para estes serviços"
+                : "Você contratou estes serviços"
+              : ""}
           </h3>
         </Greetings>
       </Main>
-
-      {isHired ? (
-        <MainCards alternative arrayToRender={pendingsToRender} />
+      {pendingsToRender[0] ? (
+        isHired ? (
+          <MainCards alternative arrayToRender={pendingsToRender} />
+        ) : (
+          <MainCards
+            textContent={"Comentar"}
+            arrayToRender={pendingsToRender}
+            setOpen={setOpen}
+            setServiceID={setServiceID}
+          />
+        )
       ) : (
-        <MainCards
-          textContent={"Comentar"}
-          arrayToRender={pendingsToRender}
-          setOpen={setOpen}
-          setServiceID={setServiceID}
-        />
+        <NoPendingServices>
+          <h1>Você não possui nenhum serviço pendente</h1>
+        </NoPendingServices>
       )}
+
       {commentSection && (
         <CommentSection service={[]} setCommentSection={setCommentSection} />
       )}
