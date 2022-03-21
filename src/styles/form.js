@@ -41,6 +41,7 @@ export const FormBox = styled.form`
         width: 85%;
         margin-top: 21px;
         margin-bottom: 21px;
+        padding: 12px;
     }
 
     label {
