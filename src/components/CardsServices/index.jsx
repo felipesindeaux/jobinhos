@@ -10,6 +10,7 @@ import { Button } from "grommet";
 import { ServicesContext } from "../../Providers/Services";
 import { UserContext } from "../../Providers/User";
 import { useContext } from "react";
+import { PendingsContext } from "../../Providers/Pendings";
 
 const CardsServices = ({
   textContent,
@@ -22,9 +23,14 @@ const CardsServices = ({
   setOpen,
   alternative,
   setServiceID,
+  pending,
+  accepted,
+  pendingId,
 }) => {
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
+  const { refusePending, acceptPending, doPending, updatePendings, filterPedingsServices } =
+    useContext(PendingsContext);
 
   const showModal = () => {
     setOpen(true);
@@ -36,21 +42,38 @@ const CardsServices = ({
     <Card>
       <img src={images[0]} alt={name} />
       <Name>{name}</Name>
-      
 
       <div className="title">
         <p>{title}</p>
         <p>R$ {price}</p>
       </div>
       {!alternative && <Desc>{desc}</Desc>}
-      {!alternative ? (
+      {!alternative && (
         <ButtonContainer>
           <Button onClick={showModal}>{textContent}</Button>
         </ButtonContainer>
-      ) : (
+      )}
+      {pending && (
         <AlternativeButtonContainer>
-          <AlternativeButton>Aceitar</AlternativeButton>
-          <AlternativeButton>Recusar</AlternativeButton>
+          <AlternativeButton onClick={() => {
+            acceptPending(pendingId)
+            }}>
+            Aceitar
+          </AlternativeButton>
+          <AlternativeButton onClick={() => {
+            refusePending(pendingId)
+            }}>
+            Recusar
+          </AlternativeButton>
+        </AlternativeButtonContainer>
+      )}
+      {accepted && (
+        <AlternativeButtonContainer>
+          <AlternativeButton onClick={() => {
+            doPending(pendingId)
+            }}>
+            Concluir
+          </AlternativeButton>
         </AlternativeButtonContainer>
       )}
     </Card>

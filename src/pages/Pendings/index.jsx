@@ -1,33 +1,27 @@
-import { OpacityContainer, Greetings, Main } from "./styled";
+import { Greetings, Main } from "./styled";
 import CommentSection from "../../components/CommentSection/CommentSection";
 import { useState, useContext } from "react";
 import { UserContext } from "../../Providers/User";
 import { PendingsContext } from "../../Providers/Pendings";
-import { ServicesContext } from "../../Providers/Services";
 import Header from "../../components/Header";
 import MainCards from "../../components/MainCards";
 import { useEffect } from "react";
 import { Layer } from "grommet";
+import PendingsCards from "../../components/PendingsCards";
 
 const Pendings = () => {
-  const { services } = useContext(ServicesContext);
-  const { userInfo, getUserName } = useContext(UserContext);
-  const { pendings, getHirerName, hirerName } = useContext(PendingsContext);
-  const [pendingsToRender, setPendingsToRender] = useState([]);
+  const { userInfo } = useContext(UserContext);
+  const {
+    updatePendings,
+    hiredPendings,
+    acceptedPendings,
+    donePendings
+  } = useContext(PendingsContext);
   const [open, setOpen] = useState(false);
   const [serviceID, setServiceID] = useState();
 
   useEffect(() => {
-    const servicesPendings = pendings.map((pending) => {
-      const newService = services.find(
-        (service) => pending.serviceId === service.id
-      );
-      if (newService) {
-        return { ...newService, hirerId: pending.hirer };
-      }
-    });
-
-    setPendingsToRender(servicesPendings);
+    updatePendings();
   }, []);
 
   const [commentSection, setCommentSection] = useState(false);
@@ -49,11 +43,11 @@ const Pendings = () => {
       </Main>
 
       {isHired ? (
-        <MainCards alternative arrayToRender={pendingsToRender} />
+        <PendingsCards />
       ) : (
         <MainCards
           textContent={"Comentar"}
-          arrayToRender={pendingsToRender}
+          arrayToRender={hiredPendings}
           setOpen={setOpen}
           setServiceID={setServiceID}
         />

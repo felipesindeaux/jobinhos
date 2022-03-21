@@ -2,6 +2,7 @@ import CardsServices from "../../components/CardsServices";
 import { Container } from "./styled";
 import { useContext } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
+import { useState } from "react";
 
 const MainCards = ({
   textContent,
@@ -9,19 +10,17 @@ const MainCards = ({
   alternative,
   arrayToRender,
   setServiceHired,
-  setServiceID
+  setServiceID,
+  pending,
+  accepted,
 }) => {
-  const { hirerName, getHirerName } = useContext(PendingsContext);
+ 
   return (
     <Container>
-      {arrayToRender &&
+      {
         arrayToRender.map((item, index) => {
 
-          if (alternative) {
-            getHirerName(item.hirerId)
-          }
-          
-          const name = alternative ? hirerName : item.name
+          const name = alternative ? item.hirerName : item.name;
 
           return (
             <CardsServices
@@ -37,6 +36,9 @@ const MainCards = ({
               alternative={alternative}
               setServiceHired={setServiceHired}
               setServiceID={setServiceID}
+              pending={pending}
+              accepted={accepted}
+              pendingId={item.pendingId}
             />
           );
         })}
