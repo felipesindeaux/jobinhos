@@ -10,6 +10,7 @@ export const PendingsProvider = ({ children }) => {
   const history = useHistory();
   const { userInfo } = useContext(UserContext);
   const [pendings, setPendings] = useState();
+  const [hirerName, setHirerName] = useState();
 
   const updatePendings = () => {
     const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
@@ -47,8 +48,19 @@ export const PendingsProvider = ({ children }) => {
     }
   };
 
+  const getHirerName = (userId) => {
+    const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
+    api
+      .get(`/users/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => setHirerName(response.data.name));
+  };
+
   return (
-    <PendingsContext.Provider value={{ pendings, updatePendings, hireService }}>
+    <PendingsContext.Provider
+      value={{ pendings, updatePendings, hireService, hirerName, getHirerName }}
+    >
       {children}
     </PendingsContext.Provider>
   );
