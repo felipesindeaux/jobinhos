@@ -42,8 +42,7 @@ const CardsServices = ({
   const showModal = () => {
     setOpen(true);
     setIdService(id)
-    setHireService(services.filter((service) => service.userId === id));
-    setServiceID(id);
+    setHireService(services.filter((service) => service.id === id));
   };
 
   return (

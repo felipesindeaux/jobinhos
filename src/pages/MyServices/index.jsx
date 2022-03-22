@@ -26,8 +26,6 @@ const MyServices = () => {
 
   const { services } = useContext(ServicesContext);
 
-  console.log(services);
-
   return (
     <Container>
       <Tittle>Serviços</Tittle>
