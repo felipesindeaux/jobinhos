@@ -24,16 +24,16 @@ const MyServices = () => {
   };
 
 
-  const { services } = useContext(ServicesContext);
+  const { getUserServices } = useContext(ServicesContext);
 
-  console.log(services);
+  console.log(getUserServices);
 
   return (
     <Container>
       <Tittle>Serviços</Tittle>
-       <MainCards arrayToRender={services} setOpen={handleCliclModal} />
-      {/* {services &&
-        services.map((item, index) => (
+       {/* <MainCards arrayToRender={services} setOpen={handleCliclModal} /> */}
+      {getUserServices &&
+        getUserServices.map((item, index) => (
           <Card>
             <img src={item.images[0]} alt="" />
             <Name>{item.name}</Name>
@@ -51,7 +51,7 @@ const MyServices = () => {
               </span>
             </Button>
           </Card>
-        ))} */}
+        ))}
 
       {showModal && (
         <Layer
