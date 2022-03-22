@@ -22,15 +22,4 @@ export const Container = styled.div`
 
 `
 
-export const CarouselFix = styled.div`
-    svg{
-      stroke:none;
-    }
-
-    button:hover{
-      background-color: #7D4CDB;
-      opacity: 60%;
-    }
-`
-
 
