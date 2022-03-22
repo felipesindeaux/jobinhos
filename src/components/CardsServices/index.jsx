@@ -43,6 +43,7 @@ const CardsServices = ({
     setOpen(true);
     setIdService(id)
     setHireService(services.filter((service) => service.id === id));
+    setServiceID(id)
   };
 
   return (
