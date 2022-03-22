@@ -32,7 +32,6 @@ export const GlobalStyle = createGlobalStyle`
         --toastify-color-progress-success: #00C781;
         /* --toastify-text-color-light: #F8F9FA;
         --toastify-color-light: #343B41; */
-        --toastify-font-family: 'Roboto';
     }
     body{
         font-family: 'Roboto', sans-serif;

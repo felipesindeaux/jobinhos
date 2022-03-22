@@ -46,8 +46,8 @@ const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
       {serviceRatings.length > 0 ? (
         <Comments>
           <Carousel controls="selectors">
-            {serviceRatings.map((rating) => (
-              <Comment>
+            {serviceRatings.map((rating, index) => (
+              <Comment key={index}>
                 <Chat />
                 <div className="Data">
                   <NameComment>{rating.name}</NameComment>
@@ -69,7 +69,10 @@ const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
       )}
 
       <Button
-        onClick={() => hireService(userId, id)}
+        onClick={() => {
+          hireService(userId, id)
+          closeModal()
+        }}
         className="Aceppt"
         primary
         label="Contratar"

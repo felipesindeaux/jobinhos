@@ -6,8 +6,14 @@ import ModalService from "../../components/ModalService";
 import { ServicesContext } from "../../Providers/Services";
 import { useContext } from "react";
 import MainCards from "../../components/MainCards/index"
+import ModalPendings from "../../components/ModalService";
+import Header from "../../components/Header";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/User";
+import { Redirect } from "react-router-dom";
 
 const MyServices = () => {
+  const { userInfo } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
 
   const handleCliclModal = () => {
@@ -17,6 +23,7 @@ const MyServices = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
 
   const { services } = useContext(ServicesContext);
 

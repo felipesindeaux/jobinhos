@@ -1,30 +1,28 @@
-import { OpacityContainer, Greetings, Main } from "./styled";
+import { Greetings, Main } from "./styled";
 import CommentSection from "../../components/CommentSection/CommentSection";
 import { useState, useContext } from "react";
 import { UserContext } from "../../Providers/User";
 import { PendingsContext } from "../../Providers/Pendings";
-import { ServicesContext } from "../../Providers/Services";
 import Header from "../../components/Header";
 import MainCards from "../../components/MainCards";
 import { useEffect } from "react";
+import { Layer } from "grommet";
+import PendingsCards from "../../components/PendingsCards";
 
 const Pendings = () => {
-  const { services } = useContext(ServicesContext);
   const { userInfo } = useContext(UserContext);
-  const { pendings } = useContext(PendingsContext);
-  const [pendingsToRender, setPendingsToRender] = useState([]);
+  const {
+    updatePendings,
+    hiredPendings,
+    acceptedPendings,
+    donePendings,
+    allPendings
+  } = useContext(PendingsContext);
+  const [open, setOpen] = useState(false);
+  const [serviceID, setServiceID] = useState();
 
   useEffect(() => {
-    const servicesPendings = pendings.map((pending) => {
-      const newService = services.find(
-        (service) => pending.serviceId === service.id
-      );
-      if (newService) {
-        return newService;
-      }
-    });
-
-    setPendingsToRender(servicesPendings);
+    updatePendings();
   }, []);
 
   const [commentSection, setCommentSection] = useState(false);
@@ -33,27 +31,36 @@ const Pendings = () => {
 
   return (
     <>
-        <Header page="profile" />
-        <Main>
-          <Greetings>
-            <h2>Bem Vindo, {userInfo.name}</h2>
-            <h3>
-              {isHired
-                ? "Você foi contratado para estes serviços"
-                : "Você contratou estes serviços"}
-            </h3>
-          </Greetings>
-          {isHired ? (
-            <MainCards alternative arrayToRender={pendingsToRender} />
-          ) : (
-            <MainCards
-              textContent={"Comentar"}
-              arrayToRender={pendingsToRender}
-            />
-          )}
-        </Main>
+      <Header page="pendings" />
+      <Main>
+        <Greetings>
+          <h2>Bem Vindo, {userInfo.name}</h2>
+          <h3>
+            {isHired
+              ? "Você foi contratado para estes serviços"
+              : "Você contratou estes serviços"}
+          </h3>
+        </Greetings>
+      </Main>
+
+      {isHired ? (
+        <PendingsCards alternative />
+      ) : (
+        <MainCards
+          textContent={"Comentar"}
+          arrayToRender={allPendings}
+          setOpen={setOpen}
+          setServiceID={setServiceID}
+        />
+      )}
       {commentSection && (
         <CommentSection service={[]} setCommentSection={setCommentSection} />
+      )}
+
+      {open && (
+        <Layer onEsc={() => setOpen(false)} position="center">
+          <CommentSection setOpen={setOpen} id={serviceID} />
+        </Layer>
       )}
     </>
   );

@@ -9,6 +9,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
+
+    
     div{
         display: flex;
         justify-content: flex-end;
@@ -19,3 +21,5 @@ export const Container = styled.div`
     }
 
 `
+
+

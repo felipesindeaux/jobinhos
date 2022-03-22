@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   box-sizing: border-box;
-  flex-shrink:0;
+  flex-shrink: 0;
   width: 270px;
   border: 1px solid var(--dark-6);
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 20px 20px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   img {
     width: 100%;
@@ -19,7 +19,7 @@ export const Card = styled.div`
     border-top-left-radius: 10px;
   }
 
-  div {
+  .title {
     display: flex;
     margin: 18px 15px;
     p {
@@ -29,6 +29,15 @@ export const Card = styled.div`
     }
   }
 
+  @media screen and (min-width: 1000px) {
+    margin: 20px;
+    width: 300px;
+    display: inline;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  margin: 18px 15px;
   button {
     background-color: var(--brand);
     color: var(--light-1);
@@ -36,15 +45,8 @@ export const Card = styled.div`
     height: 80px;
     font-size: 24px;
     font-weight: 700;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 7px;
     text-align: center;
-  }
-
-  @media screen and (min-width: 1000px) {
-    margin:20px;
-    width:300px; 
-    display:inline;
   }
 `;
 
@@ -57,15 +59,34 @@ export const Name = styled.p`
 
 export const Desc = styled.p`
   color: var(--dark-3);
-  overflow-x:auto;
+  overflow-x: auto;
   margin: 20px 15px;
   font-size: 18px;
   font-weight: 700;
-  height:80px;
+  height: 80px;
 
   @media screen and (min-width: 1000px) {
-    overflow-x:hidden;
-    height:190px;
+    overflow-x: hidden;
+    height: 190px;
   }
+`;
 
+export const AlternativeButtonContainer = styled.div`
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const AlternativeButton = styled.button`
+  background-color: var(--brand);
+  color: var(--light-1);
+  width: 40%;
+  height: 50px;
+  margin-bottom: 18px;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-align: center;
+  border: none;
 `;

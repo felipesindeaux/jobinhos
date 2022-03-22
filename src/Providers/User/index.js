@@ -17,11 +17,13 @@ export const UserProvider = ({ children }) => {
       .get(`/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => setUserInfo(response));
+      .then((response) => setUserInfo(response.data));
   };
 
   return (
-    <UserContext.Provider value={{ userInfo, handleUserInfo, updateUserInfo }}>
+    <UserContext.Provider
+      value={{ userInfo, handleUserInfo, updateUserInfo }}
+    >
       {children}
     </UserContext.Provider>
   );
