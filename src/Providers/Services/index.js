@@ -33,6 +33,7 @@ export const ServicesProvider = ({ children }) => {
 
 
   const modifyService = (data) => {
+    console.log(data)
     const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
     api.put(`/services/${idService}`, data, {
       headers: {

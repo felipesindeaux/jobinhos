@@ -8,7 +8,6 @@ import { useContext } from "react";
 import MainCards from "../../components/MainCards/index"
 import ModalPendings from "../../components/ModalService";
 import Header from "../../components/Header";
-import { useContext } from "react";
 import { UserContext } from "../../Providers/User";
 import { Redirect } from "react-router-dom";
 
