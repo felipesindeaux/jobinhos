@@ -9,9 +9,8 @@ export const Container = styled.table`
   align-items: center;
   padding: 20px 22px;
   position: sticky;
-  top:0;
-  z-index:1;
-
+  top: 0;
+  z-index: 1;
 
   @media (min-width: 1000px) {
     background: var(--light-1);
@@ -20,7 +19,6 @@ export const Container = styled.table`
     align-items: center;
     padding-left: 40px;
     height: 100px;
-    
   }
 
   @media (min-width: 1368px) {
@@ -34,14 +32,14 @@ export const MobileLeftContainer = styled.table`
   flex-direction: column;
   justify-content: space-between;
 
-  div{
+  div {
     position: sticky;
-    top:0;
-    z-index:1;
+    top: 0;
+    z-index: 1;
   }
 
   div {
-    padding: 0;   
+    padding: 0;
   }
 
   @media (min-width: 1000px) {
@@ -51,7 +49,7 @@ export const MobileLeftContainer = styled.table`
 
 export const MobileTitle = styled.h1`
   color: ${({ whiteTheme }) => (whiteTheme ? "#7D4CDB" : "#F8F8F8")};
- 
+
   span {
     color: var(--accent-2);
   }
@@ -64,7 +62,7 @@ export const DesktopTitle = styled.h1`
     font-size: 43px;
     display: block;
 
-    span{
+    span {
       color: var(--brand);
     }
   }
@@ -73,10 +71,9 @@ export const DesktopTitle = styled.h1`
 export const DesktopButtonsContainer = styled.table`
   display: none;
   @media (min-width: 1000px) {
-
-    position: sticky;
-    top:0;
-    z-index:1000;
+    position: unset;
+    top: 0;
+    z-index: 1000;
 
     display: flex;
     align-items: center;
@@ -102,8 +99,8 @@ export const DesktopButtonsContainer = styled.table`
 
 export const DesktopButton = styled.button`
   position: sticky;
-  top:0;
-    
+  top: 0;
+
   width: fit-content;
   padding: 0px 30px 0px 11px;
   height: 36px;
