@@ -17,9 +17,9 @@ const InitialServices = () => {
   return (
     <>
       <Header whiteTheme />
-      <CarouselFix>
+      
       <Box height="medium">
-        <Carousel fill play={2500}>
+        <Carousel controls={false} fill play={2500}>
           <Image
             fit="cover"
             src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
@@ -34,7 +34,7 @@ const InitialServices = () => {
           />
         </Carousel>
       </Box>
-      </CarouselFix>
+     
       <Container>
         <Box fill align="center" justify="start" pad="large">
           <Box width="large" gap="medium">
