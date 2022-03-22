@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FormContainer } from "./styled";
 import { RegisterContainer } from "./styled";
 import Header from "../../components/Header";
-import img from "../../assets/img2.png";
+import img from "../../assets/Mobile login-amico.png";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -42,8 +42,8 @@ const Register = () => {
     api
       .post("/register", newData)
       .then((response) => {
-        toast.success('Registrado com sucesso!')
-        history.push('/login')
+        toast.success("Registrado com sucesso!");
+        history.push("/login");
       })
 
       .catch((_) => {
