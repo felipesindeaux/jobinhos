@@ -2,6 +2,10 @@ import { Button } from "grommet";
 import { useState } from "react";
 import { Card, Name, Desc, Tittle, Container } from "./styled";
 import { Layer } from "grommet";
+import ModalService from "../../components/ModalService";
+import { ServicesContext } from "../../Providers/Services";
+import { useContext } from "react";
+import MainCards from "../../components/MainCards/index"
 import ModalPendings from "../../components/ModalService";
 import Header from "../../components/Header";
 import { useContext } from "react";
@@ -20,40 +24,45 @@ const MyServices = () => {
     setShowModal(false);
   };
 
-  if (userInfo.type === "hirer") {
-    <Redirect to="profile" />;
-  }
+
+  const { services } = useContext(ServicesContext);
+
+  console.log(services);
 
   return (
-    <>
-      <Header page={"pendings"} />
-      <Container>
-        <Card>
-          <img
-            src={
-              "https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            }
-            alt=""
-          />
-          <Name>Jefferson</Name>
-          <div>
-            <p>Tatuador</p>
-            <p>R$</p>
-          </div>
-          <Desc>Descrição</Desc>
-          <Button onClick={handleCliclModal}>Editar</Button>
-        </Card>
+    <Container>
+      <Tittle>Serviços</Tittle>
+       <MainCards arrayToRender={services} setOpen={handleCliclModal} />
+      {/* {services &&
+        services.map((item, index) => (
+          <Card>
+            <img src={item.images[0]} alt="" />
+            <Name>{item.name}</Name>
+            <div>
+              <p>{item.title}</p>
+              <p className="price">R$ {item.price}</p>
+            </div>
+            <Desc>{item.desc}</Desc>
+            <Button
+              onClick={handleCliclModal}
+              className="button button--hyperion"
+            >
+              <span>
+                <span>Editar</span>
+              </span>
+            </Button>
+          </Card>
+        ))} */}
 
-        {showModal && (
-          <Layer
-            onClickOutside={() => setShowModal(false)}
-            onEsc={() => setShowModal(false)}
-          >
-            <ModalPendings handleCloseModal={handleCloseModal} />
-          </Layer>
-        )}
-      </Container>
-    </>
+      {showModal && (
+        <Layer
+          onClickOutside={() => setShowModal(false)}
+          onEsc={() => setShowModal(false)}
+        >
+          <ModalService handleCloseModal={handleCloseModal} />
+        </Layer>
+      )}
+    </Container>
   );
 };
 

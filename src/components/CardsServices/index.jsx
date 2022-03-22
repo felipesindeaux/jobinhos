@@ -30,6 +30,7 @@ const CardsServices = ({
 }) => {
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
+  const {setIdService} = useContext(ServicesContext);
   const {
     refusePending,
     acceptPending,
@@ -40,6 +41,7 @@ const CardsServices = ({
 
   const showModal = () => {
     setOpen(true);
+    setIdService(id)
     setHireService(services.filter((service) => service.userId === id));
     setServiceID(id);
   };

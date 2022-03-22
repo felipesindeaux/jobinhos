@@ -1,3 +1,6 @@
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   Button,
   Carousel,
@@ -8,7 +11,6 @@ import {
   Heading,
 } from "grommet";
 import { Close } from "grommet-icons";
-import { NumberInput } from "grommet-controls";
 import {
   Container,
   Figures,
@@ -19,21 +21,51 @@ import {
   Comment,
   Description,
   Editing,
+  Errors,
 } from "./styled";
 import { useState } from "react";
+import { useContext } from "react";
+import { ServicesContext } from "../../Providers/Services";
 
-const ModalService = ({ setOpen, handleCloseModal }) => {
+
+const ModalService = ({ setOpen, handleCloseModal}) => {
   const closeModal = () => {
     setOpen(false);
   };
 
+  const { services } = useContext(ServicesContext);
+  const {hireService} = useContext(ServicesContext);
+  const {modifyService} = useContext(ServicesContext);
+
+  
   const [openName, setOpenName] = useState(false);
-  const [number, setNumber] = useState("0");
-  const [name, setName] = useState("")
-  const [service, setService] = useState("")
-  const [description, setDescription] = useState("");
+  const[data, SetData] = useState(hireService.map((item) => ({name:item.name, title:item.title, price: item.price, desc:item.desc} 
+    )));
 
 
+  const formSchema = yup.object().shape({
+    name: yup.string().required("Nome obrigatório"),
+    title: yup.string().max(20, "Número máximo de caracteres é 15").required("Serviço obrigatório"),
+    price: yup.number().required("Valor obrigatório"),
+    desc: yup.string().max(40, "Número máximo de caracteres é 50").required("Descrição obrigatória"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }, } = useForm({
+    resolver: yupResolver(formSchema),
+  });
+
+  const putApiServices = () => {
+    modifyService(data)
+  }
+
+  const onSubmitFunction = (dataService) => {
+        SetData([dataService])
+        handleCloseModal()
+        putApiServices()
+  };
 
   const onOpenName = () => setOpenName(true);
   const onCloseName = () => setOpenName(false);
@@ -54,32 +86,27 @@ const ModalService = ({ setOpen, handleCloseModal }) => {
             src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
             alt=""
           />
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
         </Carousel>
       </Figures>
 
-      <Editing >
-        <div>Nome: {name}</div>
-        <Desc>Serviço: {service}</Desc>
-        <Price>Valor: {number}</Price>
+      <Editing>
+        <Desc>Nome: {data[0].name}</Desc>
+        <Desc>Serviço: {data[0].title} </Desc>
+        <Price>Valor: {data[0].price}</Price>
       </Editing>
 
       <Comments>
         <Carousel controls="selectors">
           <Comment>
             <div className="Data">
-              <NameComment>Descrição</NameComment>
-              <Description>{description}</Description>
+              <NameComment>Descrição: {data[0].desc}</NameComment>
+              <Description></Description>
             </div>
           </Comment>
         </Carousel>
       </Comments>
-
       <Button className="Aceppt" primary label="Editar" onClick={onOpenName} />
-
+    
       {openName && (
         <Layer
           full="vertical"
@@ -88,6 +115,7 @@ const ModalService = ({ setOpen, handleCloseModal }) => {
           onClickOutside={onCloseName}
         >
           <Box
+            onSubmit={handleSubmit(onSubmitFunction)}
             as="form"
             fill="vertical"
             overflow="auto"
@@ -100,27 +128,31 @@ const ModalService = ({ setOpen, handleCloseModal }) => {
             </Box>
 
             <FormField label="Nome">
-              <TextInput onChange={(e) => setName(e.target.value)} />
+              <TextInput {...register("name")} />
             </FormField>
             <FormField label="Serviço prestado">
-              <TextInput onChange={(e) => setService(e.target.value)} />
+              <TextInput {...register("title")} />  
             </FormField>
-            <FormField label="Valor serviço prestado">
-              <NumberInput
-                name="valor"
-                value={number}
-                onChange={(value) => setNumber(value.target.value)}
-                thousandsSeparatorSymbol=""
+            <Errors>{errors.title?.message}</Errors>
+            
+            <FormField label="Valor Serviço prestado">
+              <TextInput 
+                {...register("price")}
+                type="number"
+                thousandsSeparatorSymbol=", "
                 min={0}
                 icon="R$"
               />
             </FormField>
-            <FormField label="Descrição" pad="large">
-              <TextInput
-                name="description"
-                onChange={(e) => setDescription(e.target.value)}
-              />
+            <FormField label="Descrição">
+              <TextInput name="desc" {...register("desc")} />
             </FormField>
+            <Errors>{errors.desc?.message}</Errors>
+
+            <FormField label="Imagens">
+              <TextInput name="images" {...register("images")} placeholder="Adicione sua url"/>
+            </FormField>
+
             <Button type="submit" label="Submit" primary />
           </Box>
         </Layer>

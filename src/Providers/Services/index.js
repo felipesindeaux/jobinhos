@@ -7,8 +7,11 @@ export const ServicesContext = createContext();
 export const ServicesProvider = ({ children }) => {
   const { userInfo } = useContext(UserContext);
   const [services, setServices] = useState([]);
+
   const [backup, setBackup] = useState(services);
   const [hireService, setHireService] = useState();
+  const [idService, setIdService] = useState();
+
 
   useEffect(() => {
     api.get("/services").then((response) => {
@@ -28,6 +31,16 @@ export const ServicesProvider = ({ children }) => {
     return services.filter((service) => service.userId === userInfo.id);
   };
 
+
+  const modifyService = (data) => {
+    const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
+    api.put(`/services/${idService}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => console.log(response) )
+  }
+
   const filterServices = (value) => {
     setServices(backup);
 
@@ -45,6 +58,7 @@ export const ServicesProvider = ({ children }) => {
     }
   };
 
+
   return (
     <ServicesContext.Provider
       value={{
@@ -53,6 +67,8 @@ export const ServicesProvider = ({ children }) => {
         setHireService,
         updateServices,
         getUserServices,
+        setIdService,
+        modifyService,
         filterServices,
       }}
     >
