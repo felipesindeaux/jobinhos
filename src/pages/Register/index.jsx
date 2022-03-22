@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FormContainer } from "./styled";
 import { RegisterContainer } from "./styled";
 import Header from "../../components/Header";
-import img from "../../assets/Mobile login-amico.png";
+import img from "../../assets/Wavy_Tech-28_Single-10.jpg";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
