@@ -15,7 +15,7 @@ export const Container = styled.div`
   @media (min-width: 1000px) {
     background: var(--light-1);
     color: var(--dark-1);
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding-left: 40px;
     height: 100px;
