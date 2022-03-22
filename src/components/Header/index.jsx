@@ -152,7 +152,9 @@ const Header = ({ whiteTheme = false, page }) => {
             <MobileTitle whiteTheme={whiteTheme}>Jobinhos</MobileTitle>
           )}
         </MobileLeftContainer>
-        <DesktopTitle onClick={() => history.push('/')}><span>Job</span>inhos</DesktopTitle>
+        <DesktopTitle onClick={() => history.push("/")}>
+          <span>Job</span>inhos
+        </DesktopTitle>
       </Container>
       <DesktopButtonsContainer>
         {options &&
