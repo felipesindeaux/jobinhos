@@ -155,22 +155,22 @@ const Header = ({ whiteTheme = false, page }) => {
         <DesktopTitle onClick={() => history.push("/")}>
           <span>Job</span>inhos
         </DesktopTitle>
-      </Container>
-      <DesktopButtonsContainer>
-        {options &&
-          options.map((option, index) => {
-            const { Icon } = option;
+        <DesktopButtonsContainer>
+          {options &&
+            options.map((option) => {
+              const { Icon } = option;
 
-            return (
-              <div key={index}>
-                <Icon size={30} />
-                <DesktopButton onClick={option.onClick}>
-                  {option.label}
-                </DesktopButton>
-              </div>
-            );
-          })}
-      </DesktopButtonsContainer>
+              return (
+                <>
+                  <Icon size={30} />
+                  <DesktopButton onClick={option.onClick}>
+                    {option.label}
+                  </DesktopButton>
+                </>
+              );
+            })}
+        </DesktopButtonsContainer>
+      </Container>
     </>
   );
 };
