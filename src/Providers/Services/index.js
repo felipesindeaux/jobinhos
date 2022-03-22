@@ -6,7 +6,7 @@ export const ServicesContext = createContext();
 
 export const ServicesProvider = ({ children }) => {
   const { userInfo } = useContext(UserContext);
-  const [services, setServices] = useState();
+  const [services, setServices] = useState([]);
   const [backup, setBackup] = useState(services);
   const [hireService, setHireService] = useState();
 
