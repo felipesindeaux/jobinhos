@@ -69,7 +69,10 @@ const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
       )}
 
       <Button
-        onClick={() => hireService(userId, id)}
+        onClick={() => {
+          hireService(userId, id)
+          closeModal()
+        }}
         className="Aceppt"
         primary
         label="Contratar"
