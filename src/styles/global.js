@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     :root{
         --brand: #7D4CDB;
+        --brand2: #dda0dd;
         --accent-1: #6FFFB0;
         --accent-2: #FD6FFF;
         --accent-3: #81FCED;

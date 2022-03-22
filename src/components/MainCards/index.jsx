@@ -1,8 +1,8 @@
 import CardsServices from "../../components/CardsServices";
 import { Container } from "./styled";
 
-const MainCards = ({ textContent, setOpen, alternative, arrayToRender,setServiceHired }) => {
-  
+const MainCards = ({ textContent, setOpen, alternative, arrayToRender,setServiceHired}) => {
+
   return (
     <Container>
       {arrayToRender &&
