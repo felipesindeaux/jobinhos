@@ -1,4 +1,4 @@
-import { Container } from "./styled";
+import { CarouselFix, Container } from "./styled";
 import { Box, TextInput, Layer, Carousel, Image } from "grommet";
 import { useState } from "react";
 import { Search } from "grommet-icons";
@@ -17,6 +17,7 @@ const InitialServices = () => {
   return (
     <>
       <Header whiteTheme />
+      <CarouselFix>
       <Box height="medium">
         <Carousel fill play={2500}>
           <Image
@@ -33,6 +34,7 @@ const InitialServices = () => {
           />
         </Carousel>
       </Box>
+      </CarouselFix>
       <Container>
         <Box fill align="center" justify="start" pad="large">
           <Box width="large" gap="medium">

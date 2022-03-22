@@ -9,6 +9,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
+
+    
     div{
         display: flex;
         justify-content: flex-end;
@@ -19,3 +21,16 @@ export const Container = styled.div`
     }
 
 `
+
+export const CarouselFix = styled.div`
+    svg{
+      stroke:none;
+    }
+
+    button:hover{
+      background-color: #7D4CDB;
+      opacity: 60%;
+    }
+`
+
+
