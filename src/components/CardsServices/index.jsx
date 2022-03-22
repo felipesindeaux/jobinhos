@@ -26,11 +26,17 @@ const CardsServices = ({
   pending,
   accepted,
   pendingId,
+  pendingStatus,
 }) => {
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
-  const { refusePending, acceptPending, doPending, updatePendings, filterPedingsServices } =
-    useContext(PendingsContext);
+  const {
+    refusePending,
+    acceptPending,
+    doPending,
+    updatePendings,
+    filterPedingsServices,
+  } = useContext(PendingsContext);
 
   const showModal = () => {
     setOpen(true);
@@ -48,6 +54,7 @@ const CardsServices = ({
         <p>R$ {price}</p>
       </div>
       {!alternative && <Desc>{desc}</Desc>}
+      {pendingStatus && <p>Status: {pendingStatus}</p>}
       {!alternative && (
         <ButtonContainer>
           <Button onClick={showModal}>{textContent}</Button>
@@ -55,23 +62,29 @@ const CardsServices = ({
       )}
       {pending && (
         <AlternativeButtonContainer>
-          <AlternativeButton onClick={() => {
-            acceptPending(pendingId)
-            }}>
+          <AlternativeButton
+            onClick={() => {
+              acceptPending(pendingId);
+            }}
+          >
             Aceitar
           </AlternativeButton>
-          <AlternativeButton onClick={() => {
-            refusePending(pendingId)
-            }}>
+          <AlternativeButton
+            onClick={() => {
+              refusePending(pendingId);
+            }}
+          >
             Recusar
           </AlternativeButton>
         </AlternativeButtonContainer>
       )}
       {accepted && (
         <AlternativeButtonContainer>
-          <AlternativeButton onClick={() => {
-            doPending(pendingId)
-            }}>
+          <AlternativeButton
+            onClick={() => {
+              doPending(pendingId);
+            }}
+          >
             Concluir
           </AlternativeButton>
         </AlternativeButtonContainer>

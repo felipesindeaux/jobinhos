@@ -15,10 +15,11 @@ export const PendingsProvider = ({ children }) => {
   const [hiredPendings, setHiredPendings] = useState([]);
   const [acceptedPendings, setAcceptedPendings] = useState([]);
   const [donePendings, setDonePendings] = useState([]);
+  const [allPendings, setAllPendings] = useState([]);
 
   useEffect(() => {
-    filterPedingsServices()
-  }, [pendings])
+    filterPedingsServices();
+  }, [pendings]);
 
   const updatePendings = () => {
     const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
@@ -34,6 +35,26 @@ export const PendingsProvider = ({ children }) => {
   };
 
   const filterPedingsServices = () => {
+    const mapAllPendings = pendings.map((pending) => {
+      const newService = services.find(
+        (service) => pending.serviceId === service.id
+      );
+      if (newService) {
+        return {
+          ...newService,
+          hirerName: pending.hirerName,
+          pendingId: pending.id,
+          pendingStatus: pending.status,
+        };
+      }
+    });
+
+    const getServicesAll = mapAllPendings.filter((element) => {
+      if (element) {
+        return element;
+      }
+    });
+
     const mapServicesPendings = pendings.map((pending) => {
       const newService = services.find(
         (service) =>
@@ -97,6 +118,7 @@ export const PendingsProvider = ({ children }) => {
     setHiredPendings(getServicesPendings);
     setAcceptedPendings(getServicesAccepted);
     setDonePendings(getServicesDone);
+    setAllPendings(getServicesAll);
   };
 
   const hireService = (hired, serviceId) => {
@@ -187,6 +209,7 @@ export const PendingsProvider = ({ children }) => {
         acceptPending,
         doPending,
         filterPedingsServices,
+        allPendings,
       }}
     >
       {children}

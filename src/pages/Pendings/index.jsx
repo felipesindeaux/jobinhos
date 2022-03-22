@@ -15,7 +15,8 @@ const Pendings = () => {
     updatePendings,
     hiredPendings,
     acceptedPendings,
-    donePendings
+    donePendings,
+    allPendings
   } = useContext(PendingsContext);
   const [open, setOpen] = useState(false);
   const [serviceID, setServiceID] = useState();
@@ -43,11 +44,11 @@ const Pendings = () => {
       </Main>
 
       {isHired ? (
-        <PendingsCards />
+        <PendingsCards alternative />
       ) : (
         <MainCards
           textContent={"Comentar"}
-          arrayToRender={hiredPendings}
+          arrayToRender={allPendings}
           setOpen={setOpen}
           setServiceID={setServiceID}
         />
