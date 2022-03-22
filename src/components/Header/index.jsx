@@ -162,12 +162,12 @@ const Header = ({ whiteTheme = false, page }) => {
             const { Icon } = option;
 
             return (
-              <>
+              <div key={index}>
                 <Icon size={30} />
-                <DesktopButton key={index} onClick={option.onClick}>
+                <DesktopButton onClick={option.onClick}>
                   {option.label}
                 </DesktopButton>
-              </>
+              </div>
             );
           })}
       </DesktopButtonsContainer>
