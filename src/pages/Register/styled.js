@@ -5,10 +5,21 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 300px;
+  height: 560px;
   padding: 10px 0px;
   margin-top: 40px;
+
+  a{
+    font-weight: 400;
+    font-size: 12px;
+    align-self: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #3D138D;
+  }
 
   p{
     align-self: flex-start;
@@ -18,7 +29,7 @@ export const FormContainer = styled.form`
   select {
     background: rgba(196, 196, 196, 0.47);
     width: 280px;
-    height: 48px;
+    height: 40px;
     border-radius: 2px;
     border: 1px solid var(--brand);
     margin-bottom: 15px;
@@ -26,14 +37,18 @@ export const FormContainer = styled.form`
   }
 
   button {
-    background-color: var(--brand);
-    border: 1px solid var(--brand);
     color: var(--light-1);
     font-weight: 700;
     font-size: 20px;
-    width: 280px;
+
+    width: 100%;
     height: 44px;
-    border-radius: 2px;
+
+    background: #7D4CDB;
+    border: 1px solid #7D4CDB;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    
   }
 
   p {

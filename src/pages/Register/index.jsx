@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Register = () => {
@@ -73,7 +73,7 @@ const Register = () => {
           <input type="password" {...register("password")} />
           <p>Confirmar senha</p>
           <input type="password" {...register("password_confirm")} />
-
+          <Link to='/login'>Já tem uma conta? Entre aqui!</Link>
           <button type="submit">Registrar</button>
         </FormContainer>
       </RegisterContainer>
