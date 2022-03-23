@@ -40,6 +40,8 @@ const MainCards = ({
               accepted={accepted}
               pendingId={item.pendingId}
               pendingStatus={item.pendingStatus}
+              tag = {item.tags}
+              userImage={item.userImage}
             />
           );
         })}

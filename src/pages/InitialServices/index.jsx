@@ -75,7 +75,12 @@ const InitialServices = () => {
               price={item.price}
               id={item.id}
               userId={item.userId}
-            />
+              userImage={item.userImage}
+              tag = {item.tags}
+              desc={item.desc}
+              
+              />
+
           ))}
         </Layer>
       )}
