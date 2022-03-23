@@ -22,7 +22,6 @@ import { MdAdd } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 
 const CardsServices = ({
-  textContent,
   images,
   name,
   title,
@@ -32,8 +31,6 @@ const CardsServices = ({
   setOpen,
   alternative,
   setServiceID,
-  pending,
-  accepted,
   pendingId,
   pendingStatus,
   tag,

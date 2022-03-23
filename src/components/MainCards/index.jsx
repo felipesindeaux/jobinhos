@@ -14,7 +14,7 @@ const MainCards = ({
   pending,
   accepted,
 }) => {
- 
+
   return (
     <Container>
       {

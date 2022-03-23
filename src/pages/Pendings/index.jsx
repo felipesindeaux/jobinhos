@@ -8,6 +8,7 @@ import MainCards from "../../components/MainCards";
 import { useEffect } from "react";
 import { Layer } from "grommet";
 import PendingsCards from "../../components/PendingsCards";
+import CardsServices from "../../components/CardsServices";
 
 const Pendings = () => {
   const { userInfo } = useContext(UserContext);
@@ -16,7 +17,7 @@ const Pendings = () => {
     hiredPendings,
     acceptedPendings,
     donePendings,
-    allPendings
+    allPendings,
   } = useContext(PendingsContext);
   const [open, setOpen] = useState(false);
   const [serviceID, setServiceID] = useState();
@@ -24,6 +25,7 @@ const Pendings = () => {
   useEffect(() => {
     updatePendings();
   }, []);
+  console.log(allPendings);
 
   const [commentSection, setCommentSection] = useState(false);
 
@@ -44,19 +46,81 @@ const Pendings = () => {
       </Main>
 
       {isHired ? (
-        <MainCards
-        textContent={"Comentar"}
-        arrayToRender={hiredPendings}
-        setOpen={setOpen}
-        setServiceID={setServiceID}
-      />
+        <>
+          {hiredPendings.map((item, index) => (
+            <CardsServices
+              key={index}
+              images={item.images}
+              name={item.hirerName}
+              title={item.title}
+              price={item.price}
+              id={item.id}
+              desc={item.desc}
+              setOpen={setOpen}
+              alternative
+              setServiceID={setServiceID}
+              pendingId={item.pendingId}
+              pendingStatus={item.pendingStatus}
+              tag={item.tags}
+              userImage={item.userImage}
+            />
+          ))}
+          {acceptedPendings.map((item, index) => (
+            <CardsServices
+              key={index}
+              images={item.images}
+              name={item.hirerName}
+              title={item.title}
+              price={item.price}
+              id={item.id}
+              desc={item.desc}
+              setOpen={setOpen}
+              alternative
+              setServiceID={setServiceID}
+              pendingId={item.pendingId}
+              pendingStatus={item.pendingStatus}
+              tag={item.tags}
+              userImage={item.userImage}
+            />
+          ))}
+          {donePendings.map((item, index) => (
+            <CardsServices
+              key={index}
+              images={item.images}
+              name={item.hirerName}
+              title={item.title}
+              price={item.price}
+              id={item.id}
+              desc={item.desc}
+              setOpen={setOpen}
+              alternative
+              setServiceID={setServiceID}
+              pendingId={item.pendingId}
+              pendingStatus={item.pendingStatus}
+              tag={item.tags}
+              userImage={item.userImage}
+            />
+          ))}
+        </>
       ) : (
-        <MainCards
-          textContent={"Comentar"}
-          arrayToRender={allPendings}
-          setOpen={setOpen}
-          setServiceID={setServiceID}
-        />
+        allPendings.map((item, index) => (
+          <CardsServices
+            key={index}
+            images={item.images}
+            name={item.name}
+            title={item.title}
+            price={item.price}
+            id={item.id}
+            desc={item.desc}
+            setOpen={setOpen}
+            alternative
+            setServiceID={setServiceID}
+            pendingId={item.pendingId}
+            pendingStatus={item.pendingStatus}
+            tag={item.tags}
+            userImage={item.userImage}
+          />
+        ))
       )}
       {commentSection && (
         <CommentSection service={[]} setCommentSection={setCommentSection} />
