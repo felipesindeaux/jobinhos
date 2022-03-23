@@ -1,4 +1,4 @@
-import { Container } from "./styled";
+import { CarouselFix, Container } from "./styled";
 import { Box, TextInput, Layer, Carousel, Image } from "grommet";
 import { useState } from "react";
 import { Search } from "grommet-icons";
@@ -17,8 +17,9 @@ const InitialServices = () => {
   return (
     <>
       <Header whiteTheme />
+      
       <Box height="medium">
-        <Carousel fill play={2500}>
+        <Carousel controls={false} fill play={2500}>
           <Image
             fit="cover"
             src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
@@ -33,6 +34,7 @@ const InitialServices = () => {
           />
         </Carousel>
       </Box>
+     
       <Container>
         <Box fill align="center" justify="start" pad="large">
           <Box width="large" gap="medium">
@@ -52,7 +54,6 @@ const InitialServices = () => {
         </Box>
       </Container>
       <MainCards
-        textContent={"Eu quero!"}
         open={open}
         setOpen={setOpen}
         arrayToRender={services}
@@ -71,9 +72,14 @@ const InitialServices = () => {
               name={item.name}
               title={item.title}
               price={item.price}
-              id={item.userId}
+              id={item.id}
               userId={item.userId}
-            />
+              userImage={item.userImage}
+              tag = {item.tags}
+              desc={item.desc}
+              
+              />
+
           ))}
         </Layer>
       )}

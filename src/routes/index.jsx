@@ -5,7 +5,8 @@ import Register from "../pages/Register";
 import Pendings from "../pages/Pendings";
 import Profile from "../pages/Profile";
 import InitialServices from "../pages/InitialServices";
-import MyServices from '../pages/MyServices'
+import MyServices from "../pages/MyServices";
+
 
 const Routes = () => (
     <Switch>

@@ -5,6 +5,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: flex-end;
     margin: 10px;
+    
   }
 
   div {
@@ -19,9 +20,10 @@ export const Container = styled.div`
     width: 100%;
     height: 60px;
     font-weight: 700;
-    background-color: var(--dark-3);
+    background-color: var(--brand);
     border: none;
     border-radius: 0px;
+    
     :hover {
       background-color: var(--brand);
     }
@@ -31,6 +33,7 @@ export const Container = styled.div`
 export const Editing = styled.div`
     display: flex;
     flex-direction: column;
+    color: var(--dark);
     :hover{
       background-color: var(--light-6);
       cursor: pointer;
@@ -96,8 +99,13 @@ export const NameComment = styled.p`
   font-size: 16px;
   margin: 8px;
   line-height: 14px;
-  global.hover.background.color{  
-       
-  }
 `;
 
+export const Errors = styled.span`
+ color: var(--status-error);
+ font-size: 15px;
+ opacity: 0.8;
+ padding-bottom: 24px;
+ padding-left: 10px;
+
+`;

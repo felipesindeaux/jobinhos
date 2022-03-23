@@ -1,130 +1,99 @@
-import {
-  Button,
-  Carousel,
-  Layer,
-  Box,
-  FormField,
-  TextInput,
-  Heading,
-} from "grommet";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Button, Layer, Box, FormField, TextInput, Heading } from "grommet";
 import { Close } from "grommet-icons";
-import { NumberInput } from "grommet-controls";
-import {
-  Container,
-  Figures,
-  Desc,
-  Price,
-  Comments,
-  NameComment,
-  Comment,
-  Description,
-  Editing,
-} from "./styled";
+import { Errors, Container } from "./styled";
 import { useState } from "react";
+import { useContext } from "react";
+import { ServicesContext } from "../../Providers/Services";
 
-const ModalService = ({ setOpen, handleCloseModal }) => {
+const ModalService = ({ setOpen, handleCloseModal, setShowModal }) => {
   const closeModal = () => {
     setOpen(false);
   };
 
+  const { services } = useContext(ServicesContext);
+  const { hireService } = useContext(ServicesContext);
+  const { modifyService } = useContext(ServicesContext);
   const [openName, setOpenName] = useState(false);
-  const [number, setNumber] = useState("0");
-  const [name, setName] = useState("")
-  const [service, setService] = useState("")
-  const [description, setDescription] = useState("");
 
+  const formSchema = yup.object().shape({
+    title: yup.string().max(20, "Número máximo de caracteres é 20"),
+    price: yup.number(),
+    desc: yup.string().max(100, "Número máximo de caracteres é 100"),
+  });
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formSchema),
+  });
+
+  const putApiServices = (data) => {
+    modifyService(data);
+  };
+
+  const onSubmitFunction = (dataService) => {
+    if (dataService.images === "") {
+      delete dataService.images;
+    } else {
+      dataService.images = [dataService.images];
+    }
+    handleCloseModal();
+    putApiServices({ ...hireService[0], ...dataService });
+  };
 
   const onOpenName = () => setOpenName(true);
   const onCloseName = () => setOpenName(false);
 
   return (
     <Container>
-      <header>
-        <Desc></Desc>
-        <Button icon={<Close />} onClick={handleCloseModal} />
-      </header>
-      <Figures>
-        <Carousel play={3000}>
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
-          <img
-            src="https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            alt=""
-          />
-        </Carousel>
-      </Figures>
-
-      <Editing >
-        <div>Nome: {name}</div>
-        <Desc>Serviço: {service}</Desc>
-        <Price>Valor: {number}</Price>
-      </Editing>
-
-      <Comments>
-        <Carousel controls="selectors">
-          <Comment>
-            <div className="Data">
-              <NameComment>Descrição</NameComment>
-              <Description>{description}</Description>
-            </div>
-          </Comment>
-        </Carousel>
-      </Comments>
-
-      <Button className="Aceppt" primary label="Editar" onClick={onOpenName} />
-
-      {openName && (
-        <Layer
-          full="vertical"
-          position="right"
-          onEsc={onCloseName}
-          onClickOutside={onCloseName}
+      <Layer
+        full="vertical"
+        position="right"
+        onEsc={onCloseName}
+        onClickOutside={onCloseName}
+      >
+        <Box
+          onSubmit={handleSubmit(onSubmitFunction)}
+          as="form"
+          fill="vertical"
+          overflow="auto"
+          width="medium"
+          pad="medium"
         >
-          <Box
-            as="form"
-            fill="vertical"
-            overflow="auto"
-            width="medium"
-            pad="medium"
-          >
-            <Box flex={false} direction="row" justify="between">
-              <Heading level={2} margin="none"></Heading>
-              <Button icon={<Close />} onClick={onCloseName} />
-            </Box>
-
-            <FormField label="Nome">
-              <TextInput onChange={(e) => setName(e.target.value)} />
-            </FormField>
-            <FormField label="Serviço prestado">
-              <TextInput onChange={(e) => setService(e.target.value)} />
-            </FormField>
-            <FormField label="Valor serviço prestado">
-              <NumberInput
-                name="valor"
-                value={number}
-                onChange={(value) => setNumber(value.target.value)}
-                thousandsSeparatorSymbol=""
-                min={0}
-                icon="R$"
-              />
-            </FormField>
-            <FormField label="Descrição" pad="large">
-              <TextInput
-                name="description"
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </FormField>
-            <Button type="submit" label="Submit" primary />
+          <Box flex={false} direction="row" justify="between">
+            <Heading level={2} margin="none"></Heading>
+            <Button icon={<Close />} onClick={() => setShowModal(false)} />
           </Box>
-        </Layer>
-      )}
+          <FormField label="Serviço prestado">
+            <TextInput {...register("title")} />
+          </FormField>
+          <Errors>{errors.title?.message}</Errors>
+
+          <FormField label="Valor Serviço prestado">
+            <TextInput {...register("price")} type="number" min={0} icon="R$" />
+          </FormField>
+          <FormField label="Descrição">
+            <TextInput name="desc" {...register("desc")} />
+          </FormField>
+          <Errors>{errors.desc?.message}</Errors>
+
+          <FormField label="Imagens">
+            <TextInput
+              name="images"
+              type="url"
+              {...register("images")}
+              placeholder="Adicione sua url"
+            />
+          </FormField>
+
+          <Button type="submit" label="Submit" primary />
+        </Box>
+      </Layer>
     </Container>
   );
 };

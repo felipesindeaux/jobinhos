@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   width: 300px;
-  height: 700px;
+  height: 500px;
   margin: 50px auto;
   background: #ffffff;
   border-radius: 4px;
@@ -85,31 +85,12 @@ export const Container = styled.div`
     }
   }
 
-  select {
-    font-size: 16px;
-    padding: 20px 0px;
-    height: 56px;
-    border: none;
-    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
-    background: #fff;
-    width: 280px;
-    box-sizing: border-box;
-    transition: all 0.3s linear;
-    color: #000;
-    font-weight: 400;
-    &:focus {
-      border-bottom: solid 1px $primary;
-      outline: 0;
-      box-shadow: 0 2px 6px -8px rgba($primary, 0.45);
-    }
-  }
-
   @media (min-width: 600px) {
     width: 500px;
   }
 
   @media (min-width: 1000px) {
-    width: 780px;
+    width: 700px;
     margin-top: 70px;
   }
 
@@ -140,16 +121,15 @@ export const Left = styled.div`
   display: none;
 
   @media (min-width: 600px) {
-    display: flex;
-    justify-content: flex-end;
+    display: block;
     width: 220px;
     height: auto;
     min-height: 100%;
     position: relative;
     background-image: url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: cover;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
     svg {
       fill: white;
       height: 40px;
@@ -159,7 +139,7 @@ export const Left = styled.div`
   }
 
   @media (min-width: 1000px) {
-    width: 340px;
+    width: 300px;
   }
 `;
 
@@ -211,10 +191,6 @@ export const FloatingLabel = styled.div`
     padding-left: 44px;
   }
   input {
-    width: calc(100% - 44px);
-    display: flex;
-  }
-  select {
     width: calc(100% - 44px);
     display: flex;
   }

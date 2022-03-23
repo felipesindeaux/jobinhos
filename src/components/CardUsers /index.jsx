@@ -12,7 +12,7 @@ const CardUsers = ({ handleOpenModal, name, email, img }) => {
         alt=""
       />
       <DivName>
-        Nome:<p>{name}</p>
+        Nome: <p>{name}</p>
       </DivName>
       <DivEmail>
         Email: <p>{email}</p>

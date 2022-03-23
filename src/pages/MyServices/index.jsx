@@ -1,16 +1,29 @@
 import { Button } from "grommet";
-import { useState } from "react";
-import { Card, Name, Desc, Tittle, Container } from "./styled";
+import { useState, useContext, useEffect } from "react";
+import { Card, Title, Price, Desc, ButtonContainer, Container } from "./styled";
 import { Layer } from "grommet";
+import ModalService from "../../components/ModalService";
+import { ServicesContext } from "../../Providers/Services";
+import MainCards from "../../components/MainCards/index";
 import ModalPendings from "../../components/ModalService";
 import Header from "../../components/Header";
-import { useContext } from "react";
 import { UserContext } from "../../Providers/User";
 import { Redirect } from "react-router-dom";
+import CardsServices from "../../components/CardsServices";
 
 const MyServices = () => {
-  const { userInfo } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
+  const {
+    setIdService,
+    setHireService,
+    services,
+    userServices,
+    updateServices,
+  } = useContext(ServicesContext);
+
+  useEffect(() => {
+    updateServices();
+  }, []);
 
   const handleCliclModal = () => {
     setShowModal(true);
@@ -20,36 +33,40 @@ const MyServices = () => {
     setShowModal(false);
   };
 
-  if (userInfo.type === "hirer") {
-    <Redirect to="profile" />;
-  }
+  const { userInfo } = useContext(UserContext);
 
   return (
     <>
-      <Header page={"pendings"} />
+      <Header page="pendings"/>
       <Container>
-        <Card>
-          <img
-            src={
-              "https://vinteconto.sfo2.cdn.digitaloceanspaces.com/listings/418420/09a3b7008f562804e64b7100799ce8cc.jpg"
-            }
-            alt=""
+        {userServices.map((item, index) => (
+          <CardsServices
+            key={index}
+            images={item.images}
+            name={item.name}
+            title={item.title}
+            price={item.price}
+            id={item.id}
+            desc={item.desc}
+            setOpen={setShowModal}
+            editIcon
+            alt
+            pendingId={item.pendingId}
+            pendingStatus={item.pendingStatus}
+            tag={item.tags}
+            userImage={item.userImage}
           />
-          <Name>Jefferson</Name>
-          <div>
-            <p>Tatuador</p>
-            <p>R$</p>
-          </div>
-          <Desc>Descrição</Desc>
-          <Button onClick={handleCliclModal}>Editar</Button>
-        </Card>
+        ))}
 
         {showModal && (
           <Layer
             onClickOutside={() => setShowModal(false)}
             onEsc={() => setShowModal(false)}
           >
-            <ModalPendings handleCloseModal={handleCloseModal} />
+            <ModalService
+              handleCloseModal={handleCloseModal}
+              setShowModal={setShowModal}
+            />
           </Layer>
         )}
       </Container>

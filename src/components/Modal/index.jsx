@@ -11,11 +11,28 @@ import {
   NameComment,
   Comment,
   Commit,
+  Title,
+  Info,
+  ContainerInfo,
+  UserInfoContainer,
+  UserInfo,
+  SpanDiv,
 } from "./styled";
 import { useContext, useState } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
 
-const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
+const Modal = ({
+  setOpen,
+  name,
+  title,
+  price,
+  imgs,
+  id,
+  userId,
+  userImage,
+  tag,
+  desc
+}) => {
   const { ratings } = useContext(RatingsContext);
   const { hireService } = useContext(PendingsContext);
   const serviceRatings = ratings.filter((rating) => rating.serviceId === id);
@@ -29,19 +46,34 @@ const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
       <header>
         <Button onClick={closeModal} secondary label="X" />
       </header>
-      <Figures>
-        <Carousel play={3000}>
-          {imgs.map((img, index) => (
-            <img key={index} src={img} alt="" />
-          ))}
-        </Carousel>
-      </Figures>
 
-      <div>
-        <Name>{name}</Name>
-        <Desc>{title}</Desc>
-        <Price>R$ {price}</Price>
-      </div>
+      <ContainerInfo>
+        <Figures>
+          <Carousel play={3000}>
+            {imgs.map((img, index) => (
+              <img key={index} src={img} alt="" />
+            ))}
+          </Carousel>
+        </Figures>
+
+        <Info>
+          <UserInfo>
+            <img src={userImage} alt="" srcset="" />
+            <div>
+              <Name>{name}</Name>
+              <Price>R$ {price}</Price>
+            </div>
+          </UserInfo>
+
+          <SpanDiv>
+            {tag.map((item, index) => (
+              <span key={index}>{item}</span>
+            ))}
+          </SpanDiv>
+
+          <Title>{title}</Title>
+        </Info>
+      </ContainerInfo>
 
       {serviceRatings.length > 0 ? (
         <Comments>
@@ -65,11 +97,15 @@ const Modal = ({ setOpen, name, title, price, imgs, id, userId }) => {
               <Commit>Ops, este serviço não possui avaliações</Commit>
             </div>
           </Comment>
+
         </Comments>
       )}
 
       <Button
-        onClick={() => hireService(userId, id)}
+        onClick={() => {
+          hireService(userId, id);
+          closeModal();
+        }}
         className="Aceppt"
         primary
         label="Contratar"

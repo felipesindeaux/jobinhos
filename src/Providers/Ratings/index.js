@@ -1,10 +1,12 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
+import { ServicesContext } from "../Services";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 
 export const RatingsContext = createContext();
 
 export const RatingsProvider = ({ children }) => {
+  const {updateServices} = useContext(ServicesContext)
   const [ratings, setRatings] = useState();
 
   useEffect(() => {
@@ -27,6 +29,7 @@ export const RatingsProvider = ({ children }) => {
       .then((res) => {
         toast.success("Comentário Enviado Com Sucesso");
         updateRatings();
+        updateServices()
       })
       .catch((err) => console.log(err));
   };

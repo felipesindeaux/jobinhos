@@ -7,7 +7,7 @@ import { UserContext } from "../../Providers/User";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { P } from "./errors";
+import { InputContainer, P } from "./errors";
 
 const ModalUser = ({ handleCloseModal }) => {
   const { userInfo, updateUserInfo } = useContext(UserContext);
@@ -34,7 +34,6 @@ const ModalUser = ({ handleCloseModal }) => {
     resolver: yupResolver(formSchema),
   });
 
-  console.log(errors);
 
   const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
 
@@ -61,7 +60,8 @@ const ModalUser = ({ handleCloseModal }) => {
       .put(`/users/${userInfo.id}`, data(url, name, password), {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((res) => handleCloseModal());
+      .then((res) => handleCloseModal())
+      .then((res) => updateUserInfo());
   };
 
   return (
@@ -80,68 +80,74 @@ const ModalUser = ({ handleCloseModal }) => {
         <Button icon={<Close />} onClick={handleCloseModal} />
       </Box>
       <Box flex="grow" overflow="auto" pad={{ vertical: "medium" }}>
-        <FormField label="Url da Image">
-          <TextInput
-            value={url}
-            onChange={(e) => {
-              setUrl(e.target.value);
-            }}
-          />
-        </FormField>
-
-        <FormField
-          label={errors.name ? <P>Nome *{errors.name.message}</P> : "Nome"}
-        >
-          <TextInput
-            {...register("name")}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </FormField>
-
-        <FormField
-          label={
-            errors.password ? <P>Senha *{errors.password.message}</P> : "Senha"
-          }
-        >
-          <Box direction="row" width={"medium"} pad="xxsmall">
+        <InputContainer>
+          <FormField label="Url da Image">
             <TextInput
-              plain
-              type={reveal ? "text" : "password"}
-              {...register("password")}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={url}
+              onChange={(e) => {
+                setUrl(e.target.value);
+              }}
             />
-            <Button
-              icon={reveal ? <View size="medium" /> : <Hide size="medium" />}
-              onClick={() => setReveal(!reveal)}
-            />
-          </Box>
-        </FormField>
-
-        <FormField
-          label={
-            errors.password_confirm ? (
-              <P>Confirmar Senha *{errors.password_confirm.message}</P>
-            ) : (
-              "Confirmar Senha"
-            )
-          }
-        >
-          <Box direction="row" width={"medium"} pad="xxsmall">
+          </FormField>
+        </InputContainer>
+        <InputContainer>
+          <FormField label={errors.name ? <P>Nome</P> : <p>Nome</p>}>
             <TextInput
-              plain
-              type={reveal ? "text" : "password"}
-              {...register("password_confirm")}
-              value={passwordConfirm}
-              onChange={(e) => setPasswordConfirm(e.target.value)}
+              {...register("name")}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
-            <Button
-              icon={reveal ? <View size="medium" /> : <Hide size="medium" />}
-              onClick={() => setReveal(!reveal)}
-            />
-          </Box>
-        </FormField>
+          </FormField>
+          {errors.name && <span>{errors.name.message}</span>}
+        </InputContainer>
+
+        <InputContainer>
+          <FormField label={errors.password ? <P>Senha</P> : <p>Senha</p>}>
+            <Box direction="row" width={"medium"} pad="xxsmall">
+              <TextInput
+                plain
+                type={reveal ? "text" : "password"}
+                {...register("password")}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Button
+                icon={reveal ? <View size="medium" /> : <Hide size="medium" />}
+                onClick={() => setReveal(!reveal)}
+              />
+            </Box>
+          </FormField>
+          {errors.password && <span>{errors.password.message}</span>}
+        </InputContainer>
+
+        <InputContainer>
+          <FormField
+            label={
+              errors.password_confirm ? (
+                <P>Confirmar Senha</P>
+              ) : (
+                <p>Confirmar Senha</p>
+              )
+            }
+          >
+            <Box direction="row" width={"medium"} pad="xxsmall">
+              <TextInput
+                plain
+                type={reveal ? "text" : "password"}
+                {...register("password_confirm")}
+                value={passwordConfirm}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
+              />
+              <Button
+                icon={reveal ? <View size="medium" /> : <Hide size="medium" />}
+                onClick={() => setReveal(!reveal)}
+              />
+            </Box>
+          </FormField>
+          {errors.password_confirm && (
+            <span>{errors.password_confirm.message}</span>
+          )}
+        </InputContainer>
       </Box>
       <Box flex={false} as="footer" align="start">
         <Button type="submit" label="Salvar" primary />

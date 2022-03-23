@@ -15,6 +15,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { BiBriefcaseAlt } from "react-icons/bi";
 import { HiOutlineUserGroup, HiOutlineUser } from "react-icons/hi";
 import { MdLogout } from "react-icons/md";
+import NavBar from "../MobileNav";
 
 const Header = ({ whiteTheme = false, page }) => {
   const { userInfo, handleUserInfo } = useContext(UserContext);
@@ -140,10 +141,7 @@ const Header = ({ whiteTheme = false, page }) => {
     <>
       <Container whiteTheme={whiteTheme}>
         <MobileLeftContainer>
-          <Menu
-            icon={<List color={whiteTheme ? "brand" : "light-1"} />}
-            items={options}
-          />
+          <NavBar options={options}/>
           {page === "user" ? (
             <MobileTitle whiteTheme={whiteTheme}>
               Bem vindo ao <span>Jobinhos!</span>
@@ -152,23 +150,25 @@ const Header = ({ whiteTheme = false, page }) => {
             <MobileTitle whiteTheme={whiteTheme}>Jobinhos</MobileTitle>
           )}
         </MobileLeftContainer>
-        <DesktopTitle onClick={() => history.push('/')}><span>Job</span>inhos</DesktopTitle>
-      </Container>
-      <DesktopButtonsContainer>
-        {options &&
-          options.map((option, index) => {
-            const { Icon } = option;
+        <DesktopTitle onClick={() => history.push("/")}>
+          <span>Job</span>inhos
+        </DesktopTitle>
+        <DesktopButtonsContainer>
+          {options &&
+            options.map((option) => {
+              const { Icon } = option;
 
-            return (
-              <>
-                <Icon size={30} />
-                <DesktopButton key={index} onClick={option.onClick}>
-                  {option.label}
-                </DesktopButton>
-              </>
-            );
-          })}
-      </DesktopButtonsContainer>
+              return (
+                <>
+                  <Icon size={30} />
+                  <DesktopButton onClick={option.onClick}>
+                    {option.label}
+                  </DesktopButton>
+                </>
+              );
+            })}
+        </DesktopButtonsContainer>
+      </Container>
     </>
   );
 };
