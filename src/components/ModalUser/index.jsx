@@ -34,7 +34,6 @@ const ModalUser = ({ handleCloseModal }) => {
     resolver: yupResolver(formSchema),
   });
 
-  console.log(errors);
 
   const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
 

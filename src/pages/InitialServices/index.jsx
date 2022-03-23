@@ -73,7 +73,7 @@ const InitialServices = () => {
               name={item.name}
               title={item.title}
               price={item.price}
-              id={item.userId}
+              id={item.id}
               userId={item.userId}
             />
           ))}
