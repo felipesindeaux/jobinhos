@@ -4,7 +4,9 @@ export const Container = styled.div`
   margin: auto;
   display:flex;
   overflow-x:auto;
-    
+  div{
+    width: 90%;
+  }
 
   @media screen and (min-width: 1000px) {
     width: 80%;

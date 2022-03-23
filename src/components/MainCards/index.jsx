@@ -3,6 +3,7 @@ import { Container } from "./styled";
 import { useContext } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
 import { useState } from "react";
+import { Box, Grid, InfiniteScroll } from "grommet";
 
 const MainCards = ({
   setOpen,
@@ -13,9 +14,12 @@ const MainCards = ({
 }) => {
  
   return (
+    
     <Container>
+      <Grid columns="270px" overflow='auto' gap='large'>
+      <InfiniteScroll items={arrayToRender} step={1}>
       {
-        arrayToRender.map((item, index) => {
+        (item, index) => {
 
           const name = alternative ? item.hirerName : item.name;
 
@@ -38,8 +42,11 @@ const MainCards = ({
               userImage={item.userImage}
             />
           );
-        })}
-    </Container>
+        }}
+        </InfiniteScroll>
+      </Grid>
+    </Container>    
+
   );
 };
 
