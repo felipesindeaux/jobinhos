@@ -3,11 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 170px;
-  background: ${({ whiteTheme }) => (whiteTheme ? "white" : "#7D4CDB")};
-  color: var(--light-1);
+  background: var(--light-1);
   display: flex;
   align-items: center;
-  padding: 20px 22px;
+  padding: 20px 0px;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -28,6 +27,7 @@ export const Container = styled.div`
 
 export const MobileLeftContainer = styled.div`
   height: 100%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,10 +48,11 @@ export const MobileLeftContainer = styled.div`
 `;
 
 export const MobileTitle = styled.h1`
-  color: ${({ whiteTheme }) => (whiteTheme ? "#7D4CDB" : "#F8F8F8")};
+  color: #7d4cdb;
+  padding-left: 22px;
 
   span {
-    color: #FB9DF0;
+    color: #fb9df0;
   }
 `;
 

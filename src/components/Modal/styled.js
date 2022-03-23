@@ -168,7 +168,6 @@ export const SpanDiv = styled.div`
 
   span {
     display:none;
-    max-width: 90%;
     background: #cccccc;
     border-radius: 50px;
     font-size: 12px;
