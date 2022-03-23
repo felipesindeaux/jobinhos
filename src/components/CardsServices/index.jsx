@@ -19,6 +19,7 @@ import { useContext } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
 import { Add } from "grommet-icons";
 import { MdAdd } from "react-icons/md";
+import { FiEdit } from "react-icons/fi";
 
 const CardsServices = ({
   textContent,
@@ -37,6 +38,7 @@ const CardsServices = ({
   pendingStatus,
   tag,
   userImage,
+  editIcon,
 }) => {
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
@@ -53,7 +55,7 @@ const CardsServices = ({
     setOpen(true);
     setIdService(id);
     setHireService(services.filter((service) => service.id === id));
-    setServiceID(id)
+    setServiceID(id);
   };
 
   return (
@@ -80,7 +82,15 @@ const CardsServices = ({
         </UserInfo>
 
         <ButtonContainer>
-          <MdAdd onClick={showModal} />
+          {editIcon ? (
+            <ButtonContainer alt>
+              <FiEdit onClick={showModal} alt />{" "}
+            </ButtonContainer>
+          ) : (
+            <ButtonContainer>
+              <MdAdd onClick={showModal} />
+            </ButtonContainer>
+          )}
         </ButtonContainer>
       </UserInfoContainer>
     </Card>

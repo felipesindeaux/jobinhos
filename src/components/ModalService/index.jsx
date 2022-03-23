@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Layer, Box, FormField, TextInput, Heading } from "grommet";
 import { Close } from "grommet-icons";
-import { Errors } from "./styled";
+import { Container, Errors } from "./styled";
 import { useState } from "react";
 import { useContext } from "react";
 import { ServicesContext } from "../../Providers/Services";
