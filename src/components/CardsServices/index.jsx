@@ -11,8 +11,8 @@ import {
   Price,
   UserInfoContainer,
   SpanDiv,
+  Button
 } from "./styled";
-import { Button } from "grommet";
 import { ServicesContext } from "../../Providers/Services";
 import { UserContext } from "../../Providers/User";
 import { useContext } from "react";
@@ -78,17 +78,15 @@ const CardsServices = ({
           <h5>{name}</h5>
         </UserInfo>
 
-        <ButtonContainer>
-          {editIcon ? (
-            <ButtonContainer alt>
-              <FiEdit onClick={showModal} alt />{" "}
-            </ButtonContainer>
-          ) : (
-            <ButtonContainer>
+        {editIcon ? (
+            <Button alt>
+              <FiEdit onClick={showModal} alt />
+            </Button>
+        ) : (
+            <Button>
               <MdAdd onClick={showModal} />
-            </ButtonContainer>
-          )}
-        </ButtonContainer>
+            </Button>
+        )}
       </UserInfoContainer>
     </Card>
   );
