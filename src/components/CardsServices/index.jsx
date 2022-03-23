@@ -21,7 +21,6 @@ import { Add } from "grommet-icons";
 import { MdAdd } from "react-icons/md";
 
 const CardsServices = ({
-  textContent,
   images,
   name,
   title,
@@ -31,8 +30,6 @@ const CardsServices = ({
   setOpen,
   alternative,
   setServiceID,
-  pending,
-  accepted,
   pendingId,
   pendingStatus,
   tag,
