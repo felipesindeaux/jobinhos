@@ -116,8 +116,8 @@ export const ButtonContainer = styled.div`
     display: inline-flex;
     text-decoration: none;
     color: var(--dark-1);
-    width: 40px;
-    height: 40px;
+    width: ${(props) => props.alt ? "20px" : "40px"};
+    height: ${(props) => props.alt ? "20px" : "40px"};
     transition: 0.5s linear;
     position: relative;
     z-index: 1;
@@ -125,7 +125,7 @@ export const ButtonContainer = styled.div`
     :hover {
       color: #fff;
     }
-    &::before {
+    ::before {
       content: "";
       position: absolute;
       top: 0;
