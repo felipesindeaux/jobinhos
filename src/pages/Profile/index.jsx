@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import ModalUser from "../../components/ModalUser";
 import { UserContext } from "../../Providers/User";
 import { PendingsContext } from "../../Providers/Pendings";
+import { Body, Card } from "./styled";
 
 import { useState, useContext } from "react";
 
@@ -27,12 +28,15 @@ const Profile = () => {
   return (
     <>
       <Header page="profile" />
-      <CardUsers
-        handleOpenModal={handleOpenModal}
-        name={userInfo.name}
-        email={userInfo.email}
-        img={userInfo.img}
-      />
+      <Body>
+        <CardUsers
+          className="card"
+          handleOpenModal={handleOpenModal}
+          name={userInfo.name}
+          email={userInfo.email}
+          img={userInfo.img}
+        />
+      </Body>
       {showModal && (
         <Layer
           position="right"

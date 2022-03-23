@@ -37,7 +37,6 @@ export const SpanDiv = styled.div`
     color: #fff;
     padding: 2px 10px;
     text-transform: uppercase;
-    cursor: pointer;
     background-color: var(--brand);
   }
 
@@ -94,55 +93,49 @@ export const Price = styled.p`
   font-weight: 600;
 `;
 
-export const ButtonContainer = styled.div`
-  background: transparent;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  border: none;
+export const Button = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 3rem;
+  text-decoration: none;
+  color: var(--black-1);
+  width: 40px;
+  height: 40px;
+  transition: 0.5s linear;
+  position: relative;
+  z-index: 0;
+
   :hover {
-    background: var(--brand);
+    color: white;
   }
 
   ::before {
-    transform: scale(1);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 50%;
+    z-index: -1;
+    transform: scale(0);
+    transition: 0.3s cubic-bezier(0.95, 0.32, 0.37, 1.21);
   }
+
   :hover::before {
     transform: scale(1);
+    background: var(--brand);
   }
 
   svg {
-    display: inline-flex;
-    text-decoration: none;
     color: var(--dark-1);
-    width: ${(props) => props.alt ? "20px" : "40px"};
-    height: ${(props) => props.alt ? "20px" : "40px"};
-    transition: 0.5s linear;
-    position: relative;
-    z-index: 1;
-    margin: auto;
-    :hover {
-      color: #fff;
-    }
-    ::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 6rem;
-      height: 6rem;
-      background: #000;
-      border-radius: 50%;
-      z-index: -1;
-      transform: scale(0);
-      transition: 0.3s cubic-bezier(0.95, 0.32, 0.37, 1.21);
-    }
-    :hover::before {
-      background: var(--brand);
-    }
+    width: ${({ alt }) => (alt ? "25px" : "unset")};
+    height: ${({ alt }) => (alt ? "25px" : "unset")};
   }
 `;
 

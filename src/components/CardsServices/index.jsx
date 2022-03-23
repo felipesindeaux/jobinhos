@@ -1,25 +1,19 @@
 import {
   Card,
-  CardBody,
-  Name,
   Desc,
-  AlternativeButton,
-  AlternativeButtonContainer,
-  ButtonContainer,
   UserInfo,
   Title,
   Price,
   UserInfoContainer,
   SpanDiv,
+  Button,
 } from "./styled";
-import { Button } from "grommet";
 import { ServicesContext } from "../../Providers/Services";
-import { UserContext } from "../../Providers/User";
 import { useContext } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
-import { Add } from "grommet-icons";
 import { MdAdd } from "react-icons/md";
-import { FiEdit } from "react-icons/fi";
+import { FiEdit, FiCheck, FiCheckSquare } from "react-icons/fi";
+import { HiOutlineChatAlt } from "react-icons/hi";
 
 const CardsServices = ({
   images,
@@ -36,6 +30,11 @@ const CardsServices = ({
   tag,
   userImage,
   editIcon,
+  pending,
+  accepted,
+  comment,
+  alt,
+  noButton,
 }) => {
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
@@ -48,16 +47,26 @@ const CardsServices = ({
     filterPedingsServices,
   } = useContext(PendingsContext);
 
+  const Icon = comment
+    ? HiOutlineChatAlt
+    : pending
+    ? FiCheck
+    : accepted
+    ? FiCheckSquare
+    : editIcon
+    ? FiEdit
+    : MdAdd;
+
   const showModal = () => {
     setOpen(true);
     setIdService(id);
     setHireService(services.filter((service) => service.id === id));
-    setServiceID(id);
+    setServiceID && setServiceID(id);
   };
 
   return (
     <Card>
-      <img src={images[0]} alt={name} />
+      <img src={images[0]} />
 
       <SpanDiv>
         {tag.map((item, index) => (
@@ -70,25 +79,23 @@ const CardsServices = ({
       {!alternative && <Desc>{desc}</Desc>}
       <Price>R$ {price.toFixed(2)}</Price>
 
-      {pendingStatus && <p>Status: {pendingStatus}</p>}
-
       <UserInfoContainer>
         <UserInfo>
-          <img src={userImage} alt="" srcset="" />
+          <img src={userImage} alt={name} />
           <h5>{name}</h5>
         </UserInfo>
 
-        <ButtonContainer>
-          {editIcon ? (
-            <ButtonContainer alt>
-              <FiEdit onClick={showModal} alt />{" "}
-            </ButtonContainer>
-          ) : (
-            <ButtonContainer>
-              <MdAdd onClick={showModal} />
-            </ButtonContainer>
-          )}
-        </ButtonContainer>
+        {!noButton && (
+          <Button alt={alt}>
+            <Icon
+              onClick={
+                (alt && accepted) || (alt && pending)
+                  ? () => acceptPending(pendingId)
+                  : showModal
+              }
+            />
+          </Button>
+        )}
       </UserInfoContainer>
     </Card>
   );
