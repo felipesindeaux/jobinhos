@@ -57,7 +57,7 @@ const Register = () => {
         <Container>
           <Form onSubmit={handleSubmit(submitData)}>
             <h4>Bem vindo de volta</h4>
-            <p>Faça seu login:</p>
+            <p>Faça seu cadastro:</p>
             <FloatingLabel>
               <input placeholder="Nome" {...register("name")} />
               <label>Nome:</label>
@@ -89,7 +89,7 @@ const Register = () => {
               <label>Confirmar Senha:</label>
             </FloatingLabel>
             <button disabled={!isValid}>Log in</button>
-            <Link to="/login">Ainda não é parceiro? Registre aqui!</Link>
+            <Link to="/login">Já tem uma conta? Entre aqui</Link>
           </Form>
           <Left>
             <svg
