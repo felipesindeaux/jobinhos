@@ -54,7 +54,6 @@ const InitialServices = () => {
         </Box>
       </Container>
       <MainCards
-        textContent={"Eu quero!"}
         open={open}
         setOpen={setOpen}
         arrayToRender={services}
