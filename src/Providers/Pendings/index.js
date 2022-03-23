@@ -135,7 +135,14 @@ export const PendingsProvider = ({ children }) => {
         api
           .post(
             "/pendings",
-            { hired, hirer: userInfo.id, serviceId },
+            {
+              serviceId,
+              hirerName: userInfo.name,
+              hirerImg: userInfo.img,
+              hirer: userInfo.id,
+              hired,
+              status: "pending",
+            },
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -169,7 +176,15 @@ export const PendingsProvider = ({ children }) => {
         api
           .put(
             `/pendings/${pendingId}`,
-            { ...response.data, status: "accepted" },
+            {
+              ...response.data,
+              status:
+                response.data.status === "pending"
+                  ? "accepted"
+                  : response.data.status === "accepted"
+                  ? "done"
+                  : "",
+            },
             {
               headers: { Authorization: `Bearer ${token}` },
             }

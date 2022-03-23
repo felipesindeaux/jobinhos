@@ -28,7 +28,6 @@ const MyServices = () => {
   const handleCliclModal = () => {
     setShowModal(true);
   };
-  console.log(userServices);
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -51,7 +50,7 @@ const MyServices = () => {
             desc={item.desc}
             setOpen={setShowModal}
             editIcon
-            alternative
+            alt
             pendingId={item.pendingId}
             pendingStatus={item.pendingStatus}
             tag={item.tags}
