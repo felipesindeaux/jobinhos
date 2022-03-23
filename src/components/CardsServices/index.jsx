@@ -1,16 +1,24 @@
 import {
   Card,
+  CardBody,
   Name,
   Desc,
   AlternativeButton,
   AlternativeButtonContainer,
   ButtonContainer,
+  UserInfo,
+  Title,
+  Price,
+  UserInfoContainer,
+  SpanDiv,
 } from "./styled";
 import { Button } from "grommet";
 import { ServicesContext } from "../../Providers/Services";
 import { UserContext } from "../../Providers/User";
 import { useContext } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
+import { Add } from "grommet-icons";
+import { MdAdd } from "react-icons/md";
 
 const CardsServices = ({
   textContent,
@@ -27,10 +35,12 @@ const CardsServices = ({
   accepted,
   pendingId,
   pendingStatus,
+  tag,
+  userImage,
 }) => {
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
-  const {setIdService} = useContext(ServicesContext);
+  const { setIdService } = useContext(ServicesContext);
   const {
     refusePending,
     acceptPending,
@@ -41,7 +51,7 @@ const CardsServices = ({
 
   const showModal = () => {
     setOpen(true);
-    setIdService(id)
+    setIdService(id);
     setHireService(services.filter((service) => service.id === id));
     setServiceID(id)
   };
@@ -49,48 +59,30 @@ const CardsServices = ({
   return (
     <Card>
       <img src={images[0]} alt={name} />
-      <Name>{name}</Name>
 
-      <div className="title">
-        <p>{title}</p>
-        <p>R$ {price}</p>
-      </div>
+      <SpanDiv>
+        {tag.map((item, index) => (
+          <span key={index}>{item}</span>
+        ))}
+      </SpanDiv>
+
+      <Title>{title}</Title>
+
       {!alternative && <Desc>{desc}</Desc>}
+      <Price>R$ {price.toFixed(2)}</Price>
+
       {pendingStatus && <p>Status: {pendingStatus}</p>}
-      {!alternative && (
+
+      <UserInfoContainer>
+        <UserInfo>
+          <img src={userImage} alt="" srcset="" />
+          <h5>{name}</h5>
+        </UserInfo>
+
         <ButtonContainer>
-          <Button onClick={showModal}>{textContent}</Button>
+          <MdAdd onClick={showModal} />
         </ButtonContainer>
-      )}
-      {pending && (
-        <AlternativeButtonContainer>
-          <AlternativeButton
-            onClick={() => {
-              acceptPending(pendingId);
-            }}
-          >
-            Aceitar
-          </AlternativeButton>
-          <AlternativeButton
-            onClick={() => {
-              refusePending(pendingId);
-            }}
-          >
-            Recusar
-          </AlternativeButton>
-        </AlternativeButtonContainer>
-      )}
-      {accepted && (
-        <AlternativeButtonContainer>
-          <AlternativeButton
-            onClick={() => {
-              doPending(pendingId);
-            }}
-          >
-            Concluir
-          </AlternativeButton>
-        </AlternativeButtonContainer>
-      )}
+      </UserInfoContainer>
     </Card>
   );
 };

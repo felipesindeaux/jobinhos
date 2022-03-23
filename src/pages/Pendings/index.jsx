@@ -44,7 +44,12 @@ const Pendings = () => {
       </Main>
 
       {isHired ? (
-        <PendingsCards alternative />
+        <MainCards
+        textContent={"Comentar"}
+        arrayToRender={hiredPendings}
+        setOpen={setOpen}
+        setServiceID={setServiceID}
+      />
       ) : (
         <MainCards
           textContent={"Comentar"}

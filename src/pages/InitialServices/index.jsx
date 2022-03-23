@@ -54,7 +54,6 @@ const InitialServices = () => {
         </Box>
       </Container>
       <MainCards
-        textContent={"Eu quero!"}
         open={open}
         setOpen={setOpen}
         arrayToRender={services}
@@ -75,7 +74,12 @@ const InitialServices = () => {
               price={item.price}
               id={item.id}
               userId={item.userId}
-            />
+              userImage={item.userImage}
+              tag = {item.tags}
+              desc={item.desc}
+              
+              />
+
           ))}
         </Layer>
       )}
