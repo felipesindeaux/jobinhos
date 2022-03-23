@@ -74,7 +74,7 @@ const CardsServices = ({
 
       <UserInfoContainer>
         <UserInfo>
-          <img src={userImage} alt="" srcset="" />
+          <img src={userImage} alt={name} />
           <h5>{name}</h5>
         </UserInfo>
 

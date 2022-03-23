@@ -43,6 +43,7 @@ export const PendingsProvider = ({ children }) => {
         return {
           ...newService,
           hirerName: pending.hirerName,
+          hirerImg: pending.hirerImg,
           pendingId: pending.id,
           pendingStatus: pending.status,
         };
@@ -64,6 +65,7 @@ export const PendingsProvider = ({ children }) => {
         return {
           ...newService,
           hirerName: pending.hirerName,
+          hirerImg: pending.hirerImg,
           pendingId: pending.id,
         };
       }
@@ -84,6 +86,7 @@ export const PendingsProvider = ({ children }) => {
         return {
           ...newService,
           hirerName: pending.hirerName,
+          hirerImg: pending.hirerImg,
           pendingId: pending.id,
         };
       }
@@ -104,6 +107,7 @@ export const PendingsProvider = ({ children }) => {
         return {
           ...newService,
           hirerName: pending.hirerName,
+          hirerImg: pending.hirerImg,
           pendingId: pending.id,
         };
       }

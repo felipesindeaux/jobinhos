@@ -25,7 +25,6 @@ const Pendings = () => {
   useEffect(() => {
     updatePendings();
   }, []);
-  console.log(allPendings);
 
   const [commentSection, setCommentSection] = useState(false);
 
@@ -62,7 +61,7 @@ const Pendings = () => {
               pendingId={item.pendingId}
               pendingStatus={item.pendingStatus}
               tag={item.tags}
-              userImage={item.userImage}
+              userImage={item.hirerImg}
             />
           ))}
           {acceptedPendings.map((item, index) => (
@@ -80,7 +79,7 @@ const Pendings = () => {
               pendingId={item.pendingId}
               pendingStatus={item.pendingStatus}
               tag={item.tags}
-              userImage={item.userImage}
+              userImage={item.hirerImg}
             />
           ))}
           {donePendings.map((item, index) => (
@@ -98,7 +97,7 @@ const Pendings = () => {
               pendingId={item.pendingId}
               pendingStatus={item.pendingStatus}
               tag={item.tags}
-              userImage={item.userImage}
+              userImage={item.hirerImg}
             />
           ))}
         </>
