@@ -43,6 +43,7 @@ export const Container = styled.div`
     top: 25px;
     left: 25px;
     z-index: 1;
+    width: 50px;
     -webkit-user-select: none;
     user-select: none;
   }
