@@ -42,9 +42,14 @@ const ModalService = ({ setOpen, handleCloseModal, setShowModal }) => {
     } else {
       dataService.images = [dataService.images];
     }
+    if (dataService.title === "") {
+      delete dataService.title;
+    }
     handleCloseModal();
     putApiServices({ ...hireService[0], ...dataService });
+
   };
+
 
   const onOpenName = () => setOpenName(true);
   const onCloseName = () => setOpenName(false);
@@ -70,7 +75,7 @@ const ModalService = ({ setOpen, handleCloseModal, setShowModal }) => {
             <Button icon={<Close />} onClick={() => setShowModal(false)} />
           </Box>
           <FormField label="Serviço prestado">
-            <TextInput {...register("title")} />
+            <TextInput name="title"{...register("title")} />
           </FormField>
           <Errors>{errors.title?.message}</Errors>
 
