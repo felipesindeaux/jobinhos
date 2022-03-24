@@ -32,13 +32,35 @@ export const ServicesProvider = ({ children }) => {
   const modifyService = (data) => {
     const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
 
-    api.put(`/services/${idService}`, data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((response) =>  updateServices() )
+    api
+      .put(`/services/${idService}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => updateServices());
+  };
 
-  }
+  const createService = (data) => {
+    const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
+
+    api
+      .post(
+        `/services`,
+        {
+          ...data,
+          name: userInfo.name,
+          userId: userInfo.id,
+          userImage: userInfo.img,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => updateServices());
+  };
 
   const filterServices = (value) => {
     setServices(backup);
@@ -69,6 +91,7 @@ export const ServicesProvider = ({ children }) => {
         modifyService,
         filterServices,
         userServices,
+        createService,
       }}
     >
       {children}
