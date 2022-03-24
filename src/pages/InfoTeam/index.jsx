@@ -7,7 +7,7 @@ const InfoTeam = () => {
   return (
     <>
       <Body>
-        <Header />
+        <Header page="pendings" />
         <Container>
           <Card className="card">
             <Img>
