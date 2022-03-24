@@ -56,7 +56,6 @@ const CardsServices = ({
     : MdAdd;
 
   const showModal = () => {
-    console.log(avarageStars(id));
     setOpen(true);
     setIdService(id);
     setHireService(services.filter((service) => service.id === id));
