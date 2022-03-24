@@ -8,7 +8,7 @@ export const Container = styled.div`
   padding: 30px;
 
   @media screen and (min-width: 1075px) {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
