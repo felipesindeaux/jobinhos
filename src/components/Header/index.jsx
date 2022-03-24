@@ -41,6 +41,7 @@ const Header = ({ whiteTheme = false, page }) => {
             onClick: () => {
               localStorage.clear();
               handleUserInfo(undefined);
+              history.push("/login");
             },
             Icon: MdLogout,
           },
@@ -69,6 +70,7 @@ const Header = ({ whiteTheme = false, page }) => {
               onClick: () => {
                 localStorage.clear();
                 handleUserInfo(undefined);
+                history.push("/login");
               },
               Icon: MdLogout,
             },
@@ -90,6 +92,7 @@ const Header = ({ whiteTheme = false, page }) => {
               onClick: () => {
                 localStorage.clear();
                 handleUserInfo(undefined);
+                history.push("/login");
               },
               Icon: MdLogout,
             },
