@@ -4,6 +4,7 @@ import {Container} from "./styled";
 
 
 const NavBar = ({options}) => {
+  console.log(options)
   return (
     <Container >
         <nav>
