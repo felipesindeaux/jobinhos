@@ -13,20 +13,6 @@ export const Container = styled.div`
     justify-content: space-around;
   }
 
-  .Aceppt {
-    color: white;
-    width: 100%;
-    height: 60px;
-    font-weight: 700;
-    background-color: var(--brand);
-    border: none;
-    border-radius: 0px;
-    :hover {
-      background-color: var(--dark-1);
-      border:none;
-    }
-  }
-
   @media screen and (min-width: 1000px) {
     width: 700px;
   }
@@ -73,10 +59,10 @@ export const UserInfo = styled.div`
     margin-right: 10px;
   }
 
-  div{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   h5 {
     margin: 0;
@@ -84,7 +70,7 @@ export const UserInfo = styled.div`
 `;
 
 export const Title = styled.p`
-  text-align:center;
+  text-align: center;
   padding-left: 20px;
   font-size: 16px;
   font-weight: 700;
@@ -103,7 +89,6 @@ export const Figures = styled.section`
 
 export const Name = styled.p`
   color: var(--brand);
-  margin: 20px 10px;
   font-size: 18px;
   letter-spacing: 0.08em;
 `;
@@ -116,7 +101,7 @@ export const Desc = styled.p`
 
 export const Price = styled.p`
   color: black;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
 `;
 
@@ -127,6 +112,7 @@ export const Comments = styled.div`
     border-radius: 16px;
     background-color: #c4c4c436;
     display: flex;
+    padding: 10px;
     flex-direction: column;
     align-items: flex-start;
     width: 200px;
@@ -137,7 +123,7 @@ export const Comments = styled.div`
 export const Commit = styled.p`
   font-size: 15px;
   color: #00000085;
-  margin: 8px 11px;
+  margin: 0px 11px;
 `;
 
 export const Comment = styled.div`
@@ -147,7 +133,6 @@ export const Comment = styled.div`
 export const NameComment = styled.p`
   color: var(--brand);
   font-size: 16px;
-  margin: 8px;
   line-height: 14px;
 `;
 
@@ -167,14 +152,13 @@ export const SpanDiv = styled.div`
   padding-left: 20px;
 
   span {
-    display:none;
+    display: none;
     background: #cccccc;
     border-radius: 50px;
     font-size: 12px;
     color: #fff;
     padding: 2px 10px;
     text-transform: uppercase;
-    cursor: pointer;
     background-color: var(--brand);
   }
 
@@ -183,9 +167,32 @@ export const SpanDiv = styled.div`
   }
 
   @media screen and (min-width: 1000px) {
-
-    span{
-      display:flex;
+    span {
+      display: flex;
     }
   }
+`;
+
+export const Button = styled.button`
+  border-radius: 0px 0px 4px 4px;
+  color: white;
+  width: 100%;
+  height: 60px;
+  font-weight: 700;
+  font-size: 20px;
+  background-color: var(--brand);
+  border: none;
+  :hover {
+    background-color: var(--dark-1);
+    border: none;
+  }
+`;
+
+export const CloseButton = styled.button`
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  position: absolute;
+  right: 17px;
+  top: 17px;
 `;

@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import ModalUser from "../../components/ModalUser";
 import { UserContext } from "../../Providers/User";
 import { PendingsContext } from "../../Providers/Pendings";
-import { Body, Card } from "./styled";
+import { Body } from "./styled";
 
 import { useState, useContext } from "react";
 
@@ -13,7 +13,7 @@ import { useEffect } from "react";
 const Profile = () => {
   const { updatePendings } = useContext(PendingsContext);
   const [showModal, setShowModal] = useState(false);
-  const { userInfo, updateUserInfo } = useContext(UserContext);
+  const { userInfo } = useContext(UserContext);
 
   const handleOpenModal = () => {
     setShowModal(true);
@@ -27,8 +27,8 @@ const Profile = () => {
 
   return (
     <>
-      <Header page="profile" />
       <Body>
+        <Header page="profile" />
         <CardUsers
           className="card"
           handleOpenModal={handleOpenModal}

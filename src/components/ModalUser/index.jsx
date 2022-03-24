@@ -7,7 +7,7 @@ import { UserContext } from "../../Providers/User";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { InputContainer, P } from "./errors";
+import { InputContainer, P } from "./styled";
 
 const ModalUser = ({ handleCloseModal }) => {
   const { userInfo, updateUserInfo } = useContext(UserContext);
@@ -33,7 +33,6 @@ const ModalUser = ({ handleCloseModal }) => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-
 
   const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
 

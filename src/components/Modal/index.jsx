@@ -1,11 +1,10 @@
-import { Button, Carousel } from "grommet";
+import { Carousel } from "grommet";
 import { Chat } from "grommet-icons";
 import { RatingsContext } from "../../Providers/Ratings";
 import {
   Container,
   Figures,
   Name,
-  Desc,
   Price,
   Comments,
   NameComment,
@@ -14,12 +13,14 @@ import {
   Title,
   Info,
   ContainerInfo,
-  UserInfoContainer,
   UserInfo,
   SpanDiv,
+  Button,
+  CloseButton,
 } from "./styled";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
+import CardStars from "../CardStars";
 
 const Modal = ({
   setOpen,
@@ -31,7 +32,6 @@ const Modal = ({
   userId,
   userImage,
   tag,
-  desc
 }) => {
   const { ratings } = useContext(RatingsContext);
   const { hireService } = useContext(PendingsContext);
@@ -44,7 +44,7 @@ const Modal = ({
   return (
     <Container>
       <header>
-        <Button onClick={closeModal} secondary label="X" />
+        <CloseButton onClick={closeModal}>X</CloseButton>
       </header>
 
       <ContainerInfo>
@@ -59,9 +59,10 @@ const Modal = ({
         <Info>
           <UserInfo>
             <img src={userImage} alt="" srcset="" />
+
             <div>
               <Name>{name}</Name>
-              <Price>R$ {price}</Price>
+              <Price>R$ {price.toFixed(2)}</Price>
             </div>
           </UserInfo>
 
@@ -83,6 +84,7 @@ const Modal = ({
                 <Chat />
                 <div className="Data">
                   <NameComment>{rating.name}</NameComment>
+                  <CardStars serviceStars={rating.stars} />
                   <Commit>{rating.comment}</Commit>
                 </div>
               </Comment>
@@ -97,7 +99,6 @@ const Modal = ({
               <Commit>Ops, este serviço não possui avaliações</Commit>
             </div>
           </Comment>
-
         </Comments>
       )}
 
@@ -107,9 +108,9 @@ const Modal = ({
           closeModal();
         }}
         className="Aceppt"
-        primary
-        label="Contratar"
-      />
+      >
+        Contratar
+      </Button>
     </Container>
   );
 };

@@ -5,7 +5,7 @@ export const Container = styled.div`
     text-decoration: none;
     color: var(--brand);
     opacity: 5;
-    font-family: "work sans", sans serif;
+    font-family: "work sans", sans-serif;
     font-size: 1.5em;
     font-weight: 500;
     transition: 200ms;
@@ -39,9 +39,11 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
+    width: 50px;
     top: 25px;
     left: 25px;
     z-index: 1;
+    width: 50px;
     -webkit-user-select: none;
     user-select: none;
   }

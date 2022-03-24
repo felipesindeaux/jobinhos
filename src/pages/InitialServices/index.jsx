@@ -1,4 +1,4 @@
-import { CarouselFix, Container } from "./styled";
+import { Container } from "./styled";
 import { Box, TextInput, Layer, Carousel, Image } from "grommet";
 import { useState } from "react";
 import { Search } from "grommet-icons";
@@ -17,7 +17,7 @@ const InitialServices = () => {
   return (
     <>
       <Header whiteTheme />
-      
+
       <Box height="medium">
         <Carousel controls={false} fill play={2500}>
           <Image
@@ -34,7 +34,7 @@ const InitialServices = () => {
           />
         </Carousel>
       </Box>
-     
+
       <Container>
         <Box fill align="center" justify="start" pad="large">
           <Box width="large" gap="medium">
@@ -46,8 +46,8 @@ const InitialServices = () => {
               plain={false}
               value={search}
               onChange={(event) => {
-                setSearch(event.target.value)
-                filterServices(event.target.value)
+                setSearch(event.target.value);
+                filterServices(event.target.value);
               }}
             />
           </Box>
@@ -75,11 +75,9 @@ const InitialServices = () => {
               id={item.id}
               userId={item.userId}
               userImage={item.userImage}
-              tag = {item.tags}
+              tag={item.tags}
               desc={item.desc}
-              
-              />
-
+            />
           ))}
         </Layer>
       )}

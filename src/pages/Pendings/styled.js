@@ -3,18 +3,14 @@ import styled from "styled-components";
 export const Main = styled.main`
   display: flex;
   width: 100%;
-  
+
   flex-direction: column;
   align-items: center;
-  margin-top: 42px;
-
-  @media (min-width: 1000px) {
-    /* flex-direction: row; */
-  }
+  margin-top: 25px;
 `;
 
 export const Greetings = styled.div`
-  margin: 20px 0px;
+  margin: 0px 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -81,16 +77,12 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
-export const OpacityContainer = styled.div`
-  opacity: ${(props) => props.opacity};
-`;
-
 export const CardsContainer = styled.div`
   margin: auto;
-  display:flex;
-  overflow-x:auto;
+  display: flex;
+  overflow-x: auto;
 
-  h2{
+  h2 {
     text-align: center;
   }
 
@@ -102,4 +94,4 @@ export const CardsContainer = styled.div`
     justify-content: space-evenly;
     margin: auto;
   }
-`
+`;

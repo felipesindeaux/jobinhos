@@ -20,6 +20,7 @@ export const CommentSectionContainer = styled.textarea`
 
 export const Container = styled.div`
   margin: 20px auto;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
 
@@ -30,19 +31,15 @@ export const Container = styled.div`
     align-items: center;
     svg {
       margin-right: 10px;
-      
     }
 
-    button {
-      width: 10%;
-      padding-left: 10px;
-    }
     width: 100%;
   }
 
   button {
     width: 95%;
     margin: auto;
+    border-radius: 8px;
   }
 
   @media screen and (min-width: 1000px) {
@@ -55,13 +52,13 @@ export const Container = styled.div`
         width: 10%;
         padding-left: 20px;
         margin-left: 32%;
-        height:40px;
+        height: 40px;
       }
     }
 
-    button{
-      width:50%;
-      height:50px;
+    button {
+      width: 50%;
+      height: 50px;
     }
   }
 `;

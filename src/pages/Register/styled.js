@@ -59,7 +59,7 @@ export const Container = styled.div`
       }
     }
 
-    &:disabled{
+    &:disabled {
       background-color: var(--light-6);
       cursor: not-allowed;
       transform: none;
@@ -173,6 +173,7 @@ export const Form = styled.form`
   width: 300px;
   border-radius: 4px;
   h4 {
+    font-size: 22px;
     margin-bottom: 20px;
     color: rgba(#000, 0.5);
     span {

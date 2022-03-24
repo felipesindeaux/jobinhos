@@ -14,6 +14,8 @@ import { PendingsContext } from "../../Providers/Pendings";
 import { MdAdd } from "react-icons/md";
 import { FiEdit, FiCheck, FiCheckSquare } from "react-icons/fi";
 import { HiOutlineChatAlt } from "react-icons/hi";
+import { RatingsContext } from "../../Providers/Ratings";
+import CardStars from "../CardStars";
 
 const CardsServices = ({
   images,
@@ -26,7 +28,6 @@ const CardsServices = ({
   alternative,
   setServiceID,
   pendingId,
-  pendingStatus,
   tag,
   userImage,
   editIcon,
@@ -35,17 +36,13 @@ const CardsServices = ({
   comment,
   alt,
   noButton,
+  noStars,
 }) => {
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
   const { setIdService } = useContext(ServicesContext);
-  const {
-    refusePending,
-    acceptPending,
-    doPending,
-    updatePendings,
-    filterPedingsServices,
-  } = useContext(PendingsContext);
+  const { handlePending } = useContext(PendingsContext);
+  const { avarageStars } = useContext(RatingsContext);
 
   const Icon = comment
     ? HiOutlineChatAlt
@@ -82,7 +79,18 @@ const CardsServices = ({
       <UserInfoContainer>
         <UserInfo>
           <img src={userImage} alt={name} />
-          <h5>{name}</h5>
+          <div>
+            <h5>{name}</h5>
+            {!noStars && (
+              <span>
+                {avarageStars(id) ? (
+                  <CardStars serviceStars={avarageStars(id).toFixed(0)} />
+                ) : (
+                  "Sem avaliações"
+                )}
+              </span>
+            )}
+          </div>
         </UserInfo>
 
         {!noButton && (
@@ -90,7 +98,7 @@ const CardsServices = ({
             <Icon
               onClick={
                 (alt && accepted) || (alt && pending)
-                  ? () => acceptPending(pendingId)
+                  ? () => handlePending(pendingId)
                   : showModal
               }
             />

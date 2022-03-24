@@ -1,26 +1,26 @@
 import React from "react";
-import {Container} from "./styled";
+import { Container } from "./styled";
 
-
-
-const NavBar = ({options}) => {
+const NavBar = ({ options }) => {
   return (
-    <Container >
-        <nav>
-            <div id="menuToggle">
-              <input type="checkbox" />
-                <span></span>
-                <span></span>
-                <span></span>
-            <ul id="menu">
-                {options.map((item) => 
-                <li><button onClick={item.onClick}>{item.label}</button></li>
-                )}
-            </ul>
-           </div>
-        </nav>
+    <Container>
+      <nav>
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            {options.map((item) => (
+              <li>
+                <button onClick={item.onClick}>{item.label}</button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
     </Container>
   );
 };
 
-export default NavBar
+export default NavBar;
