@@ -2,7 +2,6 @@ import React from "react";
 import {Container} from "./styled";
 
 
-
 const NavBar = ({options}) => {
   return (
     <Container >
