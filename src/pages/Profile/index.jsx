@@ -27,8 +27,8 @@ const Profile = () => {
 
   return (
     <>
-      <Header page="profile" />
       <Body>
+        <Header page="profile" />
         <CardUsers
           className="card"
           handleOpenModal={handleOpenModal}

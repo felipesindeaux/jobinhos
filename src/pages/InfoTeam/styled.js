@@ -1,54 +1,79 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  display: flex;
+  margin: auto;
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 30px;
 
-export const Container = styled.div ` 
+  @media screen and (min-width: 1000px) {
+    width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background: linear-gradient(70deg, #c7c5f4, #8d84d1);
-    background-size:cover;
-    justify-content: center;
-    background-position: center;
+    justify-content: space-evenly;
+    margin: auto;
+  }
+`;
 
-    .row{
-        margin-top:20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+export const Body = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: var(--brand);
+  background: linear-gradient(70deg, #c7c5f4, #8d84d1);
+`;
+
+export const Card = styled.div`
+  margin: 15px 0px 15px 15px;
+  flex-shrink: 0;
+  padding: 30px 0 40px;
+  background-color: var(--light-1);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  padding: 30px;
+  height: 320px;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+  :hover {
+    img::before {
+      height: 100%;
     }
-  
-  .our-team {
-    padding: 30px 0 40px;
-    margin-bottom: 60px;
-    background-color: var(--light-1);
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    padding: 30px;
-    height: 350px;
-    width: 200px;
-    margin-top: 10px;
-    border-radius: 8px;
+
+    img {
+      box-shadow: 0 0 0 14px var(--light-1);
+      transform: scale(0.7);
+    }
+
+    ul {
+      bottom: 0;
+    }
+  }
+`;
+
+export const Img = styled.div`
+  display: inline-block;
+  width: 130px;
+  margin-bottom: 50px;
+  z-index: 0;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 1px solid var(--brand);
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
   }
 
-  .our-team .picture {
-    display: inline-block;
-    width: 130px;
-    margin-bottom: 50px;
-    z-index: 0;
-    position: relative;
-  }
-
-  .our-team .picture .img-fluid-felipe {
-    display: inline-block;
-    height: 100px;
-    width: 130px;
-    z-index: 0;
-    position: relative;
-    border:1px solid purple;
-  }
-  
-  .our-team .picture::before {
+  ::before {
     content: "";
     width: 100%;
     height: 0;
@@ -62,12 +87,8 @@ export const Container = styled.div `
     transform: scale(3);
     transition: all 0.3s linear 0s;
   }
-  
-  .our-team:hover .picture::before {
-    height: 100%;
-  }
-  
-  .our-team .picture::after {
+
+  ::after {
     content: "";
     width: 100%;
     height: 87%;
@@ -78,69 +99,43 @@ export const Container = styled.div `
     left: 0;
     z-index: -1;
   }
-  
-  .our-team .picture img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    border: 1px solid var(--brand);
-    transform: scale(1);
-    transition: all 0.9s ease 0s;
-  }
-  
-  .our-team:hover .picture img {
-    box-shadow: 0 0 0 14px var(--light-1);
-    transform: scale(0.7);
-  }
-  
-  .our-team .title {
+`;
+
+export const Info = styled.div`
+  h4 {
     display: block;
     font-size: 15px;
     color: #4e5052;
     text-transform: capitalize;
   }
-  
-  .our-team .social {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    background-color: var(--brand);
-    position: absolute;
-    bottom: -100px;
-    left: 0;
-    transition: all 0.5s ease 0s;
-  }
-  
-  .our-team:hover .social {
-    bottom: 0;
-  }
-  
-  .our-team .social li {
+`;
+
+export const List = styled.ul`
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: var(--brand);
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  transition: all 0.5s ease 0s;
+
+  li {
     display: inline-block;
   }
-  
-  .our-team .social li a {
+
+  a {
     display: block;
     padding: 10px;
     font-size: 17px;
     color: white;
     transition: all 0.3s ease 0s;
     text-decoration: none;
-  }
-  
-  .our-team .social li a:hover {
-    color: var(--brand);
-    background-color: var(--light-1);
-    border-radius: 50%;
-  }
-  
-  @media (min-width: 1000px) {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      justify-content: space-between;
-    
-  }
 
-  `;
+    :hover {
+      color: var(--brand);
+      background-color: var(--light-1);
+      border-radius: 50%;
+    }
+  }
+`;
