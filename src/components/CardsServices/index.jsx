@@ -15,6 +15,7 @@ import { MdAdd } from "react-icons/md";
 import { FiEdit, FiCheck, FiCheckSquare } from "react-icons/fi";
 import { HiOutlineChatAlt } from "react-icons/hi";
 import { RatingsContext } from "../../Providers/Ratings";
+import Stars from "../Stars";
 
 const CardsServices = ({
   images,
@@ -36,6 +37,7 @@ const CardsServices = ({
   comment,
   alt,
   noButton,
+  noStars,
 }) => {
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
@@ -79,8 +81,18 @@ const CardsServices = ({
       <UserInfoContainer>
         <UserInfo>
           <img src={userImage} alt={name} />
-          <h5>{name}</h5>
-          <span>{avarageStars(id) ? avarageStars(id) : "Sem avaliações"}</span>
+          <div>
+            <h5>{name}</h5>
+            {!noStars && (
+              <span>
+                {avarageStars(id) ? (
+                  <Stars serviceStars={avarageStars(id).toFixed(0)} />
+                ) : (
+                  "Sem avaliações"
+                )}
+              </span>
+            )}
+          </div>
         </UserInfo>
 
         {!noButton && (

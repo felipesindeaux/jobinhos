@@ -1,14 +1,13 @@
 import { Container } from "./styled";
-import "./styles.css";
 import { useContext } from "react";
 import { RatingsContext } from "../../Providers/Ratings";
 
-const Stars = () => {
+const Stars = ({ serviceStars }) => {
   const { setCurrentStars } = useContext(RatingsContext);
 
   return (
     <>
-      <Container>
+      <Container alt={serviceStars ? true : false}>
         <div class="container d-flex justify-content-center mt-200">
           <div class="row">
             <div class="col-md-12">
@@ -20,6 +19,7 @@ const Stars = () => {
                     id="star-5"
                     type="radio"
                     name="star"
+                    checked={serviceStars ? serviceStars == 5 : undefined}
                   />{" "}
                   <label
                     onClick={() => setCurrentStars(5)}
@@ -31,6 +31,7 @@ const Stars = () => {
                     id="star-4"
                     type="radio"
                     name="star"
+                    checked={serviceStars ? serviceStars == 4 : undefined}
                   />{" "}
                   <label
                     class="star star-4"
@@ -42,6 +43,7 @@ const Stars = () => {
                     id="star-3"
                     type="radio"
                     name="star"
+                    checked={serviceStars ? serviceStars == 3 : undefined}
                   />{" "}
                   <label
                     class="star star-3"
@@ -53,6 +55,7 @@ const Stars = () => {
                     id="star-2"
                     type="radio"
                     name="star"
+                    checked={serviceStars ? serviceStars == 2 : undefined}
                   />{" "}
                   <label
                     class="star star-2"
@@ -64,9 +67,13 @@ const Stars = () => {
                     id="star-1"
                     type="radio"
                     name="star"
-                    onClick={() => setCurrentStars(1)}
+                    checked={serviceStars ? serviceStars == 1 : undefined}
                   />{" "}
-                  <label class="star star-1" for="star-1"></label>{" "}
+                  <label
+                    class="star star-1"
+                    for="star-1"
+                    onClick={() => setCurrentStars(1)}
+                  ></label>{" "}
                 </form>
               </div>
             </div>

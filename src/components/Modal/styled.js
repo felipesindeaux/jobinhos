@@ -112,6 +112,7 @@ export const Comments = styled.div`
     border-radius: 16px;
     background-color: #c4c4c436;
     display: flex;
+    padding: 10px;
     flex-direction: column;
     align-items: flex-start;
     width: 200px;
@@ -122,7 +123,7 @@ export const Comments = styled.div`
 export const Commit = styled.p`
   font-size: 15px;
   color: #00000085;
-  margin: 8px 11px;
+  margin: 0px 11px;
 `;
 
 export const Comment = styled.div`
@@ -132,7 +133,6 @@ export const Comment = styled.div`
 export const NameComment = styled.p`
   color: var(--brand);
   font-size: 16px;
-  margin: 8px;
   line-height: 14px;
 `;
 

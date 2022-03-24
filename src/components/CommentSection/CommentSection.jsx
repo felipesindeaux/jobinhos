@@ -37,7 +37,10 @@ const CommentSection = ({ setOpen, id }) => {
       <h2>
         <Chat color="brand" />
         Adicione um Comentario
-        <Button label="X" onClick={() => setOpen(false)} />
+        <Button label="X" onClick={() => {
+          setOpen(false)
+          setCurrentStars(undefined)
+          }} />
       </h2>
       <Stars />
       <CommentSectionContainer

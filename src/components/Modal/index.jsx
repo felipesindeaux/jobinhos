@@ -22,6 +22,7 @@ import {
 } from "./styled";
 import { useContext, useState } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
+import Stars from "../Stars";
 
 const Modal = ({
   setOpen,
@@ -86,6 +87,7 @@ const Modal = ({
                 <Chat />
                 <div className="Data">
                   <NameComment>{rating.name}</NameComment>
+                  <Stars serviceStars={rating.stars} />
                   <Commit>{rating.comment}</Commit>
                 </div>
               </Comment>
