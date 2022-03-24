@@ -31,14 +31,14 @@ export const ServicesProvider = ({ children }) => {
 
   const modifyService = (data) => {
     const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
-    api
-      .put(`/services/${idService}`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => updateServices());
-  };
+
+    api.put(`/services/${idService}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) =>  updateServices() )
+
+  }
 
   const filterServices = (value) => {
     setServices(backup);
