@@ -5,14 +5,12 @@ export const Container = styled.div`
     display: flex;
     justify-content: flex-end;
     margin: 10px;
-    
   }
 
   div {
     display: flex;
     align-items: center;
-    justify-content:space-around;
-    
+    justify-content: space-around;
   }
 
   .Aceppt {
@@ -23,7 +21,7 @@ export const Container = styled.div`
     background-color: var(--brand);
     border: none;
     border-radius: 0px;
-    
+
     :hover {
       background-color: var(--brand);
     }
@@ -31,14 +29,14 @@ export const Container = styled.div`
 `;
 
 export const Editing = styled.div`
-    display: flex;
-    flex-direction: column;
-    color: var(--dark);
-    :hover{
-      background-color: var(--light-6);
-      cursor: pointer;
-    }
-`
+  display: flex;
+  flex-direction: column;
+  color: var(--dark);
+  :hover {
+    background-color: var(--light-6);
+    cursor: pointer;
+  }
+`;
 export const Figures = styled.section`
   img {
     width: 290px;
@@ -70,7 +68,6 @@ export const Price = styled.p`
 export const Comments = styled.div`
   overflow-x: auto;
 
-
   .Data {
     border-radius: 16px;
     background-color: #c4c4c436;
@@ -89,9 +86,7 @@ export const Description = styled.p`
 `;
 
 export const Comment = styled.div`
-  
   margin: 25px;
-
 `;
 
 export const NameComment = styled.p`
@@ -102,10 +97,9 @@ export const NameComment = styled.p`
 `;
 
 export const Errors = styled.span`
- color: var(--status-error);
- font-size: 15px;
- opacity: 0.8;
- padding-bottom: 24px;
- padding-left: 10px;
-
+  color: var(--status-error);
+  font-size: 15px;
+  opacity: 0.8;
+  padding-bottom: 24px;
+  padding-left: 10px;
 `;

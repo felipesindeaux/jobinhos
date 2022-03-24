@@ -86,13 +86,13 @@ export const UserInfo = styled.div`
     margin-bottom: 4px;
   }
 
-  div{
+  div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 39px;
   }
-  span{
+  span {
     font-size: 14px;
   }
 `;

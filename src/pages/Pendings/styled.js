@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Main = styled.main`
   display: flex;
   width: 100%;
-  
+
   flex-direction: column;
   align-items: center;
   margin-top: 25px;
@@ -87,10 +87,10 @@ export const OpacityContainer = styled.div`
 
 export const CardsContainer = styled.div`
   margin: auto;
-  display:flex;
-  overflow-x:auto;
+  display: flex;
+  overflow-x: auto;
 
-  h2{
+  h2 {
     text-align: center;
   }
 
@@ -102,4 +102,4 @@ export const CardsContainer = styled.div`
     justify-content: space-evenly;
     margin: auto;
   }
-`
+`;

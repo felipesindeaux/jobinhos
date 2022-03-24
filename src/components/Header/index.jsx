@@ -13,7 +13,11 @@ import { useContext } from "react";
 import { UserContext } from "../../Providers/User";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiBriefcaseAlt } from "react-icons/bi";
-import { HiOutlineUserAdd, HiOutlineUser, HiOutlineUserGroup } from "react-icons/hi";
+import {
+  HiOutlineUserAdd,
+  HiOutlineUser,
+  HiOutlineUserGroup,
+} from "react-icons/hi";
 import { MdLogout } from "react-icons/md";
 import NavBar from "../MobileNav";
 
@@ -155,7 +159,7 @@ const Header = ({ whiteTheme = false, page }) => {
     <>
       <Container whiteTheme={whiteTheme}>
         <MobileLeftContainer>
-          <NavBar options={options}/>
+          <NavBar options={options} />
           {page === "user" ? (
             <MobileTitle whiteTheme={whiteTheme}>
               Bem vindo ao <span>Jobinhos!</span>

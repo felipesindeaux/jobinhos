@@ -34,7 +34,6 @@ const ModalUser = ({ handleCloseModal }) => {
     resolver: yupResolver(formSchema),
   });
 
-
   const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
 
   const data = (img, name, password) => {

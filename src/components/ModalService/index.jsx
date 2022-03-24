@@ -54,8 +54,8 @@ const ModalService = ({
     if (isCreateService) {
       dataService.images = dataService.images.split(" ");
       dataService.tags = dataService.tags.split(" ");
-      createService(dataService)
-      handleCloseModal()
+      createService(dataService);
+      handleCloseModal();
     } else {
       if (dataService.images === "") {
         delete dataService.images;

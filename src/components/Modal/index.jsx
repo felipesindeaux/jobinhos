@@ -47,7 +47,7 @@ const Modal = ({
   return (
     <Container>
       <header>
-        <CloseButton onClick={closeModal} >X</CloseButton>
+        <CloseButton onClick={closeModal}>X</CloseButton>
       </header>
 
       <ContainerInfo>
@@ -62,13 +62,13 @@ const Modal = ({
         <Info>
           <UserInfo>
             <img src={userImage} alt="" srcset="" />
-            
+
             <div>
               <Name>{name}</Name>
               <Price>R$ {price.toFixed(2)}</Price>
             </div>
           </UserInfo>
-         
+
           <SpanDiv>
             {tag.map((item, index) => (
               <span key={index}>{item}</span>

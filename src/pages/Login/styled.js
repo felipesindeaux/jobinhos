@@ -59,7 +59,7 @@ export const Container = styled.div`
       }
     }
 
-    &:disabled{
+    &:disabled {
       background-color: var(--light-6);
       cursor: not-allowed;
       transform: none;

@@ -6,9 +6,8 @@ import { Link } from "react-router-dom";
 const InfoTeam = () => {
   return (
     <>
-     
       <Body>
-      <Header />
+        <Header />
         <Container>
           <Card className="card">
             <Img>

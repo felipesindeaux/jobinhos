@@ -43,7 +43,7 @@ const MyServices = () => {
 
   const { userInfo } = useContext(UserContext);
 
-  const isCreateService = userServices.length < 1
+  const isCreateService = userServices.length < 1;
 
   return (
     <>
