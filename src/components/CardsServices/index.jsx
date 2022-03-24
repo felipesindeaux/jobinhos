@@ -39,13 +39,7 @@ const CardsServices = ({
   const { services } = useContext(ServicesContext);
   const { setHireService } = useContext(ServicesContext);
   const { setIdService } = useContext(ServicesContext);
-  const {
-    refusePending,
-    acceptPending,
-    doPending,
-    updatePendings,
-    filterPedingsServices,
-  } = useContext(PendingsContext);
+  const { handlePending } = useContext(PendingsContext);
 
   const Icon = comment
     ? HiOutlineChatAlt
@@ -90,7 +84,7 @@ const CardsServices = ({
             <Icon
               onClick={
                 (alt && accepted) || (alt && pending)
-                  ? () => acceptPending(pendingId)
+                  ? () => handlePending(pendingId)
                   : showModal
               }
             />

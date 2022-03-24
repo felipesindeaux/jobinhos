@@ -166,7 +166,7 @@ export const PendingsProvider = ({ children }) => {
       .then((response) => updatePendings());
   };
 
-  const acceptPending = (pendingId) => {
+  const handlePending = (pendingId) => {
     const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
     api
       .get(`/pendings/${pendingId}`, {
@@ -193,25 +193,6 @@ export const PendingsProvider = ({ children }) => {
       });
   };
 
-  const doPending = (pendingId) => {
-    const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
-    api
-      .get(`/pendings/${pendingId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        api
-          .put(
-            `/pendings/${pendingId}`,
-            { ...response.data, status: "done" },
-            {
-              headers: { Authorization: `Bearer ${token}` },
-            }
-          )
-          .then((response) => updatePendings());
-      });
-  };
-
   return (
     <PendingsContext.Provider
       value={{
@@ -225,8 +206,7 @@ export const PendingsProvider = ({ children }) => {
         setAcceptedPendings,
         setDonePendings,
         refusePending,
-        acceptPending,
-        doPending,
+        handlePending,
         filterPedingsServices,
         allPendings,
       }}
