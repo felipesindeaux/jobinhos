@@ -6,7 +6,7 @@ export const Main = styled.main`
   
   flex-direction: column;
   align-items: center;
-  margin-top: 42px;
+  margin-top: 25px;
 
   @media (min-width: 1000px) {
     /* flex-direction: row; */
@@ -14,7 +14,7 @@ export const Main = styled.main`
 `;
 
 export const Greetings = styled.div`
-  margin: 20px 0px;
+  margin: 0px 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
