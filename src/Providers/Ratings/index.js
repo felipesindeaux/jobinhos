@@ -39,7 +39,7 @@ export const RatingsProvider = ({ children }) => {
         },
       })
       .then((res) => {
-        toast.success("Comentário Enviado Com Sucesso");
+        toast.success("Avaliação enviada com sucesso!");
         updateRatings();
         updateServices();
       })

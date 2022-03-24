@@ -56,7 +56,7 @@ const Register = () => {
         <Header page="user" whiteTheme />
         <Container>
           <Form onSubmit={handleSubmit(submitData)}>
-            <h4>Bem vindo de volta</h4>
+            <h4>Seja seu própio chefe</h4>
             <p>Faça seu cadastro:</p>
             <FloatingLabel>
               <input placeholder="Nome" {...register("name")} />

@@ -37,9 +37,7 @@ export const ServicesProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => console.log(response));
-
-    updateServices();
+      .then((response) => updateServices());
   };
 
   const filterServices = (value) => {

@@ -2,12 +2,12 @@ import { Container } from "./styled";
 import { useContext } from "react";
 import { RatingsContext } from "../../Providers/Ratings";
 
-const Stars = ({ serviceStars }) => {
+const Stars = () => {
   const { setCurrentStars } = useContext(RatingsContext);
 
   return (
     <>
-      <Container alt={serviceStars ? true : false}>
+      <Container>
         <div class="container d-flex justify-content-center mt-200">
           <div class="row">
             <div class="col-md-12">
@@ -19,7 +19,6 @@ const Stars = ({ serviceStars }) => {
                     id="star-5"
                     type="radio"
                     name="star"
-                    checked={serviceStars ? serviceStars == 5 : undefined}
                   />{" "}
                   <label
                     onClick={() => setCurrentStars(5)}
@@ -31,7 +30,6 @@ const Stars = ({ serviceStars }) => {
                     id="star-4"
                     type="radio"
                     name="star"
-                    checked={serviceStars ? serviceStars == 4 : undefined}
                   />{" "}
                   <label
                     class="star star-4"
@@ -43,7 +41,6 @@ const Stars = ({ serviceStars }) => {
                     id="star-3"
                     type="radio"
                     name="star"
-                    checked={serviceStars ? serviceStars == 3 : undefined}
                   />{" "}
                   <label
                     class="star star-3"
@@ -55,7 +52,6 @@ const Stars = ({ serviceStars }) => {
                     id="star-2"
                     type="radio"
                     name="star"
-                    checked={serviceStars ? serviceStars == 2 : undefined}
                   />{" "}
                   <label
                     class="star star-2"
@@ -67,7 +63,6 @@ const Stars = ({ serviceStars }) => {
                     id="star-1"
                     type="radio"
                     name="star"
-                    checked={serviceStars ? serviceStars == 1 : undefined}
                   />{" "}
                   <label
                     class="star star-1"

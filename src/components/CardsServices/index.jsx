@@ -15,7 +15,7 @@ import { MdAdd } from "react-icons/md";
 import { FiEdit, FiCheck, FiCheckSquare } from "react-icons/fi";
 import { HiOutlineChatAlt } from "react-icons/hi";
 import { RatingsContext } from "../../Providers/Ratings";
-import Stars from "../Stars";
+import CardStars from "../CardStars";
 
 const CardsServices = ({
   images,
@@ -86,7 +86,7 @@ const CardsServices = ({
             {!noStars && (
               <span>
                 {avarageStars(id) ? (
-                  <Stars serviceStars={avarageStars(id).toFixed(0)} />
+                  <CardStars serviceStars={avarageStars(id).toFixed(0)} />
                 ) : (
                   "Sem avaliações"
                 )}
