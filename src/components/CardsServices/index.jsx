@@ -14,6 +14,7 @@ import { PendingsContext } from "../../Providers/Pendings";
 import { MdAdd } from "react-icons/md";
 import { FiEdit, FiCheck, FiCheckSquare } from "react-icons/fi";
 import { HiOutlineChatAlt } from "react-icons/hi";
+import { RatingsContext } from "../../Providers/Ratings";
 
 const CardsServices = ({
   images,
@@ -40,6 +41,7 @@ const CardsServices = ({
   const { setHireService } = useContext(ServicesContext);
   const { setIdService } = useContext(ServicesContext);
   const { handlePending } = useContext(PendingsContext);
+  const { avarageStars } = useContext(RatingsContext);
 
   const Icon = comment
     ? HiOutlineChatAlt
@@ -52,6 +54,7 @@ const CardsServices = ({
     : MdAdd;
 
   const showModal = () => {
+    console.log(avarageStars(id));
     setOpen(true);
     setIdService(id);
     setHireService(services.filter((service) => service.id === id));
@@ -77,6 +80,7 @@ const CardsServices = ({
         <UserInfo>
           <img src={userImage} alt={name} />
           <h5>{name}</h5>
+          <span>{avarageStars(id) ? avarageStars(id) : "Sem avaliações"}</span>
         </UserInfo>
 
         {!noButton && (

@@ -4,23 +4,32 @@ import { Button } from "grommet";
 import { useState, useContext } from "react";
 import { RatingsContext } from "../../Providers/Ratings";
 import { UserContext } from "../../Providers/User";
+import Stars from "../Stars";
+import { toast } from "react-toastify";
 
 const CommentSection = ({ setOpen, id }) => {
-  const { postRatings } = useContext(RatingsContext);
+  const { postRatings, updateRatings, currentStars, setCurrentStars } =
+    useContext(RatingsContext);
   const { userInfo } = useContext(UserContext);
   const [comments, setComments] = useState("");
 
   const dataRatings = {
     name: userInfo.name,
-    stars: 3,
+    stars: currentStars,
     comment: comments,
     serviceId: id,
     userId: userInfo.id,
   };
 
   const sendRarings = () => {
-    postRatings(dataRatings);
-    setOpen(false);
+    if (currentStars) {
+      postRatings(dataRatings);
+      updateRatings();
+      setOpen(false);
+      setCurrentStars(undefined)
+    } else {
+      toast.error("Você deve avaliar as estrelas!");
+    }
   };
 
   return (
@@ -30,6 +39,7 @@ const CommentSection = ({ setOpen, id }) => {
         Adicione um Comentario
         <Button label="X" onClick={() => setOpen(false)} />
       </h2>
+      <Stars />
       <CommentSectionContainer
         value={comments}
         onChange={(e) => setComments(e.target.value)}
