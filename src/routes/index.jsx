@@ -6,6 +6,7 @@ import Pendings from "../pages/Pendings";
 import Profile from "../pages/Profile";
 import InitialServices from "../pages/InitialServices";
 import MyServices from "../pages/MyServices";
+import InfoTeam from "../pages/InfoTeam";
 
 
 const Routes = () => (
@@ -16,6 +17,7 @@ const Routes = () => (
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/myServices" isPrivate component={MyServices}/>
+        <Route path="/infoTeam" component={InfoTeam}/>
     </Switch>
 )
 
