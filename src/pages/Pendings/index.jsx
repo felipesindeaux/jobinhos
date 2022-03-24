@@ -89,6 +89,7 @@ const Pendings = () => {
                 userImage={item.hirerImg}
                 pending
                 alt
+                noStars
               />
             ))}
           {active === 2 &&
@@ -110,6 +111,7 @@ const Pendings = () => {
                 userImage={item.hirerImg}
                 accepted
                 alt
+                noStars
               />
             ))}
           {active === 3 &&
@@ -130,6 +132,7 @@ const Pendings = () => {
                 tag={item.tags}
                 userImage={item.hirerImg}
                 noButton
+                noStars
               />
             ))}
           {active === 1 && hiredPendings.length < 1 ? (

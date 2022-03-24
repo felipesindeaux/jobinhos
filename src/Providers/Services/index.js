@@ -7,15 +7,14 @@ export const ServicesContext = createContext();
 export const ServicesProvider = ({ children }) => {
   const { userInfo } = useContext(UserContext);
   const [services, setServices] = useState([]);
-  const [userServices, setUserServices] = useState([])
+  const [userServices, setUserServices] = useState([]);
 
   const [backup, setBackup] = useState(services);
   const [hireService, setHireService] = useState();
   const [idService, setIdService] = useState();
 
-
   useEffect(() => {
-    updateServices()
+    updateServices();
   }, []);
 
   const updateServices = () => {
@@ -23,18 +22,16 @@ export const ServicesProvider = ({ children }) => {
       setServices(response.data);
       setBackup(response.data);
       api.get(`/services?userId=${userInfo.id}`).then((response) => {
-        setUserServices(response.data)
+        setUserServices(response.data);
       });
     });
   };
 
-  const getUserServices = () => {
-    
-  };
-
+  const getUserServices = () => {};
 
   const modifyService = (data) => {
     const token = JSON.parse(localStorage.getItem("@Jobinhos:token"));
+
     api.put(`/services/${idService}`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -60,7 +57,6 @@ export const ServicesProvider = ({ children }) => {
     }
   };
 
-
   return (
     <ServicesContext.Provider
       value={{
@@ -72,7 +68,7 @@ export const ServicesProvider = ({ children }) => {
         setIdService,
         modifyService,
         filterServices,
-        userServices
+        userServices,
       }}
     >
       {children}

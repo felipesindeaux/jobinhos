@@ -173,6 +173,7 @@ export const Form = styled.form`
   width: 300px;
   border-radius: 4px;
   h4 {
+    font-size: 22px;
     margin-bottom: 20px;
     color: rgba(#000, 0.5);
     span {
