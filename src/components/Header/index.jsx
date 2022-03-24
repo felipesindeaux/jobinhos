@@ -13,7 +13,7 @@ import { useContext } from "react";
 import { UserContext } from "../../Providers/User";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiBriefcaseAlt } from "react-icons/bi";
-import { HiOutlineUserGroup, HiOutlineUser } from "react-icons/hi";
+import { HiOutlineUserAdd, HiOutlineUser, HiOutlineUserGroup } from "react-icons/hi";
 import { MdLogout } from "react-icons/md";
 import NavBar from "../MobileNav";
 
@@ -55,7 +55,7 @@ const Header = ({ whiteTheme = false, page }) => {
             {
               label: "Contratações",
               onClick: () => history.push("/pendings"),
-              Icon: HiOutlineUserGroup,
+              Icon: HiOutlineUserAdd,
             },
             {
               label: "Início",
@@ -76,7 +76,7 @@ const Header = ({ whiteTheme = false, page }) => {
             {
               label: "Contratações",
               onClick: () => history.push("/pendings"),
-              Icon: BiBriefcaseAlt,
+              Icon: HiOutlineUserAdd,
             },
             {
               label: "Início",
@@ -114,6 +114,13 @@ const Header = ({ whiteTheme = false, page }) => {
               Icon: HiOutlineUser,
             },
             {
+              label: "Equipe",
+              onClick: () => {
+                history.push("/infoTeam");
+              },
+              Icon: HiOutlineUserGroup,
+            },
+            {
               label: "Sair",
               onClick: () => {
                 localStorage.clear();
@@ -129,6 +136,13 @@ const Header = ({ whiteTheme = false, page }) => {
               label: "Meu perfil",
               onClick: () => history.push("/profile"),
               Icon: HiOutlineUser,
+            },
+            {
+              label: "Equipe",
+              onClick: () => {
+                history.push("/infoTeam");
+              },
+              Icon: HiOutlineUserGroup,
             },
           ];
         }
