@@ -27,6 +27,7 @@ export const Container = styled.div`
 
 export const MobileLeftContainer = styled.div`
   height: 100%;
+  width: 100%;
   max-width: 500px;
   display: flex;
   flex-direction: column;
