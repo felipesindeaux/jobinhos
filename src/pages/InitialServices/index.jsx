@@ -1,4 +1,4 @@
-import { CarouselFix, Container } from "./styled";
+import { Container } from "./styled";
 import { Box, TextInput, Layer, Carousel, Image } from "grommet";
 import { useState } from "react";
 import { Search } from "grommet-icons";

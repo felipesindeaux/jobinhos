@@ -6,8 +6,6 @@ import {
   MobileLeftContainer,
   MobileTitle,
 } from "./styled";
-import { List } from "grommet-icons";
-import { Menu } from "grommet";
 import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/User";

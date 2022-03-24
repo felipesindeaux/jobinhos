@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Header from "../../components/Header";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -9,7 +8,6 @@ import { toast } from "react-toastify";
 import { Container, FloatingLabel, Form, Left, Body } from "./styled";
 
 const Register = () => {
-  const [auth, setAuth] = useState(false);
   const history = useHistory();
 
   const formSchema = yup.object().shape({
@@ -26,7 +24,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { isValid },
   } = useForm({
     resolver: yupResolver(formSchema),
     mode: "onChange",

@@ -5,7 +5,6 @@ import {
   Container,
   Figures,
   Name,
-  Desc,
   Price,
   Comments,
   NameComment,
@@ -14,15 +13,14 @@ import {
   Title,
   Info,
   ContainerInfo,
-  UserInfoContainer,
   UserInfo,
   SpanDiv,
   Button,
   CloseButton,
 } from "./styled";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { PendingsContext } from "../../Providers/Pendings";
-import Stars from "../Stars";
+import CardStars from "../CardStars";
 
 const Modal = ({
   setOpen,
@@ -34,7 +32,6 @@ const Modal = ({
   userId,
   userImage,
   tag,
-  desc,
 }) => {
   const { ratings } = useContext(RatingsContext);
   const { hireService } = useContext(PendingsContext);
@@ -87,7 +84,7 @@ const Modal = ({
                 <Chat />
                 <div className="Data">
                   <NameComment>{rating.name}</NameComment>
-                  <Stars serviceStars={rating.stars} />
+                  <CardStars serviceStars={rating.stars} />
                   <Commit>{rating.comment}</Commit>
                 </div>
               </Comment>

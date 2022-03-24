@@ -26,7 +26,7 @@ const CommentSection = ({ setOpen, id }) => {
       postRatings(dataRatings);
       updateRatings();
       setOpen(false);
-      setCurrentStars(undefined);
+      setCurrentStars(undefined)
     } else {
       toast.error("Você deve avaliar as estrelas!");
     }
@@ -37,13 +37,10 @@ const CommentSection = ({ setOpen, id }) => {
       <h2>
         <Chat color="brand" />
         Adicione um Comentario
-        <Button
-          label="X"
-          onClick={() => {
-            setOpen(false);
-            setCurrentStars(undefined);
-          }}
-        />
+        <Button label="X" onClick={() => {
+          setOpen(false)
+          setCurrentStars(undefined)
+          }} />
       </h2>
       <Stars />
       <CommentSectionContainer

@@ -7,10 +7,6 @@ export const Main = styled.main`
   flex-direction: column;
   align-items: center;
   margin-top: 25px;
-
-  @media (min-width: 1000px) {
-    /* flex-direction: row; */
-  }
 `;
 
 export const Greetings = styled.div`
@@ -79,10 +75,6 @@ export const ButtonsContainer = styled.div`
   @media (min-width: 360px) {
     flex-direction: row;
   }
-`;
-
-export const OpacityContainer = styled.div`
-  opacity: ${(props) => props.opacity};
 `;
 
 export const CardsContainer = styled.div`

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import api from "../../services/api";
-import { UserContext, UserProvider } from "../User";
+import { UserContext } from "../User";
 import { ServicesContext } from "../Services";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";

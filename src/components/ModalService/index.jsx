@@ -8,12 +8,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { ServicesContext } from "../../Providers/Services";
 
-const ModalService = ({
-  setOpen,
-  handleCloseModal,
-  setShowModal,
-  isCreateService,
-}) => {
+const ModalService = ({ handleCloseModal, setShowModal, isCreateService }) => {
   const { hireService } = useContext(ServicesContext);
   const { modifyService, createService } = useContext(ServicesContext);
   const [openName, setOpenName] = useState(false);
@@ -73,7 +68,6 @@ const ModalService = ({
     }
   };
 
-  const onOpenName = () => setOpenName(true);
   const onCloseName = () => setOpenName(false);
 
   return (

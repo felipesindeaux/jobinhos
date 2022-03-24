@@ -23,7 +23,7 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
+    formState: { isValid },
   } = useForm({
     resolver: yupResolver(formSchema),
     mode: "onChange",

@@ -1,8 +1,5 @@
 import CardsServices from "../../components/CardsServices";
 import { Container } from "./styled";
-import { useContext } from "react";
-import { PendingsContext } from "../../Providers/Pendings";
-import { useState } from "react";
 
 const MainCards = ({
   textContent,

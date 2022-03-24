@@ -28,7 +28,6 @@ const CardsServices = ({
   alternative,
   setServiceID,
   pendingId,
-  pendingStatus,
   tag,
   userImage,
   editIcon,

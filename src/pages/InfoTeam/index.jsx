@@ -1,7 +1,6 @@
 import Header from "../../components/Header";
 import { Container, Card, Img, Info, List, Body } from "./styled";
 import { RiLinkedinFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
 
 const InfoTeam = () => {
   return (
