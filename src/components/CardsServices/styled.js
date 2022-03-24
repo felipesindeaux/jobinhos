@@ -83,6 +83,17 @@ export const UserInfo = styled.div`
   }
   h5 {
     margin: 0;
+    margin-bottom: 4px;
+  }
+
+  div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 39px;
+  }
+  span{
+    font-size: 14px;
   }
 `;
 
@@ -129,7 +140,7 @@ export const Button = styled.a`
 
   :hover::before {
     transform: scale(1);
-    background: var(--brand);
+    background: var(--accent-1);
   }
 
   svg {
