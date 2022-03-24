@@ -7,13 +7,14 @@ export const Container = styled.div`
   max-width: 100%;
   padding: 30px;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1075px) {
     width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: auto;
+    overflow-x: hidden;
   }
 `;
 
