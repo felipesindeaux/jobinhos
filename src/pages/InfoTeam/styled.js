@@ -61,15 +61,16 @@ export const Card = styled.div`
 export const Img = styled.div`
   display: inline-block;
   width: 130px;
+  height: 100px;
   margin-bottom: 50px;
   z-index: 0;
   position: relative;
 
   img {
-    width: 100%;
-    height: auto;
+    width: 130px;
+    height: 100px;
     border-radius: 50%;
-    border: 1px solid var(--brand);
+    /* border: 2px solid var(--brand); */
     transform: scale(1);
     transition: all 0.9s ease 0s;
   }
@@ -77,7 +78,7 @@ export const Img = styled.div`
   ::before {
     content: "";
     width: 100%;
-    height: 0;
+    height: 100px;
     border-radius: 50%;
     background-color: var(--brand);
     position: absolute;
@@ -92,7 +93,7 @@ export const Img = styled.div`
   ::after {
     content: "";
     width: 100%;
-    height: 87%;
+    height: 100px;
     border-radius: 50%;
     background-color: var(--brand);
     position: absolute;
