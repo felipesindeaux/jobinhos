@@ -157,7 +157,7 @@ export const Desc = styled.p`
   font-size: 13px;
   padding-left: 20px;
   max-width: 90%;
-  height: 30px;
+  height: 50px;
 
   @media screen and (min-width: 1000px) {
   }
