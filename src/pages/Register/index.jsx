@@ -34,7 +34,7 @@ const Register = () => {
     delete data.password_confirm;
     const newData = {
       ...data,
-      img: "http://www.def.uem.br/arquivos/imagens/fotos-dos-docentes/semimagemavatar.png/image_preview",
+      img: "https://www.promoview.com.br/uploads/images/unnamed%2819%29.png",
     };
     api
       .post("/register", newData)
