@@ -48,6 +48,7 @@ export const SpanDiv = styled.div`
 export const Title = styled.p`
   max-width: 90%;
   padding-left: 20px;
+  height: 40px;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.4;
@@ -156,6 +157,7 @@ export const Desc = styled.p`
   font-size: 13px;
   padding-left: 20px;
   max-width: 90%;
+  height: 30px;
 
   @media screen and (min-width: 1000px) {
   }
