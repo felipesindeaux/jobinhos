@@ -71,7 +71,7 @@ const Pendings = () => {
       {isHired ? (
         <CardsContainer>
           {active === 1 &&
-            currentActive.map((item, index) => (
+            hiredPendings.map((item, index) => (
               <CardsServices
                 key={index}
                 images={item.images}
@@ -93,7 +93,7 @@ const Pendings = () => {
               />
             ))}
           {active === 2 &&
-            currentActive.map((item, index) => (
+            acceptedPendings.map((item, index) => (
               <CardsServices
                 key={index}
                 images={item.images}
@@ -115,7 +115,7 @@ const Pendings = () => {
               />
             ))}
           {active === 3 &&
-            currentActive.map((item, index) => (
+            donePendings.map((item, index) => (
               <CardsServices
                 key={index}
                 images={item.images}
