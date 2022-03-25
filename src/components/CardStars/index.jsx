@@ -3,7 +3,7 @@ import { Container } from "./styled";
 const CardStars = ({ serviceStars }) => {
   return (
     <>
-      <Container alt={serviceStars ? true : false}>
+      <Container alti={serviceStars ? true : false}>
         <div>
           <div>
             <div>
@@ -13,16 +13,32 @@ const CardStars = ({ serviceStars }) => {
                   <input
                     type="radio"
                     name="star"
-                    checked={serviceStars == 5}
+                    defaultChecked={serviceStars == 5}
                   />{" "}
                   <label></label>{" "}
-                  <input type="radio" name="star" checked={serviceStars == 4} />{" "}
+                  <input
+                    type="radio"
+                    name="star"
+                    defaultChecked={serviceStars == 4}
+                  />{" "}
                   <label></label>{" "}
-                  <input type="radio" name="star" checked={serviceStars == 3} />{" "}
+                  <input
+                    type="radio"
+                    name="star"
+                    defaultChecked={serviceStars == 3}
+                  />{" "}
                   <label></label>{" "}
-                  <input type="radio" name="star" checked={serviceStars == 2} />{" "}
+                  <input
+                    type="radio"
+                    name="star"
+                    defaultChecked={serviceStars == 2}
+                  />{" "}
                   <label></label>{" "}
-                  <input type="radio" name="star" checked={serviceStars == 1} />{" "}
+                  <input
+                    type="radio"
+                    name="star"
+                    defaultChecked={serviceStars == 1}
+                  />{" "}
                   <label></label>{" "}
                 </form>
               </div>

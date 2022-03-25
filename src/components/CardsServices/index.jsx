@@ -34,7 +34,7 @@ const CardsServices = ({
   pending,
   accepted,
   comment,
-  alt,
+  alti,
   noButton,
   noStars,
 }) => {
@@ -63,7 +63,7 @@ const CardsServices = ({
 
   return (
     <Card>
-      <img src={images[0]} />
+      <img src={images[0]} alt={title} />
 
       <SpanDiv>
         {tag.map((item, index) => (
@@ -94,10 +94,10 @@ const CardsServices = ({
         </UserInfo>
 
         {!noButton && (
-          <Button alt={alt}>
+          <Button alti={alti}>
             <Icon
               onClick={
-                (alt && accepted) || (alt && pending)
+                (alti && accepted) || (alti && pending)
                   ? () => handlePending(pendingId)
                   : showModal
               }

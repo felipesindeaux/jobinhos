@@ -48,19 +48,19 @@ const Pendings = () => {
         </Greetings>
         <ButtonsContainer>
           <button
-            className={active === 1 && "active"}
+            className={active === 1 ? "active" : 'non-active'}
             onClick={() => handleActive(1)}
           >
             Pendentes
           </button>
           <button
-            className={active === 2 && "active"}
+            className={active === 2 ? "active" : 'non-active'}
             onClick={() => handleActive(2)}
           >
             Aceitos
           </button>
           <button
-            className={active === 3 && "active"}
+            className={active === 3 ? "active" : 'non-active'}
             onClick={() => handleActive(3)}
           >
             Concluídos
@@ -88,7 +88,7 @@ const Pendings = () => {
                 tag={item.tags}
                 userImage={item.hirerImg}
                 pending
-                alt
+                alti
                 noStars
               />
             ))}
@@ -110,7 +110,7 @@ const Pendings = () => {
                 tag={item.tags}
                 userImage={item.hirerImg}
                 accepted
-                alt
+                alti
                 noStars
               />
             ))}
@@ -164,7 +164,7 @@ const Pendings = () => {
               tag={item.tags}
               userImage={item.userImage}
               comment
-              alt
+              alti
               noButton={active === 1}
             />
           ))}

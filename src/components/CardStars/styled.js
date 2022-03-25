@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-left: ${(props) => (props.alt ? "0px" : "45px")};
+  margin-left: ${(props) => (props.alti ? "0px" : "45px")};
   div {
     display: inline-block;
   }
@@ -12,11 +12,11 @@ export const Container = styled.div`
 
   label {
     float: right;
-    padding: ${(props) => (props.alt ? "3px" : "10px")};
-    font-size: ${(props) => (props.alt ? "15px" : "25px")};
+    padding: ${(props) => (props.alti ? "3px" : "10px")};
+    font-size: ${(props) => (props.alti ? "15px" : "25px")};
     color: #7d4cdb;
     transition: all 0.2s;
-    cursor: ${(props) => (props.alt ? "auto" : "pointer")};
+    cursor: ${(props) => (props.alti ? "auto" : "pointer")};
   }
 
   input:checked ~ label:before {
@@ -27,7 +27,7 @@ export const Container = styled.div`
 
   input-5:checked ~ label:before {
     color: #fd4;
-    text-shadow: 0 0 20px ${(props) => (props.alt ? "transparent" : "#7d4cdb")};
+    text-shadow: 0 0 20px ${(props) => (props.alti ? "transparent" : "#7d4cdb")};
   }
 
   input-1:checked ~ label:before {
@@ -35,7 +35,7 @@ export const Container = styled.div`
   }
 
   label:hover {
-    transform: ${(props) => (props.alt ? "none" : "rotate(-15deg) scale(1.3)")};
+    transform: ${(props) => (props.alti ? "none" : "rotate(-15deg) scale(1.3)")};
   }
 
   label:before {

@@ -117,3 +117,8 @@ export const DesktopButton = styled.button`
     color: var(--dark-3);
   }
 `;
+
+export const None = styled.div`
+  display: flex;
+  align-items: center;
+`

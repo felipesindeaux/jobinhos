@@ -5,6 +5,7 @@ import {
   DesktopTitle,
   MobileLeftContainer,
   MobileTitle,
+  None
 } from "./styled";
 import { useHistory } from "react-router-dom";
 import { useContext } from "react";
@@ -174,16 +175,16 @@ const Header = ({ whiteTheme = false, page }) => {
         </DesktopTitle>
         <DesktopButtonsContainer>
           {options &&
-            options.map((option) => {
+            options.map((option, index) => {
               const { Icon } = option;
 
               return (
-                <>
+                <None key={index}>
                   <Icon size={30} />
                   <DesktopButton onClick={option.onClick}>
                     {option.label}
                   </DesktopButton>
-                </>
+                </None>
               );
             })}
         </DesktopButtonsContainer>

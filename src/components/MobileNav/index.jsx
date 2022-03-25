@@ -11,8 +11,8 @@ const NavBar = ({ options }) => {
           <span></span>
           <span></span>
           <ul id="menu">
-            {options.map((item) => (
-              <li>
+            {options.map((item, index) => (
+              <li key={index}>
                 <button onClick={item.onClick}>{item.label}</button>
               </li>
             ))}

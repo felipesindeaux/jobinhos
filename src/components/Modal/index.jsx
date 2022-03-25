@@ -51,7 +51,7 @@ const Modal = ({
         <Figures>
           <Carousel play={3000}>
             {imgs.map((img, index) => (
-              <img key={index} src={img} alt="" />
+              <img key={index} src={img} alt="Carousel" />
             ))}
           </Carousel>
         </Figures>

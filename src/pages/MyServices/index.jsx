@@ -36,7 +36,7 @@ const MyServices = () => {
               desc={item.desc}
               setOpen={setShowModal}
               editIcon
-              alt
+              alti
               pendingId={item.pendingId}
               pendingStatus={item.pendingStatus}
               tag={item.tags}

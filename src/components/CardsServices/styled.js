@@ -145,8 +145,8 @@ export const Button = styled.a`
 
   svg {
     color: var(--dark-1);
-    width: ${({ alt }) => (alt ? "25px" : "unset")};
-    height: ${({ alt }) => (alt ? "25px" : "unset")};
+    width: ${({ alti }) => (alti ? "25px" : "unset")};
+    height: ${({ alti }) => (alti ? "25px" : "unset")};
   }
 `;
 

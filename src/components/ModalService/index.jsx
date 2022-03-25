@@ -7,6 +7,7 @@ import { Errors, Container } from "./styled";
 import { useState } from "react";
 import { useContext } from "react";
 import { ServicesContext } from "../../Providers/Services";
+import {MdAttachMoney} from 'react-icons/md'
 
 const ModalService = ({ handleCloseModal, setShowModal, isCreateService }) => {
   const { hireService } = useContext(ServicesContext);
@@ -48,6 +49,7 @@ const ModalService = ({ handleCloseModal, setShowModal, isCreateService }) => {
   const onSubmitFunction = (dataService) => {
     if (isCreateService) {
       dataService.images = dataService.images.split(" ");
+      console.log(dataService.images)
       dataService.tags = dataService.tags.split(" ");
       createService(dataService);
       handleCloseModal();
@@ -56,6 +58,7 @@ const ModalService = ({ handleCloseModal, setShowModal, isCreateService }) => {
         delete dataService.images;
       } else {
         dataService.images = dataService.images.split(" ");
+        console.log(dataService.images)
       }
       if (dataService.title === "") {
         delete dataService.title;
@@ -96,7 +99,7 @@ const ModalService = ({ handleCloseModal, setShowModal, isCreateService }) => {
           <Errors>{errors.title?.message}</Errors>
 
           <FormField label="Valor">
-            <TextInput {...register("price")} type="number" min={0} icon="R$" />
+            <TextInput {...register("price")} type="number" min={0} />
           </FormField>
           <FormField label="Descrição">
             <TextInput name="desc" {...register("desc")} />

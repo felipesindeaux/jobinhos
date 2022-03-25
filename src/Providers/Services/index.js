@@ -21,9 +21,11 @@ export const ServicesProvider = ({ children }) => {
     api.get("/services").then((response) => {
       setServices(response.data);
       setBackup(response.data);
-      api.get(`/services?userId=${userInfo.id}`).then((response) => {
-        setUserServices(response.data);
-      });
+      if (userInfo) {
+        api.get(`/services?userId=${userInfo.id}`).then((response) => {
+          setUserServices(response.data);
+        });
+      }
     });
   };
 
